@@ -1,0 +1,316 @@
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: start;
+	padding: 1.7vw 2vw 2vw 20vw;
+	width: 100%;
+	height: 100%;
+	gap: 5vh;
+}
+
+main .top {
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+	width: 100%;
+	gap: 1vh;
+}
+
+main .top p:first-child {
+	font-size: 1vw;
+	font-weight: light;
+}
+
+main .top p:nth-child(2) {
+	font-size: 2vw;
+	font-weight: bold;
+}
+
+main .top .cards {
+	display: flex;
+	justify-content: start;
+	gap: 2vw;
+}
+
+main .top .cards .card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 20vw;
+	height: 8vw;
+	background-color: white;
+	border-radius: 0.5vw;
+}
+
+main .reservation {
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+	width: 100%;
+	gap: 1vh;
+}
+
+main .reservation h2 {
+	font-size: 1.5vw;
+	font-weight: bold;
+}
+
+main .reservation div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+main .reservation div p {
+	font-size: 1vw;
+}
+
+main .reservation div .searchContainer {
+	display: flex;
+	justify-content: start;
+	gap: 0.5vw;
+}
+
+main .reservation div .searchContainer input {
+	width: 13vw;
+	height: 3vw;
+	background-color: white;
+	border: none;
+	border-radius: 1cqi;
+	font-size: 1vw;
+	border: 0.15vw solid #edafbe;
+	padding: 0 1vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+main .reservation div .searchContainer input::placeholder {
+	font-size: 1vw;
+	color: black;
+}
+
+main .reservation div .searchContainer button {
+	width: 3vw;
+	height: 3vw;
+	background-color: #ffdee4;
+	border: 0.15vw solid #edafbe;
+	border-radius: 1cqi;
+	font-size: 1vw;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+main .reservation div .searchContainer button img {
+	width: 50%;
+	height: auto;
+	object-fit: contain;
+}
+
+.table {
+	width: 100%;
+	background-color: white;
+	border-radius: 1vw;
+	padding: 2vh 1.5vw;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	gap: 1vh;
+}
+
+.table .header_Table {
+	background-color: #edafbe;
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	text-align: center;
+	align-items: center;
+	height: 6vh;
+	border-radius: 1vw;
+	width: 100%;
+	padding: 0 4vw;
+}
+
+.table .header_Table p {
+	font-size: 1vw;
+}
+
+.table .body_Table {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	height: auto;
+	width: 100%;
+	border-radius: 1vw;
+	padding: 0 2vw;
+	gap: 2vh;
+}
+
+.table .body_Table .line {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	text-align: center;
+	height: 6vh;
+	width: 100%;
+	border-radius: 1vw;
+}
+
+.table .body_Table .line p {
+	font-size: 1vw;
+}
+
+.table .body_Table .line button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+	width: 6vw;
+	height: 2.7vw;
+	background-color: transparent;
+	border: 0.15vw solid black;
+	border-radius: 1vw;
+	font-size: 0.7vw;
+}
+
+.table .body_Table .line button.attente {
+	color: #f9a308;
+	border: 0.15vw solid #f9a308;
+}
+
+.table .body_Table .line button.attente::after {
+	content: "En attente";
+}
+
+.table .body_Table .line button.accepté {
+	color: #356c25;
+	border: 0.15vw solid #356c25;
+}
+
+.table .body_Table .line button.accepté::after {
+	content: "Accepté";
+}
+
+.table .body_Table .line button.terminé {
+	color: #f9080c;
+	border: 0.15vw solid #f9080c;
+}
+
+.table .body_Table .line button.terminé::after {
+	content: "Terminé";
+}
+
+/* responsive */
+
+@media screen and (max-width: 1000px) {
+	main {
+		padding: 3vh 20vw 0 4vw;
+	}
+
+	main .top {
+		gap: 1vh;
+	}
+
+	main .top p:first-child {
+		font-size: 3vw;
+		font-weight: light;
+	}
+
+	main .top p:nth-child(2) {
+		font-size: 6vw;
+		font-weight: bold;
+	}
+
+	main .top .cards {
+		gap: 1vh;
+	}
+
+	main .top .cards .card {
+		width: 40vw;
+		height: 20vw;
+	}
+
+	main .reservation h2 {
+		font-size: 4vw;
+		font-weight: bold;
+	}
+
+	main .reservation div p {
+		font-size: 3vw;
+	}
+
+	main .reservation div .searchContainer {
+		gap: 2vw;
+	}
+
+	main .reservation div .searchContainer input {
+		width: 40vw;
+		height: 6vw;
+		font-size: 3vw;
+	}
+
+	main .reservation div .searchContainer input::placeholder {
+		font-size: 2vw;
+	}
+
+	main .reservation div .searchContainer button {
+		width: 6vw;
+		height: 6vw;
+		font-size: 3vw;
+	}
+
+	.table {
+		width: 100%;
+		background-color: white;
+		border-radius: 1vw;
+		padding: 2vh 1.5vw;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		gap: 1vh;
+	}
+
+	.table .header_Table {
+		background-color: #edafbe;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		justify-content: space-between;
+		align-items: center;
+
+		height: 6vh;
+		border-radius: 1vw;
+		width: 100%;
+		padding: 0 4vw;
+	}
+
+	.table .header_Table p {
+		font-size: 2vw;
+	}
+
+	.table .body_Table {
+		gap: 2vh;
+	}
+
+	.table .body_Table .line {
+		height: 6vh;
+		width: 100%;
+		border-radius: 1vw;
+	}
+
+	.table .body_Table .line p {
+		font-size: 2.5vw;
+	}
+
+	.table .body_Table .line button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 12vw;
+		height: 5vw;
+		background-color: transparent;
+		border: 0.15vw solid black;
+		border-radius: 1vw;
+		font-size: 2vw;
+	}
+}

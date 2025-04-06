@@ -1,0 +1,337 @@
+.header {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	height: 10vh;
+	min-height: 10vh;
+	max-height: 13vh;
+	width: 100%;
+	background-color: white;
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 9999;
+}
+.logo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	min-width: 18vw;
+	max-width: 18vw;
+	border: 0.5px solid rgb(30, 30, 30, 0.29);
+	font-size: 1vw;
+}
+
+.logo p {
+	margin: 0;
+}
+.header_content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	padding: 0 2%;
+}
+
+.header_content h1 {
+	font-size: 2vw;
+	font-weight: lighter;
+	font-family: "Apfel Grotezk", sans-serif;
+}
+
+.profilXlogout {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: 30%;
+	height: 100%;
+	gap: 10%;
+}
+
+.profil {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 100%;
+	gap: 7%;
+}
+
+.nomRole {
+	display: flex;
+	justify-content: center;
+	align-items: start;
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
+
+p {
+	margin: 0;
+}
+
+.nomRole p:nth-child(1) {
+	font-weight: bold;
+	font-size: 0.85vw;
+}
+
+.nomRole p:nth-child(2) {
+	font-size: 0.7vw;
+}
+
+.imgProfil {
+	width: 25%;
+	height: auto;
+	object-fit: contain;
+	border-radius: 50%;
+}
+
+.profilXlogout .logout {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 3vw;
+	height: 3vw;
+	cursor: pointer;
+	border-radius: 50%;
+	border: 0.2vw solid #edafbe;
+	background-color: #ffdee4;
+	transition: all 0.2s ease-in-out;
+}
+
+.profilXlogout .logout img {
+	width: 50%;
+	height: auto;
+	object-fit: contain;
+}
+
+.profilXlogout .logout:hover {
+	background-color: #edafbe;
+	border: 0.2vw solid #edafbe;
+	transform: scale(1.1);
+	filter: drop-shadow(0.15vw 0.15vw 0 #00000018);
+}
+
+.profilXlogout .logout:active {
+	background-color: #ffdee4;
+	border: 0.2vw solid #edafbe;
+	transform: scale(1);
+}
+
+/* sidebar */
+
+aside {
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+	width: auto;
+	min-width: 18vw;
+	max-width: 18vw;
+	padding: 5vh 2vw;
+	position: fixed;
+	height: 100%;
+	gap: 15vh;
+	background-color: white;
+	transition: all 0.2s ease-in-out;
+	z-index: 9999;
+}
+
+aside.active {
+	display: flex;
+	transform: translateX(0);
+}
+
+aside .menu,
+aside .autre {
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+	width: 100%;
+	gap: 3vh;
+}
+
+aside .menu p,
+aside .autre p {
+	font-size: 1.2vw;
+	font-weight: bold;
+}
+
+aside .menu nav,
+aside .autre nav {
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+	width: 100%;
+	gap: 2vh;
+}
+
+aside .menu nav ul,
+aside .autre nav ul {
+	display: flex;
+	justify-content: start;
+	flex-direction: column;
+	width: 100%;
+	gap: 1vh;
+	list-style: none;
+}
+
+aside .menu nav ul li a,
+aside .autre nav ul li a {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	width: 100%;
+	height: 6vh;
+	gap: 1vw;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+	padding: 0 1vw;
+	border-radius: 0.9vw;
+	text-decoration: none;
+	font-size: 1vw;
+	color: black;
+	font-family: "Absans", sans-serif;
+}
+
+aside .menu nav ul li a.active,
+aside .autre nav ul li a.active {
+	background-color: #ffdee4;
+	border-radius: 0.9vw;
+	color: #d72f59;
+	border: 0.2vw solid #d31b4a;
+}
+
+aside .menu nav ul li a img,
+aside .autre nav ul li a img {
+	width: 1.7vw;
+	height: auto;
+	object-fit: contain;
+}
+
+aside .menu nav ul li a:hover,
+aside .autre nav ul li a:hover {
+	background-color: #ffdee4;
+	border-radius: 0.9vw;
+	color: #d72f59;
+	border: 0.2vw solid #d31b4a;
+}
+
+.tkt {
+	min-width: 18vw;
+	max-width: 18vw;
+	height: 100vh;
+}
+
+.menuButton {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	width: 7vw;
+	height: auto;
+	background-color: transparent;
+	border: none;
+}
+
+.menuButton:hover {
+	cursor: pointer;
+}
+
+.menuButton img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+/* responsive */
+
+@media screen and (max-width: 1000px) {
+	header {
+		min-height: 10vh;
+		padding: 0 3vw;
+	}
+
+	aside {
+		display: flex;
+		transform: translateX(-100%);
+		width: 100vw !important;
+		min-width: 100vw !important;
+		padding: 2vh 4vw 0 4vw;
+		gap: 5vh;
+	}
+
+	aside .menu p,
+	aside .autre p {
+		font-size: 8vw;
+	}
+
+	aside .menu nav ul li a,
+	aside .autre nav ul li a {
+		font-size: 5vw;
+		gap: 4vw;
+	}
+
+	aside .menu nav ul li a img,
+	aside .autre nav ul li a img {
+		width: 8vw;
+	}
+
+	.logo {
+		display: none;
+	}
+
+	main {
+		padding: 2vw 0 0 2vw;
+	}
+
+	.header_content h1 {
+		font-size: 4vw;
+		font-weight: normal;
+	}
+
+	.profilXlogout {
+		gap: 1vw;
+	}
+
+	.profilXlogout .logout {
+		display: none;
+	}
+
+	.menuButton {
+		display: flex;
+	}
+
+	.profilXlogout .profil {
+		gap: 0.7vw;
+		width: 35vw;
+		justify-content: right;
+	}
+
+	.profilXlogout .profil p:nth-child(1) {
+		font-size: 2.5vw;
+	}
+
+	.profilXlogout .profil p:nth-child(2) {
+		font-size: 2vw;
+	}
+
+	.profilXlogout .profil .imgProfil {
+		width: 7vw;
+		height: auto;
+		object-fit: contain;
+	}
+
+	.profilXlogout .profil .nomRole {
+		gap: 0.5vw;
+		width: 100%;
+	}
+
+	.profilXlogout .profil .nomRole p:nth-child(1) {
+		font-size: 2vw;
+	}
+
+	.profilXlogout .profil .nomRole p:nth-child(2) {
+		font-size: 1.7vw;
+	}
+}

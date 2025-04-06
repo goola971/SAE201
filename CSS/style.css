@@ -1,0 +1,12 @@
+/* @import ("~lucide-static/font/Lucide.css"); */
+@import url("~lucide-static/font/Lucide.css");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #f4f1f1;
+}

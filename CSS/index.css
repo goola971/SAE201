@@ -192,9 +192,17 @@ main .reservation div .searchContainer button img {
 	content: "Accepté";
 }
 
-.table .body_Table .line button.terminé {
+.table .body_Table .line button.réfusé {
 	color: #f9080c;
 	border: 0.15vw solid #f9080c;
+}
+.table .body_Table .line button.réfusé::after {
+	content: "Réfusé";
+}
+
+.table .body_Table .line button.terminé {
+	color: #707070;
+	border: 0.15vw solid #4b4b4b;
 }
 
 .table .body_Table .line button.terminé::after {

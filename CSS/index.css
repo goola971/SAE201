@@ -172,6 +172,7 @@ main .reservation div .searchContainer button img {
 	border: 0.15vw solid black;
 	border-radius: 1vw;
 	font-size: 0.7vw;
+	transition: all 0.2s ease-in-out;
 }
 
 .table .body_Table .line button.attente {

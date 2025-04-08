@@ -55,6 +55,21 @@ document.addEventListener("DOMContentLoaded", function () {
 	window.addEventListener("resize", function () {
 		modifyCalendar();
 	});
+
+	const block = document.getElementsByClassName("fc-event-main-frame");
+
+	if (block.length > 0) {
+		const img = document.createElement("img");
+		img.src = "../../IMG/jinx.png";
+		img.style.position = "absolute";
+		img.style.bottom = "0";
+		img.style.left = "0";
+		img.style.width = "30%";
+		img.style.height = "auto";
+		img.style.borderRadius = "0.5vw";
+		block[0].style.position = "relative";
+		block[0].appendChild(img);
+	}
 });
 
 function modifyCalendar() {

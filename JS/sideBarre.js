@@ -14,7 +14,7 @@ function toggleSidebar() {
 const url = window.location.href;
 const lastSlashIndex = url.lastIndexOf("/");
 const lastPart = url.substring(lastSlashIndex + 1);
-const pageName = lastPart.split(".")[0];
+const pageName = lastPart.split(".php")[0];
 
 // mettre la class active sur le lien correspondant
 const links = document.querySelectorAll(".menu a");

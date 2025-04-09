@@ -28,30 +28,41 @@ document.addEventListener("DOMContentLoaded", function () {
 			center: "title",
 			right: "dayGridMonth,dayGridWeek,dayGridDay"
 		},
-		events: [
-			{
-				title: "Réservation Salle 101",
-				start: "2025-04-07T10:00:00",
-				end: "2025-04-07T20:00:00",
-				location: "Salle 101"
-			},
-			{
-				title: "Réservation Centre",
-				start: "2025-04-08T11:00:00",
-				end: "2025-04-08T12:00:00",
-				location: "Centre sportif"
-			},
-			{
-				title: "Double réservation",
-				start: "2025-04-11T11:00:00",
-				end: "2025-04-11T13:30:00",
-				location: "Salle 101"
+		events: "http://localhost/SAE201/PHPpure/get_reservations.php",
+
+		eventDidMount: function (info) {
+			const container = info.el.querySelector(".fc-event-main-frame");
+
+			if (container && info.event.extendedProps.avatars) {
+				const avatarWrapper = document.createElement("div");
+				avatarWrapper.style.position = "absolute";
+				avatarWrapper.style.bottom = "5%";
+				avatarWrapper.style.left = "5px";
+				avatarWrapper.style.display = "flex";
+				avatarWrapper.style.gap = "5px";
+
+				// Pour chaque avatar, on crée une image et on l'ajoute
+				info.event.extendedProps.avatars.forEach((src) => {
+					const img = document.createElement("img");
+					img.src = src;
+					img.style.width = "30px";
+					img.style.height = "30px";
+					img.style.borderRadius = "0.5vw";
+					img.style.objectFit = "cover";
+					img.style.border = "1px solid white";
+					avatarWrapper.appendChild(img);
+				});
+
+				container.style.position = "relative";
+				container.appendChild(avatarWrapper);
 			}
-		]
+		}
 	});
+
 	calendar.render();
 	updateCustomHeader();
 	modifyCalendar();
+
 	window.addEventListener("resize", function () {
 		modifyCalendar();
 	});

@@ -1,3 +1,7 @@
+<?php
+include("../PHPpure/entete.php");
+?>
+
 <!DOCTYPE html>
 <html lang="fr-FR">
 
@@ -9,88 +13,13 @@
     <link rel="stylesheet" href="../CSS/index.css" />
     <link rel="stylesheet" href="../CSS/header.css" />
     <!-- bootstrap -->
-
     <title>Document</title>
 </head>
 
 <body>
     <!-- width 100%-->
-    <header class="header">
-        <div class="logo">
-            <p>Logo + nom</p>
-        </div>
-        <button class="menuButton" onclick="toggleSidebar()">
-            <img src="../res/menu.svg" alt="" id="menuimg" />
-        </button>
-        <div class="header_content">
-            <h1>Tableau de bord</h1>
-            <div class="profilXlogout">
-                <div class="profil">
-                    <img src="../IMG/jinx.png" alt="" class="imgProfil" />
-
-                    <div class="nomRole">
-                        <p>Gbadagni Soumiyya</p>
-                        <p>Etudiant(e)</p>
-                    </div>
-                </div>
-                <button class="logout">
-                    <img src="../res/logout.svg" alt="" />
-                </button>
-            </div>
-        </div>
-    </header>
-    <aside class="sidebar">
-        <article class="menu">
-            <p>Menu</p>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="index.php">
-                            <img src="../res/tableaudebord.svg" alt="" />
-                            Tableau de bord
-                        </a>
-                    </li>
-                    <li>
-                        <a href="reservation.html">
-                            <img src="../res/reservation.svg" alt="" />
-                            Mes réservations
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="../res/materiel.svg" alt="" />
-                            Materiels
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="../res/salles.svg" alt="" />
-                            Salles
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </article>
-        <article class="autre">
-            <p>Autre</p>
-            <nav>
-                <ul>
-                    <li>
-                        <a href="">
-                            <img src="../res/profil.svg" alt="" />
-                            Mon profil
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <img src="../res/univ.svg" alt="" />
-                            Accéder à L'ent
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </article>
-    </aside>
+    <?php include("header.php"); ?>
+    <?php include("aside.html"); ?>
     <main>
         <section class="top">
             <p>Bienvenue dans votre espace personnel</p>
@@ -145,48 +74,70 @@
                         <button class="terminé"></button>
                     </div> -->
                     <?php
-						require_once "../PHPpure/connexion.php";
+                    // Assurez-vous que l'utilisateur est connecté et que son ID est disponible dans la session
+                    if (isset($_SESSION['user']['id'])) {
+                        $userId = $_SESSION['user']['id']; // Récupérer l'ID de l'utilisateur connecté
+                    } else {
+                        // Si l'utilisateur n'est pas connecté, redirigez-le ou affichez un message d'erreur
+                        echo "Vous devez être connecté pour voir vos réservations.";
+                        exit();
+                    }
 
-						$sql = "
-							SELECT 
-								r.date_debut,
-								r.date_fin,
-								r.valide,
-								m.designation AS materiel
-							FROM reservations r
-							JOIN materiels m ON r.id_materiel = m.id
-							ORDER BY r.date_debut DESC
-						";
+                    require_once "../PHPpure/connexion.php";
 
-						$stmt = $pdo->query($sql);
-						while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-							$date = date("d/m/Y", strtotime($row['date_debut']));
-							$startHour = date("H\hi", strtotime($row['date_debut']));
-							$endHour = date("H\hi", strtotime($row['date_fin']));
+                    // Modifie la requête SQL pour récupérer uniquement les réservations de l'utilisateur connecté
+                    $sql = "
+    SELECT 
+        r.date_debut,
+        r.date_fin,
+        r.valide,
+        m.designation AS materiel
+    FROM reservations r
+    JOIN materiels m ON r.id_materiel = m.id
+    JOIN reservation_users ru ON r.id = ru.id_reservation
+    WHERE ru.id_user = :user_id
+    ORDER BY r.date_debut DESC
+";
 
-							// Détermine le statut pour le bouton
-							$now = new DateTime();
-							$end = new DateTime($row['date_fin']);
-							if ($row['valide'] == 0) {
-								$status = "attente";
-							} elseif ($end < $now) {
-								$status = "terminé";
-							} else if ($row['valide'] == 1) {
-								$status = "accepté";
-							} else if ($row['valide'] == 2) {
-                                $status = "réfusé";
-                            }
+                    // Prépare la requête
+                    $stmt = $pdo->prepare($sql);
 
-							echo "
-							<div class='line'>
-								<p>Réservation de {$row['materiel']}</p>
-								<p>$date</p>
-								<p>$startHour - $endHour</p>
-								<button class='$status'></button>
-							</div>
-							";
-						}
-						?>
+                    // Lie l'ID de l'utilisateur à la requête SQL
+                    $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
+
+                    // Exécute la requête
+                    $stmt->execute();
+
+                    // Affichage des résultats
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        $date = date("d/m/Y", strtotime($row['date_debut']));
+                        $startHour = date("H\hi", strtotime($row['date_debut']));
+                        $endHour = date("H\hi", strtotime($row['date_fin']));
+
+                        // Détermine le statut pour le bouton
+                        $now = new DateTime();
+                        $end = new DateTime($row['date_fin']);
+                        if ($row['valide'] == 0) {
+                            $status = "attente";
+                        } elseif ($end < $now) {
+                            $status = "terminé";
+                        } else if ($row['valide'] == 1) {
+                            $status = "accepté";
+                        } else if ($row['valide'] == 2) {
+                            $status = "réfusé";
+                        }
+
+                        // Affichage des informations de réservation
+                        echo "
+        <div class='line'>
+            <p>Réservation de {$row['materiel']}</p>
+            <p>$date</p>
+            <p>$startHour - $endHour</p>
+            <button class='$status'></button>
+        </div>
+    ";
+                    }
+                    ?>
                 </article>
             </section>
         </section>

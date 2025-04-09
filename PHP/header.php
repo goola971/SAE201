@@ -1,0 +1,46 @@
+<!-- $_SESSION['user'] = [
+    'id' => $user['id'],
+    'pseudo' => $user['pseudo'],
+    'nom' => $user['nom'],        // Ajouter le nom de l'utilisateur
+    'prenom' => $user['prenom'],  // Ajouter le prénom de l'utilisateur
+    'email' => $user['email'],    // Ajouter l'email de l'utilisateur
+    'role' => $user['role'],      // Ajouter le rôle de l'utilisateur (admin, utilisateur, etc.)
+    'session_token' => bin2hex(random_bytes(32)) // Optionnel : ajouter un token pour plus de sécurité
+]; -->
+
+<header class="header">
+    <div class="logo">
+        <p>Logo + nom</p>
+    </div>
+    <button class="menuButton" onclick="toggleSidebar()">
+        <img src="../res/menu.svg" alt="" id="menuimg" />
+    </button>
+    <div class="header_content">
+        <h1>Tableau de bord</h1>
+        <div class="profilXlogout">
+            <div class="profil">
+                <div class="imgProfilContainer">
+                    <img src="
+                        <?php
+                        echo $_SESSION['user']['profil']
+                        ?>"
+                        alt="" class="imgProfil" />
+                </div>
+                <div class="nomRole">
+                    <!-- recuperer le nom de l'utilisateur dans la session user-->
+                    <p>
+                        <?php
+                        if (isset($_SESSION['user'])) {
+                            echo $_SESSION['user']['nom'] . ' ' . $_SESSION['user']['prenom'];
+                        }
+                        ?></p>
+                    <p><?php echo $_SESSION['user']['role']; ?></p>
+                </div>
+            </div>
+            <!-- detruire la session -->
+            <button class="logout" onclick="location.href = '../PHPpure/logout.php'">
+                <img src="../res/logout.svg" alt="" />
+            </button>
+        </div>
+    </div>
+</header>

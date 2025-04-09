@@ -1,12 +1,3 @@
-<?php
-    session_start();
-
-    if (!isset($_SESSION['user'])) {
-        header("Location: connexion.html");
-        exit();
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="fr-FR">
 

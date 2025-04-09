@@ -12,3 +12,130 @@ main section {
 	width: 50vw;
 	height: 100vh;
 }
+
+main section:nth-child(1) {
+	background-color: white;
+	padding: 5vh 7vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 6vh;
+}
+
+main section h1 {
+	font-size: 3vw;
+	font-weight: bold;
+}
+
+main section form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: auto;
+	gap: 2vh;
+}
+
+main section .formContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: auto;
+	gap: 2vh;
+}
+
+main section form input {
+	width: 100%;
+	height: 7vh;
+	padding: 0 1vw;
+	border-radius: 0.5vw;
+	border: none;
+	background-color: #ebebeb;
+	font-size: 1.2vw;
+	color: #7b7b7b;
+	font-family: "Absans", sans-serif;
+}
+
+main section form input::placeholder {
+	color: #7b7b7b;
+}
+
+main section form .intranet {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	width: 100%;
+	height: 7vh;
+	background-color: transparent;
+	border-radius: 0.5vw;
+	border: 0.15vw solid #2f2a86;
+	padding: 0 1vw;
+	font-size: 1.2vw;
+	color: black;
+	font-family: "Absans", sans-serif;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+main section form .remember {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 7vh;
+	margin-top: -2vh;
+}
+
+main section form .remember .souvenir {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 0.5vw;
+	width: auto;
+}
+
+main section form .remember .souvenir input {
+	width: 1.5vw;
+	height: auto;
+	border-radius: 0.5vw;
+	background-color: #ebebeb;
+	border: none;
+	cursor: pointer;
+}
+
+main section form .remember a {
+	font-size: 1vw;
+	color: #d72f59;
+	text-decoration: none;
+	font-family: "Absans", sans-serif;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+main section form button {
+	width: 100%;
+	height: 7vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #e47390;
+	border-radius: 0.5vw;
+	border: none;
+	font-size: 1.2vw;
+	color: white;
+	font-family: "Absans", sans-serif;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+main section .formContainer p a {
+	color: #d72f59;
+	text-decoration: none;
+	font-family: "Absans", sans-serif;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}

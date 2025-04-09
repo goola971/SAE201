@@ -16,29 +16,37 @@
 					<p>Logo + nom</p>
 				</div>
 				<h1>Connexion</h1>
-				<form action="">
-					<div class="pseudo">
-						<label for="pseudo">Pseudo</label>
-						<input type="text" name="pseudo" id="pseudo" />
-					</div>
-					<div class="mdp">
-						<label for="mdp">Mot de passe</label>
-						<input type="password" name="mdp" id="mdp" />
-					</div>
-					<p>Ou se connecter avec intranet</p>
-					<button type="button">Se connecter avec intranet</button>
-					<div class="jcp">
-						<div>
-							<input type="checkbox" name="" id="" />
-							Se souvenir de moi
+				<div class="formContainer">
+					<form action="../PHPpure/connexionUser.php" method="post">
+						<input
+							type="text"
+							placeholder="Pseudo"
+							name="pseudo"
+							id="pseudo"
+						/>
+
+						<input
+							type="password"
+							placeholder="Mot de passe"
+							name="mdp"
+							id="mdp"
+						/>
+
+						<p>Ou se connecter avec intranet</p>
+						<button type="button" class="intranet">
+							Se connecter avec intranet
+						</button>
+						<div class="remember">
+							<div class="souvenir">
+								<input type="checkbox" name="" id="" />
+								Se souvenir de moi
+							</div>
+							<a href="#">Mot de passe oublié?</a>
 						</div>
-						<div>
-							<a href="#">Mot de passe oublié</a>
-						</div>
-					</div>
-					<button type="submit">Connexion</button>
-				</form>
-				<p>Pas encore de compte? <a href="#">Inscrivez-vous</a></p>
+						<button type="submit">Connexion</button>
+					</form>
+					<p>Pas encore de compte? <a href="#">Inscrivez-vous</a></p>
+				</div>
 			</section>
 			<section>x</section>
 		</main>

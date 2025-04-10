@@ -18,8 +18,10 @@ include("../PHPpure/entete.php");
 
 <body>
     <!-- width 100%-->
-    <?php include("header.php"); ?>
-    <?php include("aside.html"); ?>
+    <?php 
+        include("header.php"); 
+        include("aside.html"); 
+    ?>
     <main>
         <section class="top">
             <p>Bienvenue dans votre espace personnel</p>
@@ -74,69 +76,62 @@ include("../PHPpure/entete.php");
                         <button class="terminé"></button>
                     </div> -->
                     <?php
-                    // Assurez-vous que l'utilisateur est connecté et que son ID est disponible dans la session
-                    if (isset($_SESSION['user']['id'])) {
-                        $userId = $_SESSION['user']['id']; // Récupérer l'ID de l'utilisateur connecté
-                    } else {
-                        // Si l'utilisateur n'est pas connecté, redirigez-le ou affichez un message d'erreur
-                        echo "Vous devez être connecté pour voir vos réservations.";
-                        exit();
-                    }
-
-                    require_once "../PHPpure/connexion.php";
-
-                    // Modifie la requête SQL pour récupérer uniquement les réservations de l'utilisateur connecté
-                    $sql = "
-    SELECT 
-        r.date_debut,
-        r.date_fin,
-        r.valide,
-        m.designation AS materiel
-    FROM reservations r
-    JOIN materiels m ON r.id_materiel = m.id
-    JOIN reservation_users ru ON r.id = ru.id_reservation
-    WHERE ru.id_user = :user_id
-    ORDER BY r.date_debut DESC
-";
-
-                    // Prépare la requête
-                    $stmt = $pdo->prepare($sql);
-
-                    // Lie l'ID de l'utilisateur à la requête SQL
-                    $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
-
-                    // Exécute la requête
-                    $stmt->execute();
-
-                    // Affichage des résultats
-                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                        $date = date("d/m/Y", strtotime($row['date_debut']));
-                        $startHour = date("H\hi", strtotime($row['date_debut']));
-                        $endHour = date("H\hi", strtotime($row['date_fin']));
-
-                        // Détermine le statut pour le bouton
-                        $now = new DateTime();
-                        $end = new DateTime($row['date_fin']);
-                        if ($row['valide'] == 0) {
-                            $status = "attente";
-                        } elseif ($end < $now) {
-                            $status = "terminé";
-                        } else if ($row['valide'] == 1) {
-                            $status = "accepté";
-                        } else if ($row['valide'] == 2) {
-                            $status = "réfusé";
+                        // Assurez-vous que l'utilisateur est connecté et que son ID est disponible dans la session
+                        if (isset($_SESSION['user']['id'])) {
+                            $userId = $_SESSION['user']['id']; // Récupérer l'ID de l'utilisateur connecté
                         }
+                        require_once "../PHPpure/connexion.php";
+                        $sql = "
+                            SELECT 
+                                r.date_debut,
+                                r.date_fin,
+                                r.valide,
+                                m.designation AS materiel
+                            FROM reservations r
+                            JOIN materiels m ON r.id_materiel = m.id
+                            JOIN reservation_users ru ON r.id = ru.id_reservation
+                            WHERE ru.id_user = :user_id
+                            ORDER BY r.date_debut DESC
+                        ";
 
-                        // Affichage des informations de réservation
-                        echo "
-        <div class='line'>
-            <p>Réservation de {$row['materiel']}</p>
-            <p>$date</p>
-            <p>$startHour - $endHour</p>
-            <button class='$status'></button>
-        </div>
-    ";
-                    }
+                        // Prépare la requête
+                        $stmt = $pdo->prepare($sql);
+
+                        // Lie l'ID de l'utilisateur à la requête SQL
+                        $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
+
+                        // Exécute la requête
+                        $stmt->execute();
+
+                        // Affichage des résultats
+                        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                            $date = date("d/m/Y", strtotime($row['date_debut']));
+                            $startHour = date("H\hi", strtotime($row['date_debut']));
+                            $endHour = date("H\hi", strtotime($row['date_fin']));
+
+                            // Détermine le statut pour le bouton
+                            $now = new DateTime();
+                            $end = new DateTime($row['date_fin']);
+                            if ($row['valide'] == 0) {
+                                $status = "attente";
+                            } elseif ($end < $now) {
+                                $status = "terminé";
+                            } else if ($row['valide'] == 1) {
+                                $status = "accepté";
+                            } else if ($row['valide'] == 2) {
+                                $status = "réfusé";
+                            }
+
+                            // Affichage des informations de réservation
+                            echo "
+                                <div class='line'>
+                                    <p>Réservation de {$row['materiel']}</p>
+                                    <p>$date</p>
+                                    <p>$startHour - $endHour</p>
+                                    <button class='$status'></button>
+                                </div>
+                            ";
+                        }
                     ?>
                 </article>
             </section>

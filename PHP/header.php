@@ -23,8 +23,7 @@
                     <img src="
                         <?php
                         echo $_SESSION['user']['profil']
-                        ?>"
-                        alt="" class="imgProfil" />
+                        ?>" onclick="location.href = 'profil.php'" alt="" class="imgProfil" />
                 </div>
                 <div class="nomRole">
                     <!-- recuperer le nom de l'utilisateur dans la session user-->

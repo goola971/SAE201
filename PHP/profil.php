@@ -20,7 +20,7 @@
     include("aside.html");
     ?>
     <main>
-        <div class="imgProfilContainer" onclick="displayUploadForm()">
+        <div class="imgProfilContainer" id="imgProfilContainerMain" onclick="displayUploadForm()">
             <img class="imgProfil" src="<?php echo $_SESSION['user']['profil'] ?>" alt="">
             <img class="edit" src="../res/Edit_Pencil_02.svg" alt="">
         </div>
@@ -67,8 +67,8 @@
             <button type="submit">Modifier</button>
         </form>
     </main>
-
-    <script src="../JS/profilchange.js" defer></script>
+    <script src="../JS/sideBarre.js"></script>
+    <script src="../JS/profilchange.js"></script>
 </body>
 
 </html>

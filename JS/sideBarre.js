@@ -23,8 +23,6 @@ links.forEach((link) => {
 	link.classList.remove("active");
 	if (link.id === pageName) {
 		link.classList.add("active");
-	} else if (pageName === "index") {
-		links[0].classList.add("active");
 	}
 });
 

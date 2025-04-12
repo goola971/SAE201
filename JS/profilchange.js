@@ -2,8 +2,8 @@ const dropZone = document.getElementById("dropZone");
 const fileInput = document.getElementById("fileInput");
 const preview = document.getElementById("preview");
 const uploadForm = document.getElementById("uploadForm");
-const imgProfilContainer = document.getElementsByClassName(
-	"main .imgProfilContainer"
+const imgProfilContainerMain = document.getElementById(
+	"imgProfilContainerMain"
 );
 
 dropZone.addEventListener("click", () => fileInput.click());

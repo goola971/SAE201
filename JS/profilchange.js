@@ -1,6 +1,10 @@
 const dropZone = document.getElementById("dropZone");
 const fileInput = document.getElementById("fileInput");
 const preview = document.getElementById("preview");
+const uploadForm = document.getElementById("uploadForm");
+const imgProfilContainer = document.getElementsByClassName(
+	"main .imgProfilContainer"
+);
 
 dropZone.addEventListener("click", () => fileInput.click());
 
@@ -36,4 +40,9 @@ function showPreview(file) {
 	} else {
 		preview.innerHTML = "";
 	}
+}
+
+function displayUploadForm() {
+	uploadForm.style.display = "flex";
+	imgProfilContainer.style.display = "none";
 }

@@ -20,13 +20,13 @@
     include("aside.html");
     ?>
     <main>
-        <div class="imgProfilContainer">
+        <div class="imgProfilContainer" onclick="displayUploadForm()">
             <img class="imgProfil" src="<?php echo $_SESSION['user']['profil'] ?>" alt="">
+            <img class="edit" src="../res/Edit_Pencil_02.svg" alt="">
         </div>
-        <button class="editProfil">Modifier</button>
-        <form id="uploadForm" action="../PHPpure/upload_profile_pic.php" method="post" enctype="multipart/form-data">
+        <form id="uploadForm" class="uploadForm" action="../PHPpure/upload_profile_pic.php" method="post" enctype="multipart/form-data">
             <div class="upload-box" id="dropZone">
-                <p>Glissez votre photo de profil ici ou cliquez</p>
+                <img src="../res/+.svg" alt="" class="upload-icon">
                 <input type="file" name="avatar" id="fileInput" accept="image/*" style="display: none;">
                 <div id="preview"></div>
             </div>
@@ -68,7 +68,7 @@
         </form>
     </main>
 
-    <script src="../JS/profilchange.js"></script>
+    <script src="../JS/profilchange.js" defer></script>
 </body>
 
 </html>

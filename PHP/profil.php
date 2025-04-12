@@ -15,11 +15,15 @@
 </head>
 
 <body>
-    <?php 
-		include("header.php"); 
-		include("aside.html");
-	?>
+    <?php
+    include("header.php");
+    include("aside.html");
+    ?>
     <main>
+        <div class="imgProfilContainer">
+            <img class="imgProfil" src="<?php echo $_SESSION['user']['profil'] ?>" alt="">
+        </div>
+        <button class="editProfil">Modifier</button>
         <form id="uploadForm" action="../PHPpure/upload_profile_pic.php" method="post" enctype="multipart/form-data">
             <div class="upload-box" id="dropZone">
                 <p>Glissez votre photo de profil ici ou cliquez</p>
@@ -27,6 +31,40 @@
                 <div id="preview"></div>
             </div>
             <button type="submit">Uploader</button>
+        </form>
+        <hr>
+        <div>
+            <p>Détails</p>
+            <div class="nomPrenom">
+                <div>
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" value="<?php echo $_SESSION['user']['nom'] ?>">
+                </div>
+                <div>
+                    <label for="prenom">Prrenom</label>
+                    <input type="text" id="prenom" name="prenom" value="<?php echo $_SESSION['user']['prenom'] ?>">
+                </div>
+            </div>
+            <div></div>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="<?php echo $_SESSION['user']['email'] ?>">
+        </div>
+        <div>
+            <label for="tel">Téléphone</label>
+            <input type="tel" id="tel" name="tel" value="<?php echo $_SESSION['user']['tel'] ?>">
+        </div>
+        <form action="" method="post">
+            <h1>Mot de passe</h1>
+            <p>Modifier qon mot de passe</p>
+            <div>
+                <label for="password">Mot de passe actuelle</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <label for="newPassword">Nouveau mot de passe</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+            </div>
+            <button type="submit">Modifier</button>
         </form>
     </main>
 

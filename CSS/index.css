@@ -201,6 +201,14 @@ main .reservation div .searchContainer button img {
 	content: "Réfusé";
 }
 
+.table .body_Table .line button.annulé {
+	color: #f9080c;
+	border: 0.15vw solid #f9080c;
+}
+.table .body_Table .line button.annulé::after {
+	content: "Annulé";
+}
+
 .table .body_Table .line button.terminé {
 	color: #707070;
 	border: 0.15vw solid #4b4b4b;

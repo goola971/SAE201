@@ -31,7 +31,14 @@ if (isset($_SESSION['user']['id'])) {
                         ':avatar' => $uploadPath,
                         ':id' => $userId
                     ]);
-                    header("Location: ../PHP/index.php"); // ou la page que tu veux
+                    // recharger la session de l'utilisateur pour le profil
+                    $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+                    $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
+                    $stmt->execute();
+                    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                    $user['profil'] = $user['avatar'];
+                    $_SESSION['user'] = $user;
+                    header("Location: ../PHP/index.php");
                     exit();
                 } else {
                     echo "Erreur lors du déplacement du fichier.";

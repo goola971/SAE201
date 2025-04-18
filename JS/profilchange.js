@@ -44,5 +44,5 @@ function showPreview(file) {
 
 function displayUploadForm() {
 	uploadForm.style.display = "flex";
-	imgProfilContainer.style.display = "none";
+	imgProfilContainerMain.style.display = "none";
 }

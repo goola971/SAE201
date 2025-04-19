@@ -22,7 +22,13 @@
                 <div class="imgProfilContainer">
                     <img src="
                         <?php
-                        echo $_SESSION['user']['profil']
+                        if (isset($_SESSION['user']['profil'])) {
+                            if ($_SESSION['user']['profil'] != "NULL") {
+                                echo $_SESSION['user']['profil'];
+                            } else {
+                                echo "../uploads/default.png";
+                            }
+                        }
                         ?>" onclick="location.href = 'profil.php'" alt="" class="imgProfil" />
                 </div>
                 <div class="nomRole">

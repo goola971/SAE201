@@ -124,3 +124,19 @@ hr {
 	height: 0.17vw;
 	border: none;
 }
+
+.details p {
+	font-size: 1.7vw;
+	font-weight: bold;
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	gap: 0.6vw;
+}
+
+.details p .nomPrenom {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.6vw;
+}

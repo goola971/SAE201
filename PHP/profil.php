@@ -24,7 +24,16 @@
             <h3>Vous êtes <?php echo $_SESSION['user']['role']; ?></h3>
             <div class="profilimg">
                 <div class="imgProfilContainer" id="imgProfilContainerMain" onclick="displayUploadForm()">
-                    <img class="imgProfil" src="<?php echo $_SESSION['user']['profil'] ?>" alt="">
+                    <img class="imgProfil" src="
+                        <?php
+                        if (isset($_SESSION['user']['profil'])) {
+                            if ($_SESSION['user']['profil'] != "NULL") {
+                                echo $_SESSION['user']['profil'];
+                            } else {
+                                echo "../uploads/default.png";
+                            }
+                        }
+                        ?>" alt="">
                     <img class="edit" src="../res/Edit_Pencil_02.svg" alt="">
                 </div>
                 <form id="uploadForm" class="uploadForm" action="../PHPpure/upload_profile_pic.php" method="post" enctype="multipart/form-data">
@@ -38,8 +47,8 @@
             </div>
             <!-- <p>Ajouter une photo de profil </p> -->
             <hr>
-            <div>
-                <p>Détails</p>
+            <div class="details">
+                <p>Détails <img src="../res/edition.svg" alt=""></p>
                 <div class="nomPrenom">
                     <div>
                         <label for="nom">Nom</label>

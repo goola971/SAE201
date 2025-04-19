@@ -25,7 +25,7 @@ include("../PHPpure/entete.php");
     <main>
         <section class="top">
             <p>Bienvenue dans votre espace personnel</p>
-            <p>Soumiyya</p>
+            <p><?php echo $_SESSION['user']['prenom'] ?></p>
             <div class="cards">
                 <div class="card"></div>
                 <div class="card"></div>

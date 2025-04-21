@@ -2,8 +2,7 @@
 
 require_once('connexion.php');
 
-
-// récupère toutes les réservations validées avec les infos utilisateurs
+// Récupère toutes les réservations validées avec les infos utilisateurs
 $sql = "
     SELECT 
         r.date_debut AS start,
@@ -11,9 +10,10 @@ $sql = "
         m.designation AS title,
         u.avatar
     FROM reservations r
-    JOIN materiels m ON r.id_materiel = m.id
-    JOIN reservation_users ru ON r.id = ru.id_reservation
-    JOIN users u ON ru.id_user = u.id
+    JOIN concerne c ON r.idR = c.idR
+    JOIN materiel m ON c.idM = m.idM
+    JOIN reservation_users ru ON r.idR = ru.idR
+    JOIN user_ u ON ru.id = u.id
     WHERE r.valide = 1
     ORDER BY r.date_debut
 ";

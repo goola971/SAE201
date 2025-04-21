@@ -81,18 +81,21 @@ include("../PHPpure/entete.php");
                         $userId = $_SESSION['user']['id']; // Récupérer l'ID de l'utilisateur connecté
                     }
                     require_once "../PHPpure/connexion.php";
+
+                    // Requête SQL pour récupérer les réservations de l'utilisateur
                     $sql = "
-                            SELECT 
-                                r.date_debut,
-                                r.date_fin,
-                                r.valide,
-                                m.designation AS materiel
-                            FROM reservations r
-                            JOIN materiels m ON r.id_materiel = m.id
-                            JOIN reservation_users ru ON r.id = ru.id_reservation
-                            WHERE ru.id_user = :user_id
-                            ORDER BY r.date_debut DESC
-                        ";
+                        SELECT 
+                            r.date_debut,
+                            r.date_fin,
+                            r.valide,
+                            m.designation AS materiel
+                        FROM reservations r
+                        JOIN concerne c ON r.idR = c.idR
+                        JOIN materiel m ON c.idM = m.idM
+                        JOIN reservation_users ru ON r.idR = ru.idR
+                        WHERE ru.id = :user_id
+                        ORDER BY r.date_debut DESC
+                    ";
 
                     // Prépare la requête
                     $stmt = $pdo->prepare($sql);
@@ -127,13 +130,13 @@ include("../PHPpure/entete.php");
 
                         // Affichage des informations de réservation
                         echo "
-                                <div class='line'>
-                                    <p>Réservation de {$row['materiel']}</p>
-                                    <p>$date</p>
-                                    <p>$startHour - $endHour</p>
-                                    <button class='$status'></button>
-                                </div>
-                            ";
+                            <div class='line'>
+                                <p>Réservation de {$row['materiel']}</p>
+                                <p>$date</p>
+                                <p>$startHour - $endHour</p>
+                                <button class='$status'></button>
+                            </div>
+                        ";
                     }
                     ?>
                 </article>

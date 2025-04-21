@@ -27,7 +27,7 @@
                     <img class="imgProfil" src="
                         <?php
                         if (isset($_SESSION['user']['profil'])) {
-                            if ($_SESSION['user']['profil'] != "NULL") {
+                            if ($_SESSION['user']['profil'] != "none") {
                                 echo $_SESSION['user']['profil'];
                             } else {
                                 echo "../uploads/default.png";

@@ -144,6 +144,7 @@ include("../PHPpure/entete.php");
         </section>
     </main>
     <script src="../JS/sideBarre.js"></script>
+    <script src="../JS/index.js"></script>
 </body>
 
 </html>

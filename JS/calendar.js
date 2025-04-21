@@ -18,6 +18,7 @@ function next() {
 let tel = false;
 
 document.addEventListener("DOMContentLoaded", function () {
+	getEventTime();
 	const calendarEl = document.getElementById("calendar");
 	const calendar = new FullCalendar.Calendar(calendarEl, {
 		initialView: "timeGridWeek",
@@ -103,5 +104,33 @@ function updateCustomHeader() {
 	const dates = document.getElementById("dates");
 	if (actual && dates) {
 		dates.innerText = actual.innerText;
+	}
+}
+
+// fc-event-time exemple: 08:00 - 10:00
+// recuperer le debut et la fin de l'evenement
+function getEventTimes() {
+	const fcEventTimes = document.getElementsByClassName("fc-event-time");
+
+	for (let i = 0; i < fcEventTimes.length; i++) {
+		const timeText = fcEventTimes[i].innerText;
+		const [debut, fin] = timeText.split(" - ");
+
+		// Créer les divs pour heureDebut et heureFin
+		const heureDebut = document.createElement("div");
+		const heureFin = document.createElement("div");
+
+		heureDebut.className = "heureDebut";
+		heureFin.className = "heureFin";
+
+		heureDebut.innerText = debut;
+		heureFin.innerText = fin;
+
+		// Ajoute dans le DOM à côté de l'élément actuel (par exemple)
+		fcEventTimes[i].parentElement.appendChild(heureDebut);
+		fcEventTimes[i].parentElement.appendChild(heureFin);
+
+		// Debug
+		console.log(`Événement ${i + 1} : ${debut} à ${fin}`);
 	}
 }

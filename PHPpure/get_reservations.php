@@ -3,7 +3,7 @@
 require_once('connexion.php');
 
 
-// Récupère toutes les réservations validées avec les infos utilisateurs
+// récupère toutes les réservations validées avec les infos utilisateurs
 $sql = "
     SELECT 
         r.date_debut AS start,

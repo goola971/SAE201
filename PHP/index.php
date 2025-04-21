@@ -1,5 +1,7 @@
 <?php
 include("../PHPpure/entete.php");
+
+
 ?>
 
 <!DOCTYPE html>
@@ -12,12 +14,10 @@ include("../PHPpure/entete.php");
     <link rel="stylesheet" href="../CSS/style.css" />
     <link rel="stylesheet" href="../CSS/index.css" />
     <link rel="stylesheet" href="../CSS/header.css" />
-    <!-- bootstrap -->
     <title>Document</title>
 </head>
 
 <body>
-    <!-- width 100%-->
     <?php
     include("header.php");
     include("aside.html");

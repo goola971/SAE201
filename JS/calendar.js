@@ -18,7 +18,7 @@ function next() {
 let tel = false;
 
 document.addEventListener("DOMContentLoaded", function () {
-	getEventTime();
+	getEventTimes();
 	const calendarEl = document.getElementById("calendar");
 	const calendar = new FullCalendar.Calendar(calendarEl, {
 		initialView: "timeGridWeek",

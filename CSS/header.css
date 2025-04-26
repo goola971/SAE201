@@ -252,7 +252,7 @@ aside .autre nav ul li a:hover {
 
 /* responsive */
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1150px) {
 	header {
 		min-height: 10vh;
 		padding: 0 3vw;

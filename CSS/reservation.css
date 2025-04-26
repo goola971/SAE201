@@ -179,7 +179,7 @@ div.fc-timegrid-slot-label-cushion.fc-scrollgrid-shrink-cushion {
 
 /* responsive */
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1150px) {
 	main {
 		padding: 4vh 3vw 2vw 3vw !important;
 	}

@@ -124,16 +124,25 @@ main .reservation div .searchContainer button img {
 	background-color: #edafbe;
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	text-align: center;
+
 	align-items: center;
 	height: 6vh;
 	border-radius: 1vw;
 	width: 100%;
-	padding: 0 4vw;
+	padding: 0 2vw;
 }
 
 .table .header_Table p {
 	font-size: 1vw;
+}
+
+.table .header_Table p:nth-child(2),
+.table .header_Table p:nth-child(3) {
+	margin: 0 auto;
+}
+
+.table .header_Table p:nth-child(4) {
+	margin: 0 2vw 0 auto;
 }
 
 .table .body_Table {
@@ -151,10 +160,15 @@ main .reservation div .searchContainer button img {
 .table .body_Table .line {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-	text-align: center;
+
 	height: 6vh;
 	width: 100%;
 	border-radius: 1vw;
+}
+
+.table .body_Table .line p:nth-child(2),
+.table .body_Table .line p:nth-child(3) {
+	margin: 0 auto;
 }
 
 .table .body_Table .line p {
@@ -165,7 +179,7 @@ main .reservation div .searchContainer button img {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0 auto;
+	margin-left: auto;
 	width: 6vw;
 	height: 2.7vw;
 	background-color: transparent;
@@ -218,9 +232,51 @@ main .reservation div .searchContainer button img {
 	content: "Terminé";
 }
 
+.table .body_Table .line button.modifier {
+	color: #edafbe;
+	border: 0.15vw solid #edafbe;
+	font-size: 1vw;
+}
+
+.table .body_Table .line button.modifier::after {
+	content: "Modifier";
+}
+
+.table .body_Table .line button.modifier:hover {
+	background-color: #edafbe;
+	color: white;
+}
+
+.add {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 3vw;
+	height: 5vh;
+	border: none;
+	background-color: #d31b4a;
+	border-radius: 0.5vw;
+	margin: 2vh 2vw 0 auto;
+}
+
+.add img {
+	width: 50%;
+	height: auto;
+	object-fit: contain;
+}
+
+.modif {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 3vw;
+	height: 5vh;
+}
+
 /* responsive */
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1150px) {
 	main {
 		padding: 3vh 20vw 0 4vw;
 	}
@@ -329,5 +385,14 @@ main .reservation div .searchContainer button img {
 		border: 0.15vw solid black;
 		border-radius: 1vw;
 		font-size: 2vw;
+	}
+
+	.add {
+		width: 7vw;
+		height: 5vh;
+		border: none;
+		background-color: #d31b4a;
+		border-radius: 1vw;
+		margin: 2vh 2vw 0 auto;
 	}
 }

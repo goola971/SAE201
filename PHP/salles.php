@@ -21,6 +21,7 @@
     include("aside.html");
     ?>
     <main>
+        <p></p>
         <a-scene>
             <!-- Ajouter une sphère avec l'image 360° comme texture -->
             <a-sky src="../IMG/image.png" rotation="0 -90 0"></a-sky>

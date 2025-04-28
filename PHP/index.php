@@ -1,7 +1,5 @@
 <?php
 include("../PHPpure/entete.php");
-
-
 ?>
 
 <!DOCTYPE html>

@@ -4,10 +4,10 @@
 	align-items: center;
 	height: 10vh;
 	min-height: 10vh;
-	max-height: 13vh;
+	max-height: 10vh;
 	width: 100%;
 	background-color: white;
-	position: sticky;
+	position: fixed;
 	top: 0;
 	left: 0;
 	z-index: 9999;
@@ -137,7 +137,8 @@ aside {
 	max-width: 18vw;
 	padding: 5vh 2vw;
 	position: fixed;
-	height: 100%;
+	bottom: 0;
+	height: 90vh;
 	gap: 15vh;
 	background-color: white;
 	transition: all 0.2s ease-in-out;

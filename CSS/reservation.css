@@ -3,7 +3,7 @@ main {
 	flex-direction: column;
 	justify-content: start;
 	align-items: start;
-	padding: 1vh 2vw 2vw 20vw;
+	padding: 15vh 2vw 2vw 20vw;
 	width: 100%;
 	height: auto;
 	gap: 3vh;

@@ -14,3 +14,12 @@ buttonSearch.addEventListener("click", function () {
 		}
 	});
 });
+
+function modifUser(number) {
+	const id = document.getElementById("modif");
+	if (id.classList.contains("active")) {
+		id.classList.remove("active");
+	} else {
+		id.classList.add(active);
+	}
+}

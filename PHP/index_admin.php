@@ -52,11 +52,11 @@
             $stmt = $pdo->query($sql);
 
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo '<div class="line">
+                echo '<div class="line" >
                     <p>' . htmlspecialchars($row['nom']) . ' ' . htmlspecialchars($row['prenom']) . '</p>
                     <p>' . htmlspecialchars($row['date_inscription']) . '</p>
                     <p>' . getUserRole($row['id'], $pdo) . '</p>
-                    <button popovertarget="modif" class="modifier"></button>
+                    <button onclick="modifUser(' . $row['id'] . ')" class="modifier"></button>
                     </div>';
             }
             ?>
@@ -64,6 +64,6 @@
         <button class="add"><img src="../res/add.svg" alt="plus"></button>
     </section>
 
-    <div popover id="modif" class="modif">
+    <div id="modif" class="modif">
     </div>
 </section>

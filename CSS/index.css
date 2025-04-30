@@ -280,7 +280,7 @@ main .reservation div .searchContainer button img {
 }
 
 .modif.active {
-	display: flex;
+	display: flex !important;
 }
 
 /* responsive */

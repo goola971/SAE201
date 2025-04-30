@@ -15,8 +15,12 @@ buttonSearch.addEventListener("click", function () {
 	});
 });
 
-function modifUser(number) {
-	const id = number;
-	const modif = document.getElementById("modif");
-	modif.classList.toggle("active");
-}
+var btnModif = document.getElementsByClassName("modifier");
+var modifPopup = document.getElementById("modifPopup");
+
+document.addEventListener("DOMContentLoaded", function () {
+	btnModif.addEventListener("click", function () {
+		// console.log("click");
+		modifPopup.style.display = "flex !important";
+	});
+});

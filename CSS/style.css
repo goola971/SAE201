@@ -1,6 +1,22 @@
 /* @import ("~lucide-static/font/Lucide.css"); */
 @import url("~lucide-static/font/Lucide.css");
 
+/* import font*/
+
+@font-face {
+	font-family: "Apfel Grotezk";
+	src: url("../font/apfel/ApfelGrotezk-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Absans";
+	src: url("../font/absans/Absans-Regular.woff") format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
 * {
 	margin: 0;
 	padding: 0;

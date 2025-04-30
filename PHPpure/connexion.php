@@ -15,28 +15,28 @@ function getUserRole($idUser, $pdo)
     $query = $pdo->prepare('SELECT id FROM administrateur WHERE id = ?');
     $query->execute([$idUser]);
     if ($query->fetch()) {
-        return 'administrateur';
+        return 'Administrateur';
     }
 
     // vérifie si l'id present dans table enseignant
     $query = $pdo->prepare('SELECT id FROM enseignant WHERE id = ?');
     $query->execute([$idUser]);
     if ($query->fetch()) {
-        return 'enseignant';
+        return 'Enseignant(e)';
     }
 
     // vérifie si l'id present dans table étudiant
     $query = $pdo->prepare('SELECT id FROM etudiant WHERE id = ?');
     $query->execute([$idUser]);
     if ($query->fetch()) {
-        return 'etudiant';
+        return 'Etudiant(e)';
     }
 
     // vérifie si l'id present dans table agent
     $query = $pdo->prepare('SELECT id FROM agent WHERE id = ?');
     $query->execute([$idUser]);
     if ($query->fetch()) {
-        return 'agent';
+        return 'Agent(e)';
     }
 
     return 'Non Defini'; // aucun rôle trouvé

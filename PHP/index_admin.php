@@ -57,7 +57,7 @@
                     <p>' . htmlspecialchars($row['nom']) . ' ' . htmlspecialchars($row['prenom']) . '</p>
                     <p>' . htmlspecialchars($row['date_inscription']) . '</p>
                     <p>' . getUserRole($row['id'], $pdo) . '</p>
-                    <button onclick="modifUser(' . $row['id'] . ')" class="modifier"></button>
+                    <button class="modifier"> </button>
                 </div>';
             }
             ?>
@@ -65,6 +65,6 @@
         <button class="add"><img src="../res/add.svg" alt="plus"></button>
     </section>
 
-    <div id="modif" class="modif">
+    <div id="modifPopup" class="modif">
     </div>
 </section>

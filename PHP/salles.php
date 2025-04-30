@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="../CSS/style.css" />
-    <link rel="stylesheet" href="../CSS/profil.css" />
+    <link rel="stylesheet" href="../CSS/salles.css" />
     <link rel="stylesheet" href="../CSS/header.css" />
     <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
     <!-- bootstrap -->

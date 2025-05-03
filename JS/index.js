@@ -1,6 +1,10 @@
 var buttonSearch = document.getElementById("buttonSearch");
 var inputSearch = document.getElementById("inputSearch");
 const line = document.querySelector(".line");
+var btnModif = document.getElementsByClassName("modifier");
+var modifPopup = document.getElementById("modifPopup");
+var validation = document.getElementById("validation");
+const closeModifPopup = document.getElementById("closeModifPopup");
 
 buttonSearch.addEventListener("click", function () {
 	const value = inputSearch.value.toLowerCase();
@@ -15,12 +19,30 @@ buttonSearch.addEventListener("click", function () {
 	});
 });
 
-var btnModif = document.getElementsByClassName("modifier");
-var modifPopup = document.getElementById("modifPopup");
-
-document.addEventListener("DOMContentLoaded", function () {
-	btnModif.addEventListener("click", function () {
-		// console.log("click");
-		modifPopup.style.display = "flex !important";
-	});
+closeModifPopup.addEventListener("click", function () {
+	modifPopup.classList.toggle("active");
 });
+
+function openModifPopup(nb, nom, prenom, email, tel, role, valable) {
+	modifPopup.classList.toggle("active");
+	modifPopup.id = nb;
+
+	document.getElementById("id").value = nb;
+	document.getElementById("id2").value = nb;
+	document.getElementById("nom").value = nom;
+	document.getElementById("prenom").value = prenom;
+	document.getElementById("email").value = email;
+	document.getElementById("tel").value = tel;
+	document.getElementById("role").value = role;
+	if (valable == 0) {
+		validation.style.backgroundColor = "green";
+		console.log(valable);
+	} else {
+		validation.style.backgroundColor = "gray";
+	}
+}
+
+// enregistrer l'id
+function id() {
+	return modifPopup.id;
+}

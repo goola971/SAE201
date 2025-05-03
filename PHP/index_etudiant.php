@@ -8,7 +8,7 @@
 </section>
 <section class="reservation">
     <h2>Liste de réservation</h2>
-    <div>
+    <div class="search">
         <p>Consulter l'historique</p>
         <div class="searchContainer">
             <input type="search" name="search" id="inputSearch" placeholder="Chercher..." />

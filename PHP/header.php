@@ -19,23 +19,23 @@
         <!-- <h1>Tableau de bord</h1> -->
         <!-- detecter la page avec php -->
         <?php
-            $filename = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
-            switch ($filename) {
-                case 'index':
-                    echo '<h1>Tableau de bord</h1>';
-                    break;
-                case 'profil':
-                    echo '<h1>Mon profil</h1>';
-                    break;
-                case 'reservation':
-                    echo '<h1>Mes réservation</h1>';
-                    break;
-                case 'salles':
-                    echo'<h1>Salles</h1>';
-                    break;
-                default:
-                    echo '<h1>ya pas le nom ou c mal mis</h1>';
-            }
+        $filename = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
+        switch ($filename) {
+            case 'index':
+                echo '<h1>Tableau de bord</h1>';
+                break;
+            case 'profil':
+                echo '<h1>Mon profil</h1>';
+                break;
+            case 'reservation':
+                echo '<h1>Mes réservation</h1>';
+                break;
+            case 'salles':
+                echo '<h1>Salles</h1>';
+                break;
+            default:
+                echo '<h1>ya pas le nom ou c mal mis</h1>';
+        }
         ?>
 
         <div class="profilXlogout">

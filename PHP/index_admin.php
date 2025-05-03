@@ -105,7 +105,10 @@
             <div class="role">
                 <label for="role">Définir un status à l'utilisateur</label>
                 <select name="role" id="role">
-
+                    <?php
+                    require_once('../PHPpure/connexion.php');
+                    getUserRole(1, $pdo);
+                    ?>
                 </select>
             </div>
             <div class="buttonsSubmit">
@@ -130,6 +133,8 @@
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
+
+
 
     function statusUser($id, $pdo)
     {

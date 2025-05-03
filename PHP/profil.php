@@ -17,7 +17,7 @@
 <body>
     <?php
     include("header.php");
-    include("aside.html");
+    include("aside.php");
     ?>
     <main>
         <section class="profil">

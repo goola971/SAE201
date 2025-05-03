@@ -112,7 +112,7 @@
                 <button type="submit">Supprimer l'utilisateur</button>
                 <!-- utilisation de la fonciton changeValable -->
 
-                <input type="text" name="id2" id="id2" style="display: none;">
+                <!-- <input type="text" name="id2" id="id2" style="display: none;"> -->
                 <!-- reload la page aprés validation -->
                 <button type="submit" id="validation" name="validation">Valider la connexion</button>
 
@@ -150,7 +150,7 @@
         }
     }
 
-    if (isset($_POST['id2']) && isset($_POST['validation'])) {
+    if (isset($_POST['id']) && isset($_POST['validation'])) {
         changeValable($_POST['id'], $pdo);
     }
     ?>

@@ -17,7 +17,7 @@
 <body>
     <?php
     include("header.php");
-    include("aside.html");
+    include("aside.php");
     ?>
 
     <main>
@@ -56,26 +56,26 @@
     <script src="../JS/sideBarre.js"></script>
 
     <script>
-    const vrScene = document.getElementById('vrScene');
-    const sky = document.getElementById('sky');
+        const vrScene = document.getElementById('vrScene');
+        const sky = document.getElementById('sky');
 
-    // Fonction pour lancer la scène avec une image donnée
-    function showVR(imageSrc) {
-        document.getElementById('imageContainer1').style.display = 'none';
-        document.getElementById('imageContainer2').style.display = 'none';
-        sky.setAttribute('src', imageSrc);
-        vrScene.style.display = 'block';
-    }
+        // Fonction pour lancer la scène avec une image donnée
+        function showVR(imageSrc) {
+            document.getElementById('imageContainer1').style.display = 'none';
+            document.getElementById('imageContainer2').style.display = 'none';
+            sky.setAttribute('src', imageSrc);
+            vrScene.style.display = 'block';
+        }
 
-    // Clic sur image 1
-    document.getElementById('imageToClick1').addEventListener('click', function() {
-        showVR('../IMG/image.png');
-    });
+        // Clic sur image 1
+        document.getElementById('imageToClick1').addEventListener('click', function() {
+            showVR('../IMG/image.png');
+        });
 
-    // Clic sur image 2
-    document.getElementById('imageToClick2').addEventListener('click', function() {
-        showVR('../IMG/image2.jpg');
-    });
+        // Clic sur image 2
+        document.getElementById('imageToClick2').addEventListener('click', function() {
+            showVR('../IMG/image2.jpg');
+        });
     </script>
 
 </body>

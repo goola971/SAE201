@@ -18,7 +18,7 @@ include("../PHPpure/entete.php");
 <body>
     <?php
     include("header.php");
-    include("aside.html");
+    include("aside.php");
     ?>
     <main>
         <?php

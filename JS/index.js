@@ -24,11 +24,10 @@ closeModifPopup.addEventListener("click", function () {
 });
 
 function openModifPopup(nb, nom, prenom, email, tel, role, valable) {
-	modifPopup.classList.toggle("active");
+	modifPopup.classList.add("active");
 	modifPopup.id = nb;
 
 	document.getElementById("id").value = nb;
-	document.getElementById("id2").value = nb;
 	document.getElementById("nom").value = nom;
 	document.getElementById("prenom").value = prenom;
 	document.getElementById("email").value = email;

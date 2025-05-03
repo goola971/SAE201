@@ -18,8 +18,10 @@ include("../PHPpure/entete.php");
 
 <body>
 	<!-- width 100%-->
-	<?php include("header.php"); ?>
-	<?php include("aside.html"); ?>
+	<?php
+	include("header.php");
+	include("aside.php");
+	?>
 	<main>
 		<section class="calendarHeader">
 			<article class="left">

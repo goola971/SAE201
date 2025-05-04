@@ -46,6 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'session_token' => bin2hex(random_bytes(32))
             ];
 
+            if (isset($_POST['rememberMe']) && $_POST['rememberMe'] == 'on') {
+                $_SESSION['user']['rememberMe'] = true;
+            } else {
+                $_SESSION['user']['rememberMe'] = false;
+            }
+
             // redirection
             header('Location: ../PHP/index.php');
             exit();

@@ -81,34 +81,35 @@
         <p>Information</p>
         <form action="" method="POST">
 
+
             <div class="name">
                 <input type="text" name="id" id="id" style="display: none;">
                 <div class="nom">
                     <label for="nom">
                         Nom
                     </label>
-                    <input type="text" name="nom" id="nom" placeholder="Nom">
+                    <input type="text" name="nom" id="nom" placeholder="Nom" disabled>
                 </div>
                 <div class="prenom">
                     <label for="prenom">Prénom</label>
-                    <input type="text" name="prenom" id="prenom" placeholder="Prénom">
+                    <input type="text" name="prenom" id="prenom" placeholder="Prénom" disabled>
                 </div>
             </div>
             <div class="email">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Email">
+                <input type="email" name="email" id="email" placeholder="Email" disabled>
             </div>
             <div class="tel">
                 <label for="tel">Téléphone</label>
-                <input type="tel" name="tel" id="tel" placeholder="Téléphone">
+                <input type="tel" name="tel" id="tel" placeholder="Téléphone" disabled>
             </div>
             <div class="role">
                 <label for="role">Définir un status à l'utilisateur</label>
                 <select name="role" id="role">
-                    <?php
-                    require_once('../PHPpure/connexion.php');
-                    getUserRole(1, $pdo);
-                    ?>
+                    <option value="etudiant">Etudiant</option>
+                    <option value="enseignant">Enseignant</option>
+                    <option value="administrateur">Administrateur</option>
+                    <option value="agent">Agent</option>
                 </select>
             </div>
             <div class="buttonsSubmit">
@@ -118,6 +119,8 @@
                 <!-- <input type="text" name="id2" id="id2" style="display: none;"> -->
                 <!-- reload la page aprés validation -->
                 <button type="submit" id="validation" name="validation">Valider la connexion</button>
+                <!-- reload la page aprés modification -->
+                <button type="submit" id="modifierUtilisateur" name="modifierUtilisateur">Modifier</button>
 
             </div>
         </form>
@@ -157,6 +160,30 @@
 
     if (isset($_POST['id']) && isset($_POST['validation'])) {
         changeValable($_POST['id'], $pdo);
+    }
+
+    if (isset($_POST['id']) && isset($_POST['modifierUtilisateur'])) {
+        $id = $_POST['id'];
+        $nouveauRole = $_POST['role'];
+
+        $rolebase = getUserRole($id, $pdo);
+        $rolesMap = [
+            'Administrateur' => 'administrateur',
+            'Enseignant(e)' => 'enseignant',
+            'Etudiant(e)' => 'etudiant',
+            'Agent(e)' => 'agent'
+        ];
+
+        if (isset($rolesMap[$rolebase])) {
+            $sql2 = "DELETE FROM $rolesMap[$rolebase] WHERE id = :id";
+            $stmt = $pdo->prepare($sql2);
+            $stmt->bindParam(':id', $id);
+            $stmt->execute();
+        }
+        $sqlInsert = "INSERT INTO $nouveauRole (id) VALUES (:id)";
+        $stmt = $pdo->prepare($sqlInsert);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
     }
     ?>
 </section>

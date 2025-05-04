@@ -5,6 +5,9 @@ var btnModif = document.getElementsByClassName("modifier");
 var modifPopup = document.getElementById("modifPopup");
 var validation = document.getElementById("validation");
 const closeModifPopup = document.getElementById("closeModifPopup");
+const role = document.getElementById("role");
+var modifierUtilisateur = document.getElementById("modifierUtilisateur");
+var val = 0;
 
 buttonSearch.addEventListener("click", function () {
 	const value = inputSearch.value.toLowerCase();
@@ -21,6 +24,8 @@ buttonSearch.addEventListener("click", function () {
 
 closeModifPopup.addEventListener("click", function () {
 	modifPopup.classList.toggle("active");
+	validation.style.display = "block";
+	modifierUtilisateur.style.display = "none";
 });
 
 function openModifPopup(nb, nom, prenom, email, tel, role, valable) {
@@ -38,6 +43,7 @@ function openModifPopup(nb, nom, prenom, email, tel, role, valable) {
 		console.log(valable);
 	} else {
 		validation.style.backgroundColor = "gray";
+		val = 1;
 	}
 }
 
@@ -45,3 +51,19 @@ function openModifPopup(nb, nom, prenom, email, tel, role, valable) {
 function id() {
 	return modifPopup.id;
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+	role.addEventListener("change", function () {
+		if (val == 1) {
+			validation.style.display = "none";
+			modifierUtilisateur.style.display = "block";
+		} else {
+			validation.style.display = "block";
+			modifierUtilisateur.style.display = "none";
+		}
+	});
+});
+
+modifierUtilisateur.addEventListener("click", function () {
+	window.location.reload();
+});

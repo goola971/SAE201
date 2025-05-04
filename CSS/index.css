@@ -394,12 +394,20 @@ main .reservation div .searchContainer button img {
 .modif form .buttonsSubmit button {
 	width: auto;
 	height: 5vh;
-	background-color: #d31b4a;
+	background-color: red;
 	border: none;
 	border-radius: 0.5vw;
 	color: white;
 	font-size: 1vw;
 	padding: 0 1vw;
+}
+
+.modif form .buttonsSubmit button:last-child {
+	background-color: green;
+}
+
+#modifierUtilisateur {
+	display: none;
 }
 
 /* responsive */

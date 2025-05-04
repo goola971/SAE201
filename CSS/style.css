@@ -2,7 +2,7 @@
 @import url("~lucide-static/font/Lucide.css");
 
 /* import font*/
-
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
 @font-face {
 	font-family: "Apfel Grotezk";
 	src: url("../font/apfel/ApfelGrotezk-Regular.woff") format("woff");

@@ -19,6 +19,7 @@ main section {
 	height: 100%;
 	border-radius: 2vw;
 	overflow: hidden;
+	font-family: "SF Pro Display", sans-serif;
 }
 
 main section h1 {
@@ -96,20 +97,52 @@ main section form .remember .souvenir {
 	width: auto;
 }
 
-main section form .remember .souvenir input {
-	width: 1.5vw;
-	height: auto;
-	border-radius: 0.5vw;
-	background-color: #ebebeb;
-	border: none;
+.souvenir input[type="checkbox"] {
+	display: none;
+}
+
+.souvenir label {
+	display: inline-block;
+	position: relative;
+	padding-left: 2vw;
 	cursor: pointer;
+	font-size: 1vw;
+	user-select: none;
+	color: #7b7b7b;
+}
+
+/* boîte custom à gauche du texte */
+.souvenir label::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 1.2vw;
+	height: 1.2vw;
+	border-radius: 0.3vw;
+	background-color: #e4e4e4;
+	border: none;
+}
+
+/* coche affichée quand coché */
+.souvenir input[type="checkbox"]:checked + label::after {
+	content: "";
+	position: absolute;
+	left: 0.32vw;
+	top: 0.03vw;
+	width: 0.4vw;
+	height: 0.8vw;
+	border: solid #333;
+	border-width: 0 0.2vw 0.2vw 0;
+	transform: rotate(45deg);
 }
 
 main section form .remember a {
 	font-size: 1vw;
 	color: #d72f59;
 	text-decoration: none;
-	font-family: "Absans", sans-serif;
+
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
 }
@@ -125,15 +158,25 @@ main section form button {
 	border: none;
 	font-size: 1.2vw;
 	color: white;
-	font-family: "Absans", sans-serif;
+
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
+}
+
+main section form button:hover {
+	transform: scale(1.01);
+	filter: drop-shadow(0.2vw 0.2vw 0.2vw #00000052);
+}
+
+main section .formContainer p {
+	font-size: 1vw;
+	color: black;
+	text-align: center;
 }
 
 main section .formContainer p a {
 	color: #d72f59;
 	text-decoration: none;
-	font-family: "Absans", sans-serif;
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;
 }

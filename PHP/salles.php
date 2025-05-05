@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../CSS/profil.css" />
     <link rel="stylesheet" href="../CSS/header.css" />
     <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
-    <title>Document</title>
+    <title>Réservation VR</title>
 </head>
 
 <body>
@@ -45,37 +45,72 @@
             </a>
         </div>
 
-        <!-- Scène VR cachée au début -->
-        <a-scene id="vrScene" style="display: none; height: 100vh;">
-            <a-sky id="sky" rotation="0 -90 0"></a-sky>
-        </a-scene>
+        <!-- Scène VR affichée en haut de page -->
+        <div id="vrContainer" style="display: none; width: 100%; height: 100vh;">
+            <a-scene id="vrScene" embedded style="width: 100%; height: 100%;">
+                <a-sky id="sky" rotation="0 -90 0"></a-sky>
+            </a-scene>
+
+            <!-- Bouton retour dans la scène -->
+            <button id="backButton" style="
+                position: absolute;
+                bottom: 30px;
+                right: 30px;
+                z-index: 9999;
+                padding: 10px 20px;
+                background-color: #c44e63;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                display: none;
+            ">
+                Retour
+            </button>
+        </div>
     </main>
 
     <script src="../JS/sideBarre.js"></script>
 
     <script>
-        const vrScene = document.getElementById('vrScene');
+        const vrContainer = document.getElementById('vrContainer');
         const sky = document.getElementById('sky');
+        const backButton = document.getElementById('backButton');
 
-        // Fonction pour lancer la scène avec une image donnée
         function showVR(imageSrc) {
+            // Masquer les images de la page principale et afficher la scène VR
             document.getElementById('imageContainer1').style.display = 'none';
             document.getElementById('imageContainer2').style.display = 'none';
+            
+            // Changer l'image de la scène VR
             sky.setAttribute('src', imageSrc);
-            vrScene.style.display = 'block';
+            vrContainer.style.display = 'block';
+            backButton.style.display = 'block';
+
+            // Activer le défilement pendant le mode VR
+            document.body.style.overflow = 'auto'; 
         }
 
-        // Clic sur image 1
+        function exitVR() {
+            vrContainer.style.display = 'none';
+            document.getElementById('imageContainer1').style.display = 'block';
+            document.getElementById('imageContainer2').style.display = 'block';
+            backButton.style.display = 'none';
+
+            // Restaurer l'affichage du défilement une fois que VR est quitté
+            document.body.style.overflow = 'auto'; // Permet de scroller
+        }
+
         document.getElementById('imageToClick1').addEventListener('click', function () {
             showVR('../IMG/image.png');
         });
 
-        // Clic sur image 2
         document.getElementById('imageToClick2').addEventListener('click', function () {
             showVR('../IMG/image2.jpg');
         });
-    </script>
 
+        backButton.addEventListener('click', exitVR);
+    </script>
 </body>
 
 </html>

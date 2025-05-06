@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'nom' => $user['nom'],
                 'prenom' => $user['prenom'],
                 'email' => $user['email'],
+                'telephone' => $user['telephone'],
                 'role' => $role,
                 'profil' => $user['avatar'],
                 'session_token' => bin2hex(random_bytes(32))

@@ -414,7 +414,7 @@ main .reservation div .searchContainer button img {
 
 @media screen and (max-width: 1150px) {
 	main {
-		padding: 3vh 20vw 0 4vw;
+		padding: 10vh 4vw 0 4vw !important;
 	}
 
 	main .top {
@@ -446,7 +446,7 @@ main .reservation div .searchContainer button img {
 	}
 
 	main .reservation div p {
-		font-size: 3vw;
+		font-size: 3vw !important;
 	}
 
 	main .reservation div .searchContainer {
@@ -454,8 +454,8 @@ main .reservation div .searchContainer button img {
 	}
 
 	main .reservation div .searchContainer input {
-		width: 40vw;
-		height: 6vw;
+		width: 30vw !important;
+		height: 6vw !important;
 		font-size: 3vw;
 	}
 
@@ -494,7 +494,7 @@ main .reservation div .searchContainer button img {
 	}
 
 	.table .header_Table p {
-		font-size: 2vw;
+		font-size: 2vw !important;
 	}
 
 	.table .body_Table {
@@ -508,7 +508,7 @@ main .reservation div .searchContainer button img {
 	}
 
 	.table .body_Table .line p {
-		font-size: 2.5vw;
+		font-size: 2vw !important;
 	}
 
 	.table .body_Table .line button {

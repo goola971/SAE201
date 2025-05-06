@@ -120,8 +120,33 @@
                 <!-- reload la page aprés validation -->
                 <button type="submit" id="validation" name="validation">Valider la connexion</button>
                 <!-- reload la page aprés modification -->
-                <button type="submit" id="modifierUtilisateur" name="modifierUtilisateur">Modifier</button>
+                <button type="submit" id="modifierUtilisateur" name="modifierUtilisateur"
+                    onclick="setTimeout(window.location.reload(true);, 200);">Modifier</button>
 
+            </div>
+        </form>
+    </div>
+    <div class="ajouterUser" id="ajouterUser">
+        <button id="closeModifPopup"><img src="../res/x.svg" alt=""></button>
+        <h3>Ajouter un utilisateur</h3>
+        <p>Information</p>
+        <form action="">
+            <div class="name">
+                <input type="text" name="id" id="id" style="display: none;">
+                <div class="nom">
+                    <label for="nom">
+                        Nom
+                    </label>
+                    <input type="text" name="nom" id="nom" placeholder="Nom">
+                </div>
+                <div class="prenom">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" name="prenom" id="prenom" placeholder="Prénom">
+                </div>
+            </div>
+            <div class="email">
+                <label for="email">Attribuer un email</label>
+                <input type="email" name="email" id="email" placeholder="Email">
             </div>
         </form>
     </div>

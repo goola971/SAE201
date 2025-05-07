@@ -121,8 +121,8 @@
                 <button type="submit" id="validation" name="validation">Valider la connexion</button>
                 <!-- reload la page aprés modification -->
                 <button type="submit" id="modifierUtilisateur" name="modifierUtilisateur"
-                    onclick="setTimeout(window.location.reload(true);, 200);">Modifier</button>
-
+                    onclick="setTimeout(window.location.reload(true), 200);">Modifier
+                </button>
             </div>
         </form>
     </div>

@@ -148,67 +148,85 @@
                 <label for="email">Attribuer un email</label>
                 <input type="email" name="email" id="email" placeholder="Email">
             </div>
+            <div class="motDePasse">
+                <label for="motDePasse">Mot de passe</label>
+                <input type="password" name="motDePasse" id="motDePasse" placeholder="Mot de passe">
+            </div>
+
+            <div class="role">
+                <label for="role">Rôle</label>
+                <select name="role" id="role">
+                    <option value="etudiant">Etudiant</option>
+                    <option value="enseignant">Enseignant</option>
+                    <option value="administrateur">Administrateur</option>
+                    <option value="agent">Agent</option>
+                </select>
+            </div>
+            <div class="buttonsSubmit">
+                <button type="submit">Ajouter l'utilisateur</button>
+            </div>
         </form>
     </div>
-    <?php
-    require_once('../PHPpure/connexion.php');
 
-    // changer valable en 1 
-    function changeValable($id, $pdo)
-    {
-        $sql = "UPDATE user_ SET valable = 1 WHERE id = :id";
-        $stmt = $pdo->prepare($sql);
+</section>
+<?php
+require_once('../PHPpure/connexion.php');
+
+// changer valable en 1 
+function changeValable($id, $pdo)
+{
+    $sql = "UPDATE user_ SET valable = 1 WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+}
+
+
+
+function statusUser($id, $pdo)
+{
+    $sql = "SELECT valable FROM user_ WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($result) {
+        if ($result['valable'] == 1) {
+            return getUserRole($id, $pdo);
+        } else {
+            return 'En attente de validation';
+        }
+    } else {
+        return 'Utilisateur introuvable';
+    }
+}
+
+if (isset($_POST['id']) && isset($_POST['validation'])) {
+    changeValable($_POST['id'], $pdo);
+}
+
+if (isset($_POST['id']) && isset($_POST['modifierUtilisateur'])) {
+    $id = $_POST['id'];
+    $nouveauRole = $_POST['role'];
+
+    $rolebase = getUserRole($id, $pdo);
+    $rolesMap = [
+        'Administrateur' => 'administrateur',
+        'Enseignant(e)' => 'enseignant',
+        'Etudiant(e)' => 'etudiant',
+        'Agent(e)' => 'agent'
+    ];
+
+    if (isset($rolesMap[$rolebase])) {
+        $sql2 = "DELETE FROM $rolesMap[$rolebase] WHERE id = :id";
+        $stmt = $pdo->prepare($sql2);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
-
-
-
-    function statusUser($id, $pdo)
-    {
-        $sql = "SELECT valable FROM user_ WHERE id = :id";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($result) {
-            if ($result['valable'] == 1) {
-                return getUserRole($id, $pdo);
-            } else {
-                return 'En attente de validation';
-            }
-        } else {
-            return 'Utilisateur introuvable';
-        }
-    }
-
-    if (isset($_POST['id']) && isset($_POST['validation'])) {
-        changeValable($_POST['id'], $pdo);
-    }
-
-    if (isset($_POST['id']) && isset($_POST['modifierUtilisateur'])) {
-        $id = $_POST['id'];
-        $nouveauRole = $_POST['role'];
-
-        $rolebase = getUserRole($id, $pdo);
-        $rolesMap = [
-            'Administrateur' => 'administrateur',
-            'Enseignant(e)' => 'enseignant',
-            'Etudiant(e)' => 'etudiant',
-            'Agent(e)' => 'agent'
-        ];
-
-        if (isset($rolesMap[$rolebase])) {
-            $sql2 = "DELETE FROM $rolesMap[$rolebase] WHERE id = :id";
-            $stmt = $pdo->prepare($sql2);
-            $stmt->bindParam(':id', $id);
-            $stmt->execute();
-        }
-        $sqlInsert = "INSERT INTO $nouveauRole (id) VALUES (:id)";
-        $stmt = $pdo->prepare($sqlInsert);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-    }
-    ?>
-</section>
+    $sqlInsert = "INSERT INTO $nouveauRole (id) VALUES (:id)";
+    $stmt = $pdo->prepare($sqlInsert);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+}
+?>

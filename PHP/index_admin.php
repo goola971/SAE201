@@ -73,7 +73,7 @@
             }
             ?>
         </article>
-        <button class="add"><img src="../res/add.svg" alt="plus"></button>
+        <button class="add" id="addUser"><img src="../res/add.svg" alt="plus"></button>
     </section>
     <div id="modifPopup" class="modif">
         <button id="closeModifPopup"><img src="../res/x.svg" alt=""></button>
@@ -121,13 +121,13 @@
                 <button type="submit" id="validation" name="validation">Valider la connexion</button>
                 <!-- reload la page aprés modification -->
                 <button type="submit" id="modifierUtilisateur" name="modifierUtilisateur"
-                    onclick="setTimeout(window.location.reload(true), 200);">Modifier
+                    onclick="window.location.reload(true);">Modifier
                 </button>
             </div>
         </form>
     </div>
     <div class="ajouterUser" id="ajouterUser">
-        <button id="closeModifPopup"><img src="../res/x.svg" alt=""></button>
+        <button id="closeAjouterPopup"><img src="../res/x.svg" alt=""></button>
         <h3>Ajouter un utilisateur</h3>
         <p>Information</p>
         <form action="">

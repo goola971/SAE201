@@ -160,15 +160,17 @@ main .reservation div .searchContainer button img {
 .table .body_Table .line {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-
 	height: 6vh;
 	width: 100%;
 	border-radius: 1vw;
 }
+.table .body_Table .line p:nth-child(1) {
+	margin: auto 0;
+}
 
 .table .body_Table .line p:nth-child(2),
 .table .body_Table .line p:nth-child(3) {
-	margin: 0 auto;
+	margin: auto;
 }
 
 .table .body_Table .line p {
@@ -179,7 +181,7 @@ main .reservation div .searchContainer button img {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-left: auto;
+	margin: auto 0 auto auto;
 	width: 6vw;
 	height: 2.7vw;
 	background-color: transparent;
@@ -408,6 +410,132 @@ main .reservation div .searchContainer button img {
 
 #modifierUtilisateur {
 	display: none;
+}
+
+.ajouterUser {
+	display: none;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+	width: 40vw;
+	height: 75vh;
+	padding: 10vh 7vw 5vh 7vw;
+	background-color: white;
+	z-index: 3;
+	border: none;
+	border-radius: 3vw;
+	gap: 2vh;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.ajouterUser.active {
+	display: flex !important;
+}
+
+.ajouterUser > button {
+	background-color: transparent;
+	border: none;
+	width: 2vw;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 4vh;
+	right: 7vh;
+}
+
+.ajouterUser > button img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+}
+
+.ajouterUser h3 {
+	font-size: 2vw;
+	font-weight: bold;
+}
+
+.ajouterUser p {
+	font-size: 1vw;
+}
+
+.ajouterUser form {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+	gap: 2vh;
+	width: 100%;
+	height: auto;
+}
+
+.ajouterUser form .name {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 2vw;
+	width: 100%;
+}
+
+.ajouterUser form .name div {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 0.5vw;
+	width: 100%;
+	flex-direction: column;
+}
+
+.ajouterUser form label {
+	font-size: 1vw;
+}
+
+.ajouterUser form input {
+	width: 100%;
+	height: 5vh;
+	border: 1px solid gray;
+	background-color: transparent;
+	font-size: 1vw;
+	color: gray;
+	border-radius: 0.5vw;
+	padding: 0 1vw;
+	font-size: 1vw;
+}
+
+.ajouterUser form .email,
+.ajouterUser form .tel,
+.ajouterUser form .role {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+	gap: 0.5vw;
+	width: 100%;
+}
+
+.ajouterUser form .role select {
+	width: 100%;
+	height: 5vh;
+	border: 1px solid gray;
+	background-color: transparent;
+	font-size: 1vw;
+	color: gray;
+	border-radius: 0.5vw;
+	padding: 0 1vw;
+	font-size: 1vw;
+}
+
+.ajouterUser form .buttonsSubmit {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: row;
+	width: 100%;
+	gap: 2vw;
 }
 
 /* responsive */

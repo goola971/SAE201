@@ -8,6 +8,9 @@ const closeModifPopup = document.getElementById("closeModifPopup");
 const role = document.getElementById("role");
 var modifierUtilisateur = document.getElementById("modifierUtilisateur");
 var val = 0;
+const addUser = document.getElementById("addUser");
+const ajouterUser = document.getElementById("ajouterUser");
+const closeAjouterPopup = document.getElementById("closeAjouterPopup");
 
 buttonSearch.addEventListener("click", function () {
 	const value = inputSearch.value.toLowerCase();
@@ -66,4 +69,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 modifierUtilisateur.addEventListener("click", function () {
 	window.location.reload();
+});
+
+addUser.addEventListener("click", function () {
+	ajouterUser.classList.add("active");
+});
+
+closeAjouterPopup.addEventListener("click", function () {
+	ajouterUser.classList.toggle("active");
 });

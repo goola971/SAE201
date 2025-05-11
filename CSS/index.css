@@ -267,7 +267,8 @@ main .reservation div .searchContainer button img {
 	object-fit: contain;
 }
 
-.modif {
+.modif,
+.ajouterUser {
 	display: none;
 	justify-content: flex-start;
 	align-items: flex-start;
@@ -284,13 +285,17 @@ main .reservation div .searchContainer button img {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	font-family: "Apfel Grotezk", sans-serif;
 }
 
-.modif.active {
+.modif.active,
+.ajouterUser.active {
 	display: flex;
 }
 
-.modif > button {
+.modif > button,
+.ajouterUser > button {
+	cursor: pointer;
 	background-color: transparent;
 	border: none;
 	width: 2vw;
@@ -303,7 +308,8 @@ main .reservation div .searchContainer button img {
 	right: 7vh;
 }
 
-.modif > button img {
+.modif > button img,
+.ajouterUser > button img {
 	width: 100%;
 	height: auto;
 	object-fit: contain;
@@ -396,7 +402,7 @@ main .reservation div .searchContainer button img {
 .modif form .buttonsSubmit button {
 	width: auto;
 	height: 5vh;
-	background-color: red;
+	background-color: #d31b4a;
 	border: none;
 	border-radius: 0.5vw;
 	color: white;
@@ -410,48 +416,6 @@ main .reservation div .searchContainer button img {
 
 #modifierUtilisateur {
 	display: none;
-}
-
-.ajouterUser {
-	display: none;
-	justify-content: flex-start;
-	align-items: flex-start;
-	flex-direction: column;
-	width: 40vw;
-	height: 75vh;
-	padding: 10vh 7vw 5vh 7vw;
-	background-color: white;
-	z-index: 3;
-	border: none;
-	border-radius: 3vw;
-	gap: 2vh;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
-
-.ajouterUser.active {
-	display: flex !important;
-}
-
-.ajouterUser > button {
-	background-color: transparent;
-	border: none;
-	width: 2vw;
-	height: auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	top: 4vh;
-	right: 7vh;
-}
-
-.ajouterUser > button img {
-	width: 100%;
-	height: auto;
-	object-fit: contain;
 }
 
 .ajouterUser h3 {
@@ -529,13 +493,23 @@ main .reservation div .searchContainer button img {
 	font-size: 1vw;
 }
 
-.ajouterUser form .buttonsSubmit {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	flex-direction: row;
+.ajouterUser form .buttonsSubmitContainer {
 	width: 100%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
 	gap: 2vw;
+}
+
+.ajouterUser form .buttonsSubmitContainer .buttonsSubmit {
+	width: auto;
+	height: 5vh;
+	background-color: #d31b4a;
+	border: none;
+	border-radius: 0.5vw;
+	color: white;
+	font-size: 1vw;
+	padding: 0 1vw;
 }
 
 /* responsive */

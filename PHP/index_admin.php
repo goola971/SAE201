@@ -78,7 +78,8 @@
     <div id="modifPopup" class="modif">
         <button id="closeModifPopup"><img src="../res/x.svg" alt=""></button>
         <h3>Modifier l'utilisateur</h3>
-        <p>Information</p>
+        <p>Information <img src="../res/" alt="">
+        </p>
         <form action="" method="POST">
 
 
@@ -149,7 +150,7 @@
                 <input type="email" name="email" id="email" placeholder="Email">
             </div>
             <div class="motDePasse">
-                <label for="motDePasse">Mot de passe</label>
+                <label for="motDePasse">Attribuer un Mot de passe</label>
                 <input type="password" name="motDePasse" id="motDePasse" placeholder="Mot de passe">
             </div>
 
@@ -162,8 +163,8 @@
                     <option value="agent">Agent</option>
                 </select>
             </div>
-            <div class="buttonsSubmit">
-                <button type="submit">Ajouter l'utilisateur</button>
+            <div class="buttonsSubmitContainer">
+                <button type="submit" class="buttonsSubmit">Ajouter l'utilisateur</button>
             </div>
         </form>
     </div>

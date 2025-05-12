@@ -60,9 +60,18 @@ document.addEventListener("DOMContentLoaded", function () {
 		}
 	});
 
+	// recuperation de l'idR qui est dans chaque bloque de l'evenement creer avec le json
+
 	calendar.render();
 	updateCustomHeader();
 	modifyCalendar();
+	const reservation = document.getElementsByClassName("fc-event-main-frame");
+	for (let i = 0; i < reservation.length; i++) {
+		reservation[i].addEventListener("click", function () {
+			const idR = reservation[i].getAttribute("data-idR");
+			console.log(idR);
+		});
+	}
 
 	window.addEventListener("resize", function () {
 		modifyCalendar();

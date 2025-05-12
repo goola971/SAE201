@@ -114,7 +114,7 @@
                 </select>
             </div>
             <div class="buttonsSubmit">
-                <button type="submit">Supprimer l'utilisateur</button>
+                <button type="submit" id="supprimerUtilisateur" name="supprimerUtilisateur">Supprimer l'utilisateur</button>
                 <!-- utilisation de la fonciton changeValable -->
 
                 <!-- <input type="text" name="id2" id="id2" style="display: none;"> -->
@@ -131,7 +131,7 @@
         <button id="closeAjouterPopup"><img src="../res/x.svg" alt=""></button>
         <h3>Ajouter un utilisateur</h3>
         <p>Information</p>
-        <form action="">
+        <form action="../PHPpure/addUser.php" method="POST">
             <div class="name">
                 <input type="text" name="id" id="id" style="display: none;">
                 <div class="nom">
@@ -164,7 +164,7 @@
                 </select>
             </div>
             <div class="buttonsSubmitContainer">
-                <button type="submit" class="buttonsSubmit">Ajouter l'utilisateur</button>
+                <button type="submit" class="buttonsSubmit" name="ajouterUtilisateur">Ajouter l'utilisateur</button>
             </div>
         </form>
     </div>
@@ -203,8 +203,20 @@ function statusUser($id, $pdo)
     }
 }
 
+function supprimerUtilisateur($id, $pdo)
+{
+    $sql = "DELETE FROM user_ WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+}
+
 if (isset($_POST['id']) && isset($_POST['validation'])) {
     changeValable($_POST['id'], $pdo);
+}
+
+if (isset($_POST['id']) && isset($_POST['supprimerUtilisateur'])) {
+    supprimerUtilisateur($_POST['id'], $pdo);
 }
 
 if (isset($_POST['id']) && isset($_POST['modifierUtilisateur'])) {

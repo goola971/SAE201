@@ -24,7 +24,7 @@
 					</a>
 				</li>
 				<li>
-					<a href="" id="materiel">
+					<a href="materiels.php" id="materiel">
 						<img src="../res/materiel.svg" alt="" />
 						Materiels
 					</a>

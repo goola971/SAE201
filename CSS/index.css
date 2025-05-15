@@ -160,15 +160,17 @@ main .reservation div .searchContainer button img {
 .table .body_Table .line {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
-
 	height: 6vh;
 	width: 100%;
 	border-radius: 1vw;
 }
+.table .body_Table .line p:nth-child(1) {
+	margin: auto 0;
+}
 
 .table .body_Table .line p:nth-child(2),
 .table .body_Table .line p:nth-child(3) {
-	margin: 0 auto;
+	margin: auto;
 }
 
 .table .body_Table .line p {
@@ -179,7 +181,7 @@ main .reservation div .searchContainer button img {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-left: auto;
+	margin: auto 0 auto auto;
 	width: 6vw;
 	height: 2.7vw;
 	background-color: transparent;
@@ -265,7 +267,8 @@ main .reservation div .searchContainer button img {
 	object-fit: contain;
 }
 
-.modif {
+.modif,
+.ajouterUser {
 	display: none;
 	justify-content: flex-start;
 	align-items: flex-start;
@@ -282,13 +285,17 @@ main .reservation div .searchContainer button img {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
+	font-family: "Apfel Grotezk", sans-serif;
 }
 
-.modif.active {
+.modif.active,
+.ajouterUser.active {
 	display: flex;
 }
 
-.modif > button {
+.modif > button,
+.ajouterUser > button {
+	cursor: pointer;
 	background-color: transparent;
 	border: none;
 	width: 2vw;
@@ -301,7 +308,8 @@ main .reservation div .searchContainer button img {
 	right: 7vh;
 }
 
-.modif > button img {
+.modif > button img,
+.ajouterUser > button img {
 	width: 100%;
 	height: auto;
 	object-fit: contain;
@@ -394,7 +402,7 @@ main .reservation div .searchContainer button img {
 .modif form .buttonsSubmit button {
 	width: auto;
 	height: 5vh;
-	background-color: red;
+	background-color: #d31b4a;
 	border: none;
 	border-radius: 0.5vw;
 	color: white;
@@ -410,11 +418,105 @@ main .reservation div .searchContainer button img {
 	display: none;
 }
 
+.ajouterUser h3 {
+	font-size: 2vw;
+	font-weight: bold;
+}
+
+.ajouterUser p {
+	font-size: 1vw;
+}
+
+.ajouterUser form {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+	gap: 2vh;
+	width: 100%;
+	height: auto;
+}
+
+.ajouterUser form .name {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 2vw;
+	width: 100%;
+}
+
+.ajouterUser form .name div {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 0.5vw;
+	width: 100%;
+	flex-direction: column;
+}
+
+.ajouterUser form label {
+	font-size: 1vw;
+}
+
+.ajouterUser form input {
+	width: 100%;
+	height: 5vh;
+	border: 1px solid gray;
+	background-color: transparent;
+	font-size: 1vw;
+	color: gray;
+	border-radius: 0.5vw;
+	padding: 0 1vw;
+	font-size: 1vw;
+}
+
+.ajouterUser form .email,
+.ajouterUser form .tel,
+.ajouterUser form .role {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	flex-direction: column;
+	gap: 0.5vw;
+	width: 100%;
+}
+
+.ajouterUser form .role select {
+	width: 100%;
+	height: 5vh;
+	border: 1px solid gray;
+	background-color: transparent;
+	font-size: 1vw;
+	color: gray;
+	border-radius: 0.5vw;
+	padding: 0 1vw;
+	font-size: 1vw;
+}
+
+.ajouterUser form .buttonsSubmitContainer {
+	width: 100%;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	gap: 2vw;
+}
+
+.ajouterUser form .buttonsSubmitContainer .buttonsSubmit {
+	width: auto;
+	height: 5vh;
+	background-color: #d31b4a;
+	border: none;
+	border-radius: 0.5vw;
+	color: white;
+	font-size: 1vw;
+	padding: 0 1vw;
+}
+
 /* responsive */
 
 @media screen and (max-width: 1150px) {
 	main {
-		padding: 3vh 20vw 0 4vw;
+		padding: 10vh 4vw 0 4vw !important;
 	}
 
 	main .top {
@@ -446,7 +548,7 @@ main .reservation div .searchContainer button img {
 	}
 
 	main .reservation div p {
-		font-size: 3vw;
+		font-size: 3vw !important;
 	}
 
 	main .reservation div .searchContainer {
@@ -454,8 +556,8 @@ main .reservation div .searchContainer button img {
 	}
 
 	main .reservation div .searchContainer input {
-		width: 40vw;
-		height: 6vw;
+		width: 30vw !important;
+		height: 6vw !important;
 		font-size: 3vw;
 	}
 
@@ -494,7 +596,7 @@ main .reservation div .searchContainer button img {
 	}
 
 	.table .header_Table p {
-		font-size: 2vw;
+		font-size: 2vw !important;
 	}
 
 	.table .body_Table {
@@ -508,7 +610,7 @@ main .reservation div .searchContainer button img {
 	}
 
 	.table .body_Table .line p {
-		font-size: 2.5vw;
+		font-size: 2vw !important;
 	}
 
 	.table .body_Table .line button {

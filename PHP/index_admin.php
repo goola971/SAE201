@@ -73,12 +73,13 @@
             }
             ?>
         </article>
-        <button class="add"><img src="../res/add.svg" alt="plus"></button>
+        <button class="add" id="addUser"><img src="../res/add.svg" alt="plus"></button>
     </section>
     <div id="modifPopup" class="modif">
         <button id="closeModifPopup"><img src="../res/x.svg" alt=""></button>
         <h3>Modifier l'utilisateur</h3>
-        <p>Information</p>
+        <p>Information <img src="../res/" alt="">
+        </p>
         <form action="" method="POST">
 
 
@@ -113,77 +114,132 @@
                 </select>
             </div>
             <div class="buttonsSubmit">
-                <button type="submit">Supprimer l'utilisateur</button>
+                <button type="submit" id="supprimerUtilisateur" name="supprimerUtilisateur">Supprimer l'utilisateur</button>
                 <!-- utilisation de la fonciton changeValable -->
 
                 <!-- <input type="text" name="id2" id="id2" style="display: none;"> -->
                 <!-- reload la page aprés validation -->
                 <button type="submit" id="validation" name="validation">Valider la connexion</button>
                 <!-- reload la page aprés modification -->
-                <button type="submit" id="modifierUtilisateur" name="modifierUtilisateur">Modifier</button>
-
+                <button type="submit" id="modifierUtilisateur" name="modifierUtilisateur"
+                    onclick="window.location.reload(true);">Modifier
+                </button>
             </div>
         </form>
     </div>
-    <?php
-    require_once('../PHPpure/connexion.php');
+    <div class="ajouterUser" id="ajouterUser">
+        <button id="closeAjouterPopup"><img src="../res/x.svg" alt=""></button>
+        <h3>Ajouter un utilisateur</h3>
+        <p>Information</p>
+        <form action="../PHPpure/addUser.php" method="POST">
+            <div class="name">
+                <input type="text" name="id" id="id" style="display: none;">
+                <div class="nom">
+                    <label for="nom">
+                        Nom
+                    </label>
+                    <input type="text" name="nom" id="nom" placeholder="Nom">
+                </div>
+                <div class="prenom">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" name="prenom" id="prenom" placeholder="Prénom">
+                </div>
+            </div>
+            <div class="email">
+                <label for="email">Attribuer un email</label>
+                <input type="email" name="email" id="email" placeholder="Email">
+            </div>
+            <div class="motDePasse">
+                <label for="motDePasse">Attribuer un Mot de passe</label>
+                <input type="password" name="motDePasse" id="motDePasse" placeholder="Mot de passe">
+            </div>
 
-    // changer valable en 1 
-    function changeValable($id, $pdo)
-    {
-        $sql = "UPDATE user_ SET valable = 1 WHERE id = :id";
-        $stmt = $pdo->prepare($sql);
+            <div class="role">
+                <label for="role">Rôle</label>
+                <select name="role" id="role">
+                    <option value="etudiant">Etudiant</option>
+                    <option value="enseignant">Enseignant</option>
+                    <option value="administrateur">Administrateur</option>
+                    <option value="agent">Agent</option>
+                </select>
+            </div>
+            <div class="buttonsSubmitContainer">
+                <button type="submit" class="buttonsSubmit" name="ajouterUtilisateur">Ajouter l'utilisateur</button>
+            </div>
+        </form>
+    </div>
+
+</section>
+<?php
+require_once('../PHPpure/connexion.php');
+
+// changer valable en 1 
+function changeValable($id, $pdo)
+{
+    $sql = "UPDATE user_ SET valable = 1 WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+}
+
+
+
+function statusUser($id, $pdo)
+{
+    $sql = "SELECT valable FROM user_ WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($result) {
+        if ($result['valable'] == 1) {
+            return getUserRole($id, $pdo);
+        } else {
+            return 'En attente de validation';
+        }
+    } else {
+        return 'Utilisateur introuvable';
+    }
+}
+
+function supprimerUtilisateur($id, $pdo)
+{
+    $sql = "DELETE FROM user_ WHERE id = :id";
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+}
+
+if (isset($_POST['id']) && isset($_POST['validation'])) {
+    changeValable($_POST['id'], $pdo);
+}
+
+if (isset($_POST['id']) && isset($_POST['supprimerUtilisateur'])) {
+    supprimerUtilisateur($_POST['id'], $pdo);
+}
+
+if (isset($_POST['id']) && isset($_POST['modifierUtilisateur'])) {
+    $id = $_POST['id'];
+    $nouveauRole = $_POST['role'];
+
+    $rolebase = getUserRole($id, $pdo);
+    $rolesMap = [
+        'Administrateur' => 'administrateur',
+        'Enseignant(e)' => 'enseignant',
+        'Etudiant(e)' => 'etudiant',
+        'Agent(e)' => 'agent'
+    ];
+
+    if (isset($rolesMap[$rolebase])) {
+        $sql2 = "DELETE FROM $rolesMap[$rolebase] WHERE id = :id";
+        $stmt = $pdo->prepare($sql2);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
     }
-
-
-
-    function statusUser($id, $pdo)
-    {
-        $sql = "SELECT valable FROM user_ WHERE id = :id";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($result) {
-            if ($result['valable'] == 1) {
-                return getUserRole($id, $pdo);
-            } else {
-                return 'En attente de validation';
-            }
-        } else {
-            return 'Utilisateur introuvable';
-        }
-    }
-
-    if (isset($_POST['id']) && isset($_POST['validation'])) {
-        changeValable($_POST['id'], $pdo);
-    }
-
-    if (isset($_POST['id']) && isset($_POST['modifierUtilisateur'])) {
-        $id = $_POST['id'];
-        $nouveauRole = $_POST['role'];
-
-        $rolebase = getUserRole($id, $pdo);
-        $rolesMap = [
-            'Administrateur' => 'administrateur',
-            'Enseignant(e)' => 'enseignant',
-            'Etudiant(e)' => 'etudiant',
-            'Agent(e)' => 'agent'
-        ];
-
-        if (isset($rolesMap[$rolebase])) {
-            $sql2 = "DELETE FROM $rolesMap[$rolebase] WHERE id = :id";
-            $stmt = $pdo->prepare($sql2);
-            $stmt->bindParam(':id', $id);
-            $stmt->execute();
-        }
-        $sqlInsert = "INSERT INTO $nouveauRole (id) VALUES (:id)";
-        $stmt = $pdo->prepare($sqlInsert);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-    }
-    ?>
-</section>
+    $sqlInsert = "INSERT INTO $nouveauRole (id) VALUES (:id)";
+    $stmt = $pdo->prepare($sqlInsert);
+    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+}
+?>

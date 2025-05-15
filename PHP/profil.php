@@ -36,7 +36,8 @@
                         ?>" alt="">
                     <img class="edit" src="../res/Edit_Pencil_02.svg" alt="">
                 </div>
-                <form id="uploadForm" class="uploadForm" action="../PHPpure/upload_profile_pic.php" method="post" enctype="multipart/form-data">
+                <form id="uploadForm" class="uploadForm" action="../PHPpure/upload_profile_pic.php" method="post"
+                    enctype="multipart/form-data">
                     <div class="upload-box" id="dropZone">
                         <img src="../res/+.svg" alt="" class="upload-icon">
                         <input type="file" name="avatar" id="fileInput" accept="image/*" style="display: none;">
@@ -65,7 +66,7 @@
             </div>
             <div>
                 <label for="tel">Téléphone</label>
-                <input type="tel" id="tel" name="tel" value="<?php echo $_SESSION['user']['tel'] ?>">
+                <input type="tel" id="tel" name="tel" value="<?php echo $_SESSION['user']['telephone'] ?>">
             </div>
             <form action="" method="post">
                 <h1>Mot de passe</h1>

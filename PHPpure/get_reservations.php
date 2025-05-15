@@ -29,6 +29,7 @@ if ($role !== 'Administrateur') {
     $placeholders = implode(',', array_fill(0, count($reservationIds), '?'));
     $sql = "
         SELECT 
+            r.idR,
             r.date_debut AS start,
             r.date_fin AS end,
             m.designation AS title,
@@ -47,6 +48,7 @@ if ($role !== 'Administrateur') {
     // admin : récupère tout
     $sql = "
         SELECT 
+            r.idR,
             r.date_debut AS start,
             r.date_fin AS end,
             m.designation AS title,
@@ -69,6 +71,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
     if (!isset($events[$key])) {
         $events[$key] = [
+            'idR' => $row['idR'],
             'title' => $row['title'],
             'start' => $row['start'],
             'end' => $row['end'],

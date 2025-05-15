@@ -27,7 +27,7 @@
         <div id="imageContainer1" style="margin-bottom: 20px;">
             <img id="imageToClick1" src="../IMG/image.png" alt="Salle 138" style="width: 60%; cursor: pointer;">
             <h3>Réservation de la salle 138</h3>
-            <a href="reservation_salle.php?salle=138">
+            <a href="reservation_salle138.php?salle=138">
                 <button
                     style="background-color: #c44e63; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
                     Réserver
@@ -39,7 +39,7 @@
         <div id="imageContainer2">
             <img id="imageToClick2" src="../IMG/image2.jpg" alt="Salle 212" style="width: 60%; cursor: pointer;">
             <h3>Réservation de la salle 212</h3>
-            <a href="reservation_salle.php?salle=212">
+            <a href="reservation_salle212.php">
                 <button
                     style="background-color: #c44e63; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
                     Réserver

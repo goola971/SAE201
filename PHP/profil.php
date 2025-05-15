@@ -50,7 +50,7 @@
             <hr>
             <div class="details">
                 <p>Détails <img src="../res/edition.svg" alt=""></p>
-                <div class="nomPrenom">
+                <form class="nomPrenom" action="">
                     <div>
                         <label for="nom">Nom</label>
                         <input type="text" id="nom" name="nom" value="<?php echo $_SESSION['user']['nom'] ?>">
@@ -59,15 +59,18 @@
                         <label for="prenom">Prrenom</label>
                         <input type="text" id="prenom" name="prenom" value="<?php echo $_SESSION['user']['prenom'] ?>">
                     </div>
-                </div>
-                <div></div>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" value="<?php echo $_SESSION['user']['email'] ?>">
+                    <button type="submit">Modifier</button>
+                </form>
+                <form class="email" action="">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="<?php echo $_SESSION['user']['email'] ?>">
+                    <button type="submit">Modifier</button>
+                </form>
             </div>
-            <div>
+            <form class="tel" action="">
                 <label for="tel">Téléphone</label>
                 <input type="tel" id="tel" name="tel" value="<?php echo $_SESSION['user']['telephone'] ?>">
-            </div>
+            </form>
             <form action="" method="post">
                 <h1>Mot de passe</h1>
                 <p>Modifier qon mot de passe</p>

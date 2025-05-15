@@ -23,14 +23,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user) {
         // comparer le mot de passe (ici comparaison directe, mais à sécuriser avec password_verify si besoin)
         if ($mdp === $user['mot_de_passe']) {
+            if ($user['valable'] == 1) {
+                die('Votre compte n\'est pas encore activé par un administrateur ou un enseignant veuillez patienter ou contacter un administrateur.');
+            }
             // récupérer le rôle (si besoin, on peut aussi tester s'il est dans agent / admin / enseignant)
             $role = 'Etudiant(e)';
 
-            // vérifier dans les autres tables si un rôle existe
+            // recuperer l'id
             $id = $user['id'];
-            if (checkRole($pdo, 'administrateur', $id)) $role = 'Administrateur';
-            elseif (checkRole($pdo, 'agent', $id)) $role = 'Agent';
-            elseif (checkRole($pdo, 'enseignant', $id)) $role = 'Enseignant';
+            // recuperer le rôle
+            $role = getUserRole($id, $pdo);
 
             // stocker les infos dans la session
             $_SESSION['user'] = [
@@ -44,6 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'session_token' => bin2hex(random_bytes(32))
             ];
 
+            if (isset($_POST['rememberMe']) && $_POST['rememberMe'] == 'on') {
+                $_SESSION['user']['rememberMe'] = true;
+            } else {
+                $_SESSION['user']['rememberMe'] = false;
+            }
+
             // redirection
             header('Location: ../PHP/index.php');
             exit();
@@ -53,13 +61,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         die('Aucun utilisateur trouvé avec ce pseudo.');
     }
-}
-
-// fonction pour vérifier si un id existe dans une table (admin, agent, enseignant)
-function checkRole($pdo, $table, $id)
-{
-    $stmt = $pdo->prepare("SELECT id FROM $table WHERE id = :id");
-    $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-    $stmt->execute();
-    return $stmt->fetch(PDO::FETCH_ASSOC) !== false;
 }

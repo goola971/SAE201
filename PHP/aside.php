@@ -12,7 +12,15 @@
 				<li>
 					<a href="reservation.php" id="reservation">
 						<img src="../res/reservation.svg" alt="" />
-						Mes réservations
+						<?php
+						if (isset($_SESSION['user']['role'])) {
+							if ($_SESSION['user']['role'] == 'Etudiant(e)') {
+								echo 'Mes reservations';
+							} else {
+								echo 'Reservations';
+							}
+						}
+						?>
 					</a>
 				</li>
 				<li>

@@ -41,6 +41,13 @@
             color: white;
             border-radius: 6px;
         }
+        .signature-box canvas {
+    border: 1px dashed #ccc;
+    background: #f9f9f9;
+    border-radius: 10px;
+    cursor: crosshair;
+}
+
     </style>
 </head>
 <body>
@@ -95,18 +102,70 @@
             <div class="signature-section">
                 <h3>Je signe</h3>
                 <div class="signature-box">
-                    <img src="../images/signature.png" alt="Signature">
-                </div>
+    <canvas id="signature-canvas" width="300" height="100"></canvas>
+</div>
+<button class="clear-signature" onclick="clearCanvas()">Effacer</button>
+<input type="hidden" name="signature" id="signature-data">
+
                 <label>
                     <input type="checkbox">
                     En cas de perte, de détérioration ou d'utilisation non autorisée, je m'engage à en assumer les conséquences.
                 </label>
-                <button class="clear-signature">Clear</button>
             </div>
 
             <button class="submit-button">Soumettre</button>
         </div>
     </section>
+    <script>
+    const canvas = document.getElementById("signature-canvas");
+    const ctx = canvas.getContext("2d");
+    const signatureDataInput = document.getElementById("signature-data");
+    let drawing = false;
+
+    function startDraw(e) {
+        drawing = true;
+        ctx.beginPath();
+        ctx.moveTo(getX(e), getY(e));
+    }
+
+    function draw(e) {
+        if (!drawing) return;
+        ctx.lineTo(getX(e), getY(e));
+        ctx.strokeStyle = "#000";
+        ctx.lineWidth = 2;
+        ctx.stroke();
+    }
+
+    function endDraw() {
+        drawing = false;
+        signatureDataInput.value = canvas.toDataURL(); // Base64 image
+    }
+
+    function getX(e) {
+        return e.clientX ? e.clientX - canvas.getBoundingClientRect().left : e.touches[0].clientX - canvas.getBoundingClientRect().left;
+    }
+
+    function getY(e) {
+        return e.clientY ? e.clientY - canvas.getBoundingClientRect().top : e.touches[0].clientY - canvas.getBoundingClientRect().top;
+    }
+
+    function clearCanvas() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        signatureDataInput.value = "";
+    }
+
+    // Souris
+    canvas.addEventListener("mousedown", startDraw);
+    canvas.addEventListener("mousemove", draw);
+    canvas.addEventListener("mouseup", endDraw);
+    canvas.addEventListener("mouseout", endDraw);
+
+    // Tactile
+    canvas.addEventListener("touchstart", startDraw);
+    canvas.addEventListener("touchmove", draw);
+    canvas.addEventListener("touchend", endDraw);
+</script>
+
 
     <!-- Script calendrier -->
     <script>

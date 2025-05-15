@@ -114,7 +114,10 @@
                         <?php 
                             require_once("../PHPpure/connexion.php");
                             // recuperer l'id de l'utilisateur connecté
+
                             $id_utilisateur = $_SESSION["user"]["id"];
+                            // trouver role de l'utilisateur
+                            if($_SESSION["user"]["role"] == "etudiant"){
                             // requete pour recuperer les informations de l'utilisateur avec pdo
                             $requete = $pdo->prepare("SELECT * FROM user_ WHERE id = ?");
                             $requete->execute([$id_utilisateur]);
@@ -123,8 +126,7 @@
                             // recuperer l'avatar de l'utilisateur
                             $avatar = $utilisateur["avatar"];
                             echo "<img src='$avatar' class='avatar'>";
-
-
+                        }
                         ?>
 
                         <button class="add-avatar">+</button>
@@ -133,9 +135,9 @@
 
                 <div class="signature-section">
                     <h3>Je signe</h3>
-                    <div class="signature-box">
-                        <canvas id="signature-canvas" width="300" height="100"></canvas>
-                    </div>
+                    <!-- <div > -->
+                    <canvas class="signature-box" id="signature-canvas"></canvas>
+                    <!-- </div> -->
                     <button class="clear-signature" onclick="clearCanvas()">Effacer</button>
                     <input type="hidden" name="signature" id="signature-data">
 

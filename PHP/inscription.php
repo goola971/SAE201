@@ -17,10 +17,11 @@
 <body>
     <main>
         <section>
-            <div class="progress fixed-bottom" style="height: 10px;">
-                <div class="progress-bar" role="progressbar" style="width: 25%; background-color:#E47390;"></div>
-            </div>
+
             <div class="formContainer">
+                <div class="progress fixed-bottom" style="height: 10px;">
+                    <div class="progress-bar" role="progressbar" style="width: 25%; background-color:#E47390;"></div>
+                </div>
                 <h1>Créez votre compte</h1>
                 <form action="../PHPpure/inscriptionUser.php" method="POST" id="inscriptionForm">
                     <!-- Première étape -->

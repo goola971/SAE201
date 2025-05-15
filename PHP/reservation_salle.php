@@ -14,7 +14,7 @@
     <title>Réservation VR</title>
 </head>
 <body>
-    <h1>Réservation</h1>
+    <h1>Réservation </h1>
 
 	<?php
     include("header.php");

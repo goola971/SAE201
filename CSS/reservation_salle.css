@@ -156,6 +156,12 @@ main.reservation-container {
 	margin-bottom: 0.5rem;
 }
 
+#signature-canvas {
+	border: 1px dashed #ccc;
+	border-radius: 10px;
+	background-color: #f9f9f9;
+}
+
 .signature-box img {
 	max-height: 80px;
 }

@@ -135,8 +135,8 @@
 
                 <div class="signature-section">
                     <h3>Je signe</h3>
-                    <!-- <div > -->
-                    <canvas class="signature-box" id="signature-canvas"></canvas>
+                    <!-- <div class="signature-box"> -->
+                    <canvas id="signature-canvas" width="630" height="100"></canvas>
                     <!-- </div> -->
                     <button class="clear-signature" onclick="clearCanvas()">Effacer</button>
                     <input type="hidden" name="signature" id="signature-data">

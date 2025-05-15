@@ -109,19 +109,22 @@
                 <div class="who">
                     <h3>Qui réserve ?</h3>
                     <div class="avatars">
-                        <img src="../images/avatar1.jpg" class="avatar">
-                        <img src="../images/avatar2.jpg" class="avatar">
+                        <!-- <img src="../images/avatar1.jpg" class="avatar">
+                        <img src="../images/avatar2.jpg" class="avatar"> -->
                         <?php 
                             require_once("../PHPpure/connexion.php");
                             // recuperer l'id de l'utilisateur connecté
-                            $id_utilisateur = $_SESSION["id_utilisateur"];
+                            $id_utilisateur = $_SESSION["user"]["id"];
                             // requete pour recuperer les informations de l'utilisateur avec pdo
-                            $requete = $bdd->prepare("SELECT * FROM utilisateur WHERE id = ?");
+                            $requete = $pdo->prepare("SELECT * FROM user_ WHERE id = ?");
                             $requete->execute([$id_utilisateur]);
                             $utilisateur = $requete->fetch();
+
                             // recuperer l'avatar de l'utilisateur
                             $avatar = $utilisateur["avatar"];
                             echo "<img src='$avatar' class='avatar'>";
+
+
                         ?>
 
                         <button class="add-avatar">+</button>

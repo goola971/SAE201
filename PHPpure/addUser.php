@@ -56,9 +56,9 @@ if (isset($_POST['ajouterUtilisateur'])) {
         $lastInsertId = $pdo->lastInsertId();
 
         // Insertion dans la table de rôle
-        $sql2 = "INSERT INTO $role (id) VALUES (:id)";
-        $stmt2 = $pdo->prepare($sql2);
-        $stmt2->execute([
+        $sql3 = "INSERT INTO $role (id) VALUES (:id)";
+        $stmt3 = $pdo->prepare($sql3);
+        $stmt3->execute([
             'id' => $lastInsertId
         ]);
 

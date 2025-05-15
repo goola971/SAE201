@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user) {
         // comparer le mot de passe (ici comparaison directe, mais à sécuriser avec password_verify si besoin)
         if ($mdp === $user['mot_de_passe']) {
-            if ($user['valable'] == 1) {
+            if ($user['valable'] == 0) {
                 die('Votre compte n\'est pas encore activé par un administrateur ou un enseignant veuillez patienter ou contacter un administrateur.');
             }
             // récupérer le rôle (si besoin, on peut aussi tester s'il est dans agent / admin / enseignant)

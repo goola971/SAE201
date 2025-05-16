@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		headerToolbar: {
 			left: "prev,next",
 			center: "title",
-			right: "dayGridMonth,dayGridWeek,dayGridDay",
+			right: "dayGridMonth,dayGridWeek,dayGridDay"
 		},
 		events: "http://localhost/SAE201/PHPpure/get_reservations.php",
 
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 				container.style.position = "relative";
 				container.appendChild(avatarWrapper);
 			}
-		},
+		}
 	});
 
 	// recuperation de l'idR qui est dans chaque bloque de l'evenement creer avec le json
@@ -65,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	calendar.render();
 	updateCustomHeader();
 	modifyCalendar();
+
 	const reservation = document.getElementsByClassName("fc-event-main-frame");
 	for (let i = 0; i < reservation.length; i++) {
 		reservation[i].addEventListener("click", function () {

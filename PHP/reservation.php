@@ -19,9 +19,9 @@ include("../PHPpure/entete.php");
 <body>
     <!-- width 100%-->
     <?php
-	include("header.php");
-	include("aside.php");
-	?>
+    include("header.php");
+    include("aside.php");
+    ?>
     <main>
         <section class="calendarHeader">
             <article class="left">
@@ -47,6 +47,7 @@ include("../PHPpure/entete.php");
             </div>
             <div class="calendar" id="calendar"></div>
         </div>
+
     </main>
 
     <!-- JS -->

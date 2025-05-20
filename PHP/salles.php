@@ -27,7 +27,7 @@
         <div id="imageContainer1" style="margin-bottom: 20px;">
             <img id="imageToClick1" src="../IMG/image.png" alt="Salle 138" style="width: 60%; cursor: pointer;">
             <h3>Réservation de la salle 138</h3>
-            <a href="reservation_salle138.php?salle=138">
+            <a href="reservation_salle.php?salle=138">
                 <button
                     style="background-color: #c44e63; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
                     Réserver
@@ -39,7 +39,7 @@
         <div id="imageContainer2">
             <img id="imageToClick2" src="../IMG/image2.jpg" alt="Salle 212" style="width: 60%; cursor: pointer;">
             <h3>Réservation de la salle 212</h3>
-            <a href="reservation_salle212.php">
+            <a href="reservation_salle.php?salle=212">
                 <button
                     style="background-color: #c44e63; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
                     Réserver
@@ -73,36 +73,36 @@
     <script src="../JS/sideBarre.js"></script>
 
     <script>
-        const vrContainer = document.getElementById('vrContainer');
-        const sky = document.getElementById('sky');
-        const backButton = document.getElementById('backButton');
+    const vrContainer = document.getElementById('vrContainer');
+    const sky = document.getElementById('sky');
+    const backButton = document.getElementById('backButton');
 
-        function showVR(imageSrc) {
-            document.getElementById('imageContainer1').style.display = 'none';
-            document.getElementById('imageContainer2').style.display = 'none';
-            sky.setAttribute('src', imageSrc);
-            vrContainer.style.display = 'block';
-            backButton.style.display = 'block';
-            document.body.style.overflow = 'auto';
-        }
+    function showVR(imageSrc) {
+        document.getElementById('imageContainer1').style.display = 'none';
+        document.getElementById('imageContainer2').style.display = 'none';
+        sky.setAttribute('src', imageSrc);
+        vrContainer.style.display = 'block';
+        backButton.style.display = 'block';
+        document.body.style.overflow = 'auto';
+    }
 
-        function exitVR() {
-            vrContainer.style.display = 'none';
-            document.getElementById('imageContainer1').style.display = 'block';
-            document.getElementById('imageContainer2').style.display = 'block';
-            backButton.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+    function exitVR() {
+        vrContainer.style.display = 'none';
+        document.getElementById('imageContainer1').style.display = 'block';
+        document.getElementById('imageContainer2').style.display = 'block';
+        backButton.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
 
-        document.getElementById('imageToClick1').addEventListener('click', function () {
-            showVR('../IMG/image.png');
-        });
+    document.getElementById('imageToClick1').addEventListener('click', function() {
+        showVR('../IMG/image.png');
+    });
 
-        document.getElementById('imageToClick2').addEventListener('click', function () {
-            showVR('../IMG/image2.jpg');
-        });
+    document.getElementById('imageToClick2').addEventListener('click', function() {
+        showVR('../IMG/image2.jpg');
+    });
 
-        backButton.addEventListener('click', exitVR);
+    backButton.addEventListener('click', exitVR);
     </script>
 </body>
 

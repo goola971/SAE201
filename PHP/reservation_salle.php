@@ -97,7 +97,7 @@
             <section class="reservation-content">
                 <!-- Colonne de gauche : caméra -->
                 <div class="equipment">
-                    <img src="../IMG/image.png" alt="" id="salle-image">
+                    <img src="https://glistening-sunburst-222dae.netlify.app/salle/salle138.png" alt="" id="salle-image">
                     <h2 id="salle-title">Salle 138</h2>
 
                     <label for="horaire">Choisir un créneau horaire</label>
@@ -190,7 +190,7 @@
             });
             salleInput.value = salle;
             salleTitle.textContent = `Salle ${salle}`;
-            salleImage.src = salle === '138' ? '../IMG/image.png' : '../IMG/image2.jpg';
+            salleImage.src = salle === '138' ? 'https://glistening-sunburst-222dae.netlify.app/salle/salle138.png' : 'https://glistening-sunburst-222dae.netlify.app/salle/salle212.png';
         }
 
         // Gestion des clics sur les boutons

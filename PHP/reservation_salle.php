@@ -1,6 +1,7 @@
 <?php include("../PHPpure/entete.php"); ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Réservation de salle</title>
@@ -110,9 +111,9 @@
                 <div class="reservation-details">
                     <div class="calendar">
                         <header>
-                            <button onclick="changeMonth(-1)">❮</button>
+                            <button onclick="changeMonth(-1)" type="button">❮</button>
                             <span id="month-year"></span>
-                            <button onclick="changeMonth(1)">❯</button>
+                            <button onclick="changeMonth(1)" type="button">❯</button>
                         </header>
                         <table>
                             <thead>
@@ -145,7 +146,12 @@
                                 echo "<img src='$avatar' class='avatar' name='id'>";
                             }
                             ?>
+                            <!-- liste qui va contenir les id des utilisateurs -->
+
                             <button class="add-avatar" type="button">+</button>
+                        </div>
+                        <div class="who-list-user active">
+
                         </div>
                     </div>
 
@@ -207,4 +213,5 @@
         }
     </script>
 </body>
-</html> 
+
+</html>

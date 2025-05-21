@@ -12,69 +12,7 @@
     <link rel="stylesheet" href="../CSS/header.css">
     <link rel="stylesheet" href="../CSS/reservation_salle.css">
     <style>
-        .calendar {
-            background: #fdecee;
-            padding: 1rem;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
 
-        .calendar header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .calendar table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .calendar th,
-        .calendar td {
-            padding: 8px;
-            cursor: pointer;
-        }
-
-        .calendar td:hover {
-            background: #f0cbd1;
-        }
-
-        .calendar td.selected {
-            background: #e4587d;
-            color: white;
-            border-radius: 6px;
-        }
-
-        .signature-box canvas {
-            border: 1px dashed #ccc;
-            background: #f9f9f9;
-            border-radius: 10px;
-            cursor: crosshair;
-        }
-
-        .salle-selector {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .salle-selector button {
-            padding: 10px 20px;
-            margin: 0 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #f0cbd1;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .salle-selector button.active {
-            background-color: #e4587d;
-            color: white;
-        }
     </style>
 </head>
 

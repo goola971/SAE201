@@ -1,6 +1,7 @@
 <?php include("../PHPpure/entete.php"); ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <title>Réservation de salle</title>
@@ -11,69 +12,7 @@
     <link rel="stylesheet" href="../CSS/header.css">
     <link rel="stylesheet" href="../CSS/reservation_salle.css">
     <style>
-        .calendar {
-            background: #fdecee;
-            padding: 1rem;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
 
-        .calendar header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-
-        .calendar table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .calendar th,
-        .calendar td {
-            padding: 8px;
-            cursor: pointer;
-        }
-
-        .calendar td:hover {
-            background: #f0cbd1;
-        }
-
-        .calendar td.selected {
-            background: #e4587d;
-            color: white;
-            border-radius: 6px;
-        }
-
-        .signature-box canvas {
-            border: 1px dashed #ccc;
-            background: #f9f9f9;
-            border-radius: 10px;
-            cursor: crosshair;
-        }
-
-        .salle-selector {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .salle-selector button {
-            padding: 10px 20px;
-            margin: 0 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #f0cbd1;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .salle-selector button.active {
-            background-color: #e4587d;
-            color: white;
-        }
     </style>
 </head>
 
@@ -96,7 +35,7 @@
             <section class="reservation-content">
                 <!-- Colonne de gauche : caméra -->
                 <div class="equipment">
-                    <img src="../IMG/image.png" alt="" id="salle-image">
+                    <img src="https://glistening-sunburst-222dae.netlify.app/salle/salle138.png" alt="" id="salle-image">
                     <h2 id="salle-title">Salle 138</h2>
 
                     <label for="horaire">Choisir un créneau horaire</label>
@@ -110,9 +49,9 @@
                 <div class="reservation-details">
                     <div class="calendar">
                         <header>
-                            <button onclick="changeMonth(-1)">❮</button>
+                            <button onclick="changeMonth(-1)" type="button">❮</button>
                             <span id="month-year"></span>
-                            <button onclick="changeMonth(1)">❯</button>
+                            <button onclick="changeMonth(1)" type="button">❯</button>
                         </header>
                         <table>
                             <thead>
@@ -145,7 +84,12 @@
                                 echo "<img src='$avatar' class='avatar' name='id'>";
                             }
                             ?>
+                            <!-- liste qui va contenir les id des utilisateurs -->
+
                             <button class="add-avatar" type="button">+</button>
+                        </div>
+                        <div class="who-list-user active">
+
                         </div>
                     </div>
 
@@ -184,7 +128,7 @@
             });
             salleInput.value = salle;
             salleTitle.textContent = `Salle ${salle}`;
-            salleImage.src = salle === '138' ? '../IMG/image.png' : '../IMG/image2.jpg';
+            salleImage.src = salle === '138' ? 'https://glistening-sunburst-222dae.netlify.app/salle/salle138.png' : 'https://glistening-sunburst-222dae.netlify.app/salle/salle212.png';
         }
 
         // Gestion des clics sur les boutons
@@ -207,4 +151,5 @@
         }
     </script>
 </body>
-</html> 
+
+</html>

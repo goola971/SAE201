@@ -18,6 +18,7 @@
         </div>
     </div>
     <section class="table">
+        <!-- utilisateion de bootstrap -->
         <article class="header_Table">
             <p>type de reservation</p>
             <p>Date de la réservation</p>

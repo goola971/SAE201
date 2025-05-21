@@ -144,12 +144,15 @@ main.reservation-container {
 
 .calendar button {
 	background-color: #cc617d;
-	border: 0.5vw solid #e4587d;
+	border: none;
 	color: white;
 	border-radius: 50%;
 	width: 30px;
 	height: 30px;
 	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /* Qui réserve */
@@ -246,4 +249,28 @@ main.reservation-container {
 
 .submit-button:hover {
 	background-color: #cc3e65;
+}
+
+.who-list-user {
+	display: none;
+	align-items: start;
+	flex-direction: column;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 35%;
+	height: 55%;
+	filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+	background-color: #ffffff;
+	border-radius: 2vw;
+	padding: 4vh 2vw;
+}
+
+.who-list-user.active {
+	display: flex;
+}
+
+.who-list-user .close-user-list {
+	margin: 0 0 0 auto;
 }

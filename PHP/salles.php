@@ -7,6 +7,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="../CSS/style.css" />
     <link rel="stylesheet" href="../CSS/salles.css" />
     <link rel="stylesheet" href="../CSS/header.css" />
@@ -73,36 +75,36 @@
     <script src="../JS/sideBarre.js"></script>
 
     <script>
-    const vrContainer = document.getElementById('vrContainer');
-    const sky = document.getElementById('sky');
-    const backButton = document.getElementById('backButton');
+        const vrContainer = document.getElementById('vrContainer');
+        const sky = document.getElementById('sky');
+        const backButton = document.getElementById('backButton');
 
-    function showVR(imageSrc) {
-        document.getElementById('imageContainer1').style.display = 'none';
-        document.getElementById('imageContainer2').style.display = 'none';
-        sky.setAttribute('src', imageSrc);
-        vrContainer.style.display = 'block';
-        backButton.style.display = 'block';
-        document.body.style.overflow = 'auto';
-    }
+        function showVR(imageSrc) {
+            document.getElementById('imageContainer1').style.display = 'none';
+            document.getElementById('imageContainer2').style.display = 'none';
+            sky.setAttribute('src', imageSrc);
+            vrContainer.style.display = 'block';
+            backButton.style.display = 'block';
+            document.body.style.overflow = 'auto';
+        }
 
-    function exitVR() {
-        vrContainer.style.display = 'none';
-        document.getElementById('imageContainer1').style.display = 'block';
-        document.getElementById('imageContainer2').style.display = 'block';
-        backButton.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
+        function exitVR() {
+            vrContainer.style.display = 'none';
+            document.getElementById('imageContainer1').style.display = 'block';
+            document.getElementById('imageContainer2').style.display = 'block';
+            backButton.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
 
-    document.getElementById('imageToClick1').addEventListener('click', function() {
-        showVR('../IMG/image.png');
-    });
+        document.getElementById('imageToClick1').addEventListener('click', function() {
+            showVR('../IMG/image.png');
+        });
 
-    document.getElementById('imageToClick2').addEventListener('click', function() {
-        showVR('../IMG/image2.jpg');
-    });
+        document.getElementById('imageToClick2').addEventListener('click', function() {
+            showVR('../IMG/image2.jpg');
+        });
 
-    backButton.addEventListener('click', exitVR);
+        backButton.addEventListener('click', exitVR);
     </script>
 </body>
 

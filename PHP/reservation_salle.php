@@ -7,6 +7,8 @@
     <title>Réservation de salle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- bootstrap  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <!-- Styles -->
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/header.css">
@@ -85,9 +87,61 @@
 
                             <button class="add-avatar" type="button">+</button>
                         </div>
-                        <div class="who-list-user active">
-
-                        </div>
+                        <sections class="who-list-user active">
+                            <img src="../res/x.svg" alt="" class="close-user-list">
+                            <h3>Chercher un étudiant</h3>
+                            <div class="search-container">
+                                <input type="text" name="search" id="search" placeholder="Rechercher un étudiant">
+                                <button type="button" class="search-button">
+                                    <img src="../res/search.svg" alt="">
+                                </button>
+                            </div>
+                            <!-- bootstrap -->
+                            <article class="row d-flex justify-content-center align-items-center ">
+                                <div class="who-list-user-item col-12 d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <!-- felx-direction Colonne -->
+                                        <div class="d-flex justify-content-between align-items-center flex-column">
+                                            <img src="../IMG/jinx.png" alt="">
+                                            <div class="d-flex justify-content-between align-items-center flex-column">
+                                                <p>John Doe</p>
+                                                <p>MMI - 1</p>
+                                            </div>
+                                        </div>
+                                        <p>TD - 2</p>
+                                    </div>
+                                    <button type="button" class="add-avatar">ajouter</button>
+                                </div>
+                                <div class="who-list-user-item col-12 d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <!-- felx-direction Colonne -->
+                                        <div class="d-flex justify-content-between align-items-center flex-column">
+                                            <img src="../IMG/jinx.png" alt="">
+                                            <div class="d-flex justify-content-between align-items-center flex-column">
+                                                <p>John Doe</p>
+                                                <p>MMI - 1</p>
+                                            </div>
+                                        </div>
+                                        <p>TD - 2</p>
+                                    </div>
+                                    <button type="button" class="add-avatar">ajouter</button>
+                                </div>
+                                <div class="who-list-user-item col-12 d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <!-- felx-direction Colonne -->
+                                        <div class="d-flex justify-content-between align-items-center flex-column">
+                                            <img src="../IMG/jinx.png" alt="">
+                                            <div class="d-flex justify-content-between align-items-center flex-column">
+                                                <p>John Doe</p>
+                                                <p>MMI - 1</p>
+                                            </div>
+                                        </div>
+                                        <p>TD - 2</p>
+                                    </div>
+                                    <button type="button" class="add-avatar">ajouter</button>
+                                </div>
+                            </article>
+                        </sections>
                     </div>
 
                     <div class="signature-section">

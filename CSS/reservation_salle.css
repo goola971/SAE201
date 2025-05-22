@@ -185,6 +185,9 @@ main.reservation-container {
 	background-color: #fbeaec;
 	color: #e4587d;
 	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /* Signature */
@@ -266,6 +269,7 @@ main.reservation-container {
 	border-radius: 2vw;
 	padding: 4vh 2vw;
 	gap: 1vh;
+	z-index: 5;
 }
 
 .who-list-user.active {
@@ -341,4 +345,8 @@ main.reservation-container {
 	border: 0.15vw solid #e4587d;
 	color: #e4587d;
 	cursor: pointer;
+}
+
+.who-list-user-container {
+	flex-direction: column;
 }

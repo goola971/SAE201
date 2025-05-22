@@ -100,10 +100,10 @@
                             <!-- bootstrap -->
                             <article class="row d-flex justify-content-center align-items-center ">
                                 <div
-                                    class="who-list-user-item col-12 d-flex justify-content-between align-items-center">
+                                    class="who-list-user-item col-12 d-flex justify-content-between align-items-center gap-2">
                                     <div class="d-flex justify-content-between align-items-center w-100">
                                         <!-- felx-direction Colonne -->
-                                        <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex justify-content-between align-items-center gap-2">
                                             <img src="../IMG/jinx.png" alt="" class="avatarAjouterEtudiant">
                                             <div
                                                 class="etudiantInfo d-flex justify-content-end align-items-start flex-column  ">
@@ -116,10 +116,10 @@
                                     <button type="button" class="ajouterUserButton">ajouter</button>
                                 </div>
                                 <div
-                                    class="who-list-user-item col-12 d-flex justify-content-between align-items-center">
+                                    class="who-list-user-item col-12 d-flex justify-content-between align-items-center gap-2">
                                     <div class="d-flex justify-content-between align-items-center w-100">
                                         <!-- felx-direction Colonne -->
-                                        <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex justify-content-between align-items-center gap-2">
                                             <img src="../IMG/jinx.png" alt="" class="avatarAjouterEtudiant">
                                             <div
                                                 class="etudiantInfo d-flex justify-content-end align-items-start flex-column">
@@ -132,10 +132,10 @@
                                     <button type="button" class="ajouterUserButton">ajouter</button>
                                 </div>
                                 <div
-                                    class="who-list-user-item col-12 d-flex justify-content-between align-items-center">
-                                    <div class="d-flex justify-content-between align-items-center w-100">
+                                    class="who-list-user-item col-12 d-flex justify-content-between align-items-center gap-2">
+                                    <div class="d-flex justify-content-between align-items-center w-100 ">
                                         <!-- felx-direction Colonne -->
-                                        <div class="d-flex justify-content-between align-items-center">
+                                        <div class="d-flex justify-content-between align-items-center gap-2">
                                             <img src="../IMG/jinx.png" alt="" class="avatarAjouterEtudiant">
                                             <div
                                                 class="etudiantInfo d-flex justify-content-end align-items-start flex-column">
@@ -148,6 +148,15 @@
                                     <button type="button" class="ajouterUserButton">ajouter</button>
                                 </div>
                             </article>
+                            <!-- en php -->
+                            <?php
+                                require_once("../PHPpure/connexion.php");
+                                $requete = $pdo->prepare("SELECT * FROM user_ WHERE id = ?");
+                                $requete->execute([$id_utilisateur]);
+                                $utilisateur = $requete->fetch();
+                                $avatar = $utilisateur["avatar"];
+                                echo "<img src='$avatar' class='avatar' name='id'>";
+                            ?>
                         </sections>
                     </div>
 

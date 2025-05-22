@@ -333,11 +333,12 @@ main.reservation-container {
 	font-size: 1vw;
 }
 
-.add-avatar {
-	width: 4vw;
-	height: 4vw;
-	border-radius: 50%;
-	background-color: #fbeaec;
+.ajouterUserButton {
+	width: 6vw;
+	height: 3vw;
+	border-radius: 0.5vw;
+	background-color: white;
+	border: 0.15vw solid #e4587d;
 	color: #e4587d;
 	cursor: pointer;
 }

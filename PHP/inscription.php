@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="inscription.css">
-    <link rel="stylesheet" href="header.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/change.css">
+    <link rel="stylesheet" href="../CSS/header.css">
     <title>Inscription</title>
 </head>
+
 <body>
     <main>
         <section>
@@ -35,8 +38,14 @@
                         <label for="date_naissance">Date de naissance</label>
                         <div style="position:relative; width:100%;">
                             <input type="date" name="date_naissance" id="date_naissance" style="padding-right:2.5em;" />
-                            <span style="position:absolute; right:1em; top:50%; transform:translateY(-50%); pointer-events:none;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" fill="#ebebeb" stroke="#7b7b7b" stroke-width="1.5"/><path d="M8 2v4M16 2v4M3 10h18" stroke="#7b7b7b" stroke-width="1.5"/></svg>
+                            <span
+                                style="position:absolute; right:1em; top:50%; transform:translateY(-50%); pointer-events:none;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" fill="#ebebeb" stroke="#7b7b7b"
+                                        stroke-width="1.5" />
+                                    <path d="M8 2v4M16 2v4M3 10h18" stroke="#7b7b7b" stroke-width="1.5" />
+                                </svg>
                             </span>
                         </div>
                         <label for="adresse">Adresse postale *</label>
@@ -51,8 +60,14 @@
                         <label for="date_naissance">Date de naissance</label>
                         <div style="position:relative; width:100%;">
                             <input type="date" name="date_naissance" id="date_naissance" style="padding-right:2.5em;" />
-                            <span style="position:absolute; right:1em; top:50%; transform:translateY(-50%); pointer-events:none;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" fill="#ebebeb" stroke="#7b7b7b" stroke-width="1.5"/><path d="M8 2v4M16 2v4M3 10h18" stroke="#7b7b7b" stroke-width="1.5"/></svg>
+                            <span
+                                style="position:absolute; right:1em; top:50%; transform:translateY(-50%); pointer-events:none;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" fill="#ebebeb" stroke="#7b7b7b"
+                                        stroke-width="1.5" />
+                                    <path d="M8 2v4M16 2v4M3 10h18" stroke="#7b7b7b" stroke-width="1.5" />
+                                </svg>
                             </span>
                         </div>
                         <label for="adresse">Adresse postale *</label>
@@ -68,10 +83,12 @@
                 </p>
             </div>
             <div class="progress">
-                <div class="progress-bar" id="progressBar" role="progressbar" style="width: 25%; background-color:#E47390;"></div>
+                <div class="progress-bar" id="progressBar" role="progressbar"
+                    style="width: 25%; background-color:#E47390;"></div>
             </div>
         </section>
     </main>
-    <script src="js/inscription.js"></script>
+    <script src="../JS/inscription.js"></script>
 </body>
-</html> 
+
+</html>

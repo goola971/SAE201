@@ -1,11 +1,13 @@
 <?php
 $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
 ?>
-<aside class="sidebar">
+
+<!-- bootstrap -->
+<aside class="d-flex flex-column justify-content-between">
     <article class="menu">
         <p>Menu</p>
         <nav>
-            <ul>
+            <ul class="">
                 <li>
                     <a href="index.php" id="index" <?php echo ($current_page === 'index') ? 'class="active"' : ''; ?>>
                         <img src="../res/tableaudebord.svg" alt="" />
@@ -17,14 +19,14 @@ $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
                         <?php echo ($current_page === 'reservation') ? 'class="active"' : ''; ?>>
                         <img src="../res/reservation.svg" alt="" />
                         <?php
-						if (isset($_SESSION['user']['role'])) {
-							if ($_SESSION['user']['role'] == 'Etudiant(e)') {
-								echo 'Mes reservations';
-							} else {
-								echo 'Reservations';
-							}
-						}
-						?>
+                        if (isset($_SESSION['user']['role'])) {
+                            if ($_SESSION['user']['role'] == 'Etudiant(e)') {
+                                echo 'Mes reservations';
+                            } else {
+                                echo 'Reservations';
+                            }
+                        }
+                        ?>
                     </a>
                 </li>
                 <li>

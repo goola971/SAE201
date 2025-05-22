@@ -15,7 +15,8 @@
     <button class="menuButton" onclick="toggleSidebar()">
         <img src="../res/menu.svg" alt="" id="menuimg" />
     </button>
-    <div class="header_content">
+    <!-- bootstrap -->
+    <div class="container-fluid d-flex justify-content-between align-items-center">
         <!-- <h1>Tableau de bord</h1> -->
         <!-- detecter la page avec php -->
         <?php

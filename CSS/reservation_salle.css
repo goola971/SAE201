@@ -1,17 +1,65 @@
-/* Global Reset */
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+.calendar {
+	background: #fdecee;
+	padding: 1rem;
+	border-radius: 12px;
+	text-align: center;
+	margin-bottom: 20px;
 }
 
-html,
-body {
-	font-family: "Helvetica Neue", sans-serif;
-	overflow-x: hidden;
-	background-color: #f5f5f5;
-	color: #333;
-	height: 100%;
+.calendar header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: bold;
+	margin-bottom: 1rem;
+}
+
+.calendar table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.calendar th,
+.calendar td {
+	padding: 8px;
+	cursor: pointer;
+}
+
+.calendar td:hover {
+	background: #f0cbd1;
+}
+
+.calendar td.selected {
+	background: #e4587d;
+	color: white;
+	border-radius: 6px;
+}
+
+.signature-box canvas {
+	border: 1px dashed #ccc;
+	background: #f9f9f9;
+	border-radius: 10px;
+	cursor: crosshair;
+}
+
+.salle-selector {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.salle-selector button {
+	padding: 10px 20px;
+	margin: 0 10px;
+	border: none;
+	border-radius: 5px;
+	background-color: #f0cbd1;
+	cursor: pointer;
+	transition: background-color 0.3s;
+}
+
+.salle-selector button.active {
+	background-color: #e4587d;
+	color: white;
 }
 
 /* Conteneur principal */
@@ -96,12 +144,15 @@ main.reservation-container {
 
 .calendar button {
 	background-color: #cc617d;
-	border: 0.5vw solid #e4587d;
+	border: none;
 	color: white;
 	border-radius: 50%;
 	width: 30px;
 	height: 30px;
 	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /* Qui réserve */
@@ -198,4 +249,28 @@ main.reservation-container {
 
 .submit-button:hover {
 	background-color: #cc3e65;
+}
+
+.who-list-user {
+	display: none;
+	align-items: start;
+	flex-direction: column;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 35%;
+	height: 55%;
+	filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+	background-color: #ffffff;
+	border-radius: 2vw;
+	padding: 4vh 2vw;
+}
+
+.who-list-user.active {
+	display: flex;
+}
+
+.who-list-user .close-user-list {
+	margin: 0 0 0 auto;
 }

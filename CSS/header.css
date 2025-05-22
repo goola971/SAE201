@@ -136,7 +136,7 @@ aside {
 	width: auto;
 	min-width: 18vw;
 	max-width: 18vw;
-	padding: 5vh 2vw;
+	padding: 5vh 1vw;
 	position: fixed;
 	bottom: 0;
 	height: 90vh;
@@ -171,6 +171,7 @@ aside .autre nav {
 	display: flex;
 	justify-content: start;
 	flex-direction: column;
+	padding: 0;
 	width: 100%;
 	gap: 2vh;
 }
@@ -181,6 +182,7 @@ aside .autre nav ul {
 	justify-content: start;
 	flex-direction: column;
 	width: 100%;
+	margin-left: -2vw;
 	gap: 1vh;
 	list-style: none;
 }

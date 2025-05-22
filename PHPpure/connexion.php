@@ -12,6 +12,7 @@ $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
 
+
 function getUserRole($idUser, $pdo)
 {
     // vérifie si l'id present dans table administrateur

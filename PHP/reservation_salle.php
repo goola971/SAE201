@@ -34,7 +34,8 @@
             <section class="reservation-content">
                 <!-- Colonne de gauche : caméra -->
                 <div class="equipment">
-                    <img src="https://glistening-sunburst-222dae.netlify.app/salle/salle138.png" alt="" id="salle-image">
+                    <img src="https://glistening-sunburst-222dae.netlify.app/salle/salle138.png" alt=""
+                        id="salle-image">
                     <h2 id="salle-title">Salle 138</h2>
 
                     <label for="horaire">Choisir un créneau horaire</label>
@@ -98,47 +99,53 @@
                             </div>
                             <!-- bootstrap -->
                             <article class="row d-flex justify-content-center align-items-center ">
-                                <div class="who-list-user-item col-12 d-flex justify-content-between align-items-center">
-                                    <div class="d-flex justify-content-between align-items-center">
+                                <div
+                                    class="who-list-user-item col-12 d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-center w-100">
                                         <!-- felx-direction Colonne -->
-                                        <div class="d-flex justify-content-between align-items-center flex-column">
-                                            <img src="../IMG/jinx.png" alt="">
-                                            <div class="d-flex justify-content-between align-items-center flex-column">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <img src="../IMG/jinx.png" alt="" class="avatarAjouterEtudiant">
+                                            <div
+                                                class="etudiantInfo d-flex justify-content-end align-items-start flex-column  ">
                                                 <p>John Doe</p>
                                                 <p>MMI - 1</p>
                                             </div>
                                         </div>
                                         <p>TD - 2</p>
                                     </div>
-                                    <button type="button" class="add-avatar">ajouter</button>
+                                    <button type="button" class="ajouterUserButton">ajouter</button>
                                 </div>
-                                <div class="who-list-user-item col-12 d-flex justify-content-between align-items-center">
-                                    <div class="d-flex justify-content-between align-items-center">
+                                <div
+                                    class="who-list-user-item col-12 d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-center w-100">
                                         <!-- felx-direction Colonne -->
-                                        <div class="d-flex justify-content-between align-items-center flex-column">
-                                            <img src="../IMG/jinx.png" alt="">
-                                            <div class="d-flex justify-content-between align-items-center flex-column">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <img src="../IMG/jinx.png" alt="" class="avatarAjouterEtudiant">
+                                            <div
+                                                class="etudiantInfo d-flex justify-content-end align-items-start flex-column">
                                                 <p>John Doe</p>
                                                 <p>MMI - 1</p>
                                             </div>
                                         </div>
                                         <p>TD - 2</p>
                                     </div>
-                                    <button type="button" class="add-avatar">ajouter</button>
+                                    <button type="button" class="ajouterUserButton">ajouter</button>
                                 </div>
-                                <div class="who-list-user-item col-12 d-flex justify-content-between align-items-center">
-                                    <div class="d-flex justify-content-between align-items-center">
+                                <div
+                                    class="who-list-user-item col-12 d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-center w-100">
                                         <!-- felx-direction Colonne -->
-                                        <div class="d-flex justify-content-between align-items-center flex-column">
-                                            <img src="../IMG/jinx.png" alt="">
-                                            <div class="d-flex justify-content-between align-items-center flex-column">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <img src="../IMG/jinx.png" alt="" class="avatarAjouterEtudiant">
+                                            <div
+                                                class="etudiantInfo d-flex justify-content-end align-items-start flex-column">
                                                 <p>John Doe</p>
                                                 <p>MMI - 1</p>
                                             </div>
                                         </div>
                                         <p>TD - 2</p>
                                     </div>
-                                    <button type="button" class="add-avatar">ajouter</button>
+                                    <button type="button" class="ajouterUserButton">ajouter</button>
                                 </div>
                             </article>
                         </sections>
@@ -152,7 +159,8 @@
 
                         <label>
                             <input type="checkbox" name="acceptation">
-                            En cas de perte, de détérioration ou d'utilisation non autorisée, je m'engage à en assumer les
+                            En cas de perte, de détérioration ou d'utilisation non autorisée, je m'engage à en assumer
+                            les
                             conséquences.
                         </label>
                     </div>
@@ -166,40 +174,41 @@
     <script src="../JS/sideBarre.js"></script>
     <script src="../JS/reservation_salle.js"></script>
     <script>
-        // Gestion du sélecteur de salle
-        const salleButtons = document.querySelectorAll('.salle-selector button');
-        const salleInput = document.getElementById('selected-salle');
-        const salleImage = document.getElementById('salle-image');
-        const salleTitle = document.getElementById('salle-title');
+    // Gestion du sélecteur de salle
+    const salleButtons = document.querySelectorAll('.salle-selector button');
+    const salleInput = document.getElementById('selected-salle');
+    const salleImage = document.getElementById('salle-image');
+    const salleTitle = document.getElementById('salle-title');
 
-        // Fonction pour mettre à jour l'interface en fonction de la salle sélectionnée
-        function updateSalleInterface(salle) {
-            salleButtons.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.salle === salle);
-            });
-            salleInput.value = salle;
-            salleTitle.textContent = `Salle ${salle}`;
-            salleImage.src = salle === '138' ? 'https://glistening-sunburst-222dae.netlify.app/salle/salle138.png' : 'https://glistening-sunburst-222dae.netlify.app/salle/salle212.png';
-        }
-
-        // Gestion des clics sur les boutons
-        salleButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                updateSalleInterface(button.dataset.salle);
-            });
+    // Fonction pour mettre à jour l'interface en fonction de la salle sélectionnée
+    function updateSalleInterface(salle) {
+        salleButtons.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.salle === salle);
         });
+        salleInput.value = salle;
+        salleTitle.textContent = `Salle ${salle}`;
+        salleImage.src = salle === '138' ? 'https://glistening-sunburst-222dae.netlify.app/salle/salle138.png' :
+            'https://glistening-sunburst-222dae.netlify.app/salle/salle212.png';
+    }
 
-        // Sélection initiale basée sur l'URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const initialSalle = urlParams.get('salle');
-        if (initialSalle && (initialSalle === '138' || initialSalle === '212')) {
-            updateSalleInterface(initialSalle);
-        }
+    // Gestion des clics sur les boutons
+    salleButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            updateSalleInterface(button.dataset.salle);
+        });
+    });
 
-        // Affichage du message de succès si présent
-        if (urlParams.get('success') === '1') {
-            alert('Réservation effectuée avec succès !');
-        }
+    // Sélection initiale basée sur l'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialSalle = urlParams.get('salle');
+    if (initialSalle && (initialSalle === '138' || initialSalle === '212')) {
+        updateSalleInterface(initialSalle);
+    }
+
+    // Affichage du message de succès si présent
+    if (urlParams.get('success') === '1') {
+        alert('Réservation effectuée avec succès !');
+    }
     </script>
 </body>
 

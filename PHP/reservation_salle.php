@@ -98,11 +98,11 @@
                                 </button>
                             </div>
                             <!-- bootstrap -->
-                            <article class="row d-flex justify-content-center align-items-center ">
-                                <div
+                            <article class="row d-flex justify-content-center align-items-center flex-column w-100">
+                                <!-- <div
                                     class="who-list-user-item col-12 d-flex justify-content-between align-items-center gap-2">
                                     <div class="d-flex justify-content-between align-items-center w-100">
-                                        <!-- felx-direction Colonne -->
+
                                         <div class="d-flex justify-content-between align-items-center gap-2">
                                             <img src="../IMG/jinx.png" alt="" class="avatarAjouterEtudiant">
                                             <div
@@ -118,7 +118,7 @@
                                 <div
                                     class="who-list-user-item col-12 d-flex justify-content-between align-items-center gap-2">
                                     <div class="d-flex justify-content-between align-items-center w-100">
-                                        <!-- felx-direction Colonne -->
+
                                         <div class="d-flex justify-content-between align-items-center gap-2">
                                             <img src="../IMG/jinx.png" alt="" class="avatarAjouterEtudiant">
                                             <div
@@ -134,7 +134,7 @@
                                 <div
                                     class="who-list-user-item col-12 d-flex justify-content-between align-items-center gap-2">
                                     <div class="d-flex justify-content-between align-items-center w-100 ">
-                                        <!-- felx-direction Colonne -->
+
                                         <div class="d-flex justify-content-between align-items-center gap-2">
                                             <img src="../IMG/jinx.png" alt="" class="avatarAjouterEtudiant">
                                             <div
@@ -146,17 +146,49 @@
                                         <p>TD - 2</p>
                                     </div>
                                     <button type="button" class="ajouterUserButton">ajouter</button>
+                                </div>  -->
+                                <?php
+                                    require_once("../PHPpure/connexion.php");
+                                    if (isset($_SESSION['user'])) {
+                                        $idConnecte = $_SESSION['user']['id'];
+                                        $sql = "
+                                            SELECT u.nom, u.prenom, u.avatar, e.promotion, e.td
+                                            FROM user_ u
+                                            INNER JOIN etudiant e ON u.id= e.id
+                                            WHERE u.id != :idConnecte
+                                        ";
+                                        $stmt = $pdo->prepare($sql);
+                                        $stmt->bindParam(':idConnecte', $idConnecte, PDO::PARAM_INT);
+                                        $stmt->execute();
+                                        $etudiants = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                        foreach ($etudiants as $etudiant) {
+                                ?>
+                                <div
+                                    class="who-list-user-item col-12 d-flex justify-content-between align-items-center gap-2 w-100">
+                                    <div class="d-flex justify-content-between align-items-center w-100">
+                                        <div class="d-flex justify-content-between align-items-center gap-2">
+                                            <img src="<?= htmlspecialchars($etudiant['avatar'] ?? '../IMG/default-avatar.png') ?>"
+                                                alt="" class="avatarAjouterEtudiant">
+                                            <div
+                                                class="etudiantInfo d-flex justify-content-end align-items-start flex-column">
+                                                <p><?= htmlspecialchars($etudiant['prenom']) . ' ' . htmlspecialchars($etudiant['nom']) ?>
+                                                </p>
+                                                <p><?= htmlspecialchars($etudiant['promotion']) ?></p>
+                                            </div>
+                                        </div>
+                                        <p><?= htmlspecialchars($etudiant['td']) ?></p>
+                                    </div>
+                                    <button type="button" class="ajouterUserButton">ajouter</button>
                                 </div>
+                                <?php
+                                        }
+                                    } else {
+                                        echo "Utilisateur non connecté.";
+                                    }
+                                ?>
+
                             </article>
-                            <!-- en php -->
-                            <?php
-                                require_once("../PHPpure/connexion.php");
-                                $requete = $pdo->prepare("SELECT * FROM user_ WHERE id = ?");
-                                $requete->execute([$id_utilisateur]);
-                                $utilisateur = $requete->fetch();
-                                $avatar = $utilisateur["avatar"];
-                                echo "<img src='$avatar' class='avatar' name='id'>";
-                            ?>
+
                         </sections>
                     </div>
 

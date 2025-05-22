@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 22 mai 2025 à 17:01
+-- Généré le : jeu. 22 mai 2025 à 19:26
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -54,7 +54,8 @@ CREATE TABLE `agent` (
 --
 
 INSERT INTO `agent` (`id`) VALUES
-(3);
+(3),
+(9);
 
 -- --------------------------------------------------------
 
@@ -102,7 +103,8 @@ CREATE TABLE `enseignant` (
 --
 
 INSERT INTO `enseignant` (`id`) VALUES
-(3);
+(3),
+(8);
 
 -- --------------------------------------------------------
 
@@ -113,16 +115,19 @@ INSERT INTO `enseignant` (`id`) VALUES
 CREATE TABLE `etudiant` (
   `id` int(11) NOT NULL,
   `numeroEtudiant` varchar(50) DEFAULT NULL,
-  `grpTP_TD_Promo` varchar(50) DEFAULT NULL
+  `grpTP_TD_Promo` varchar(50) DEFAULT NULL,
+  `promotion` varchar(50) NOT NULL,
+  `td` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `etudiant`
 --
 
-INSERT INTO `etudiant` (`id`, `numeroEtudiant`, `grpTP_TD_Promo`) VALUES
-(1, NULL, NULL),
-(2, 'E20251002', 'TP2_TD1_PromoB');
+INSERT INTO `etudiant` (`id`, `numeroEtudiant`, `grpTP_TD_Promo`, `promotion`, `td`) VALUES
+(1, NULL, NULL, 'MMI - 1', 'TD - 2'),
+(2, 'E20251002', NULL, 'MMI - 1', 'TD - 1'),
+(7, NULL, NULL, '', '');
 
 -- --------------------------------------------------------
 
@@ -253,7 +258,12 @@ INSERT INTO `user_` (`id`, `email`, `pseudo`, `nom`, `prenom`, `Date_de_naissanc
 (1, 'alice@gmail.com', 'alice123', 'Durand', 'Alice', '2002-04-21', '10 rue des Lilas', 'alice123', '../uploads/avatars/1.png', '2025-04-26', 1, 123456789),
 (2, 'bob@gmail.com', 'bobby', 'Martin', 'Bob', '2001-09-15', '25 avenue Victor Hugo', 'hashed_pwd2', '../uploads/avatars/2.jpg', '2025-04-26', 1, 123456789),
 (3, 'clara@gmail.com', 'clarou', 'Lemoine', 'Clara', '2003-01-30', '3 place de la République', 'clarou', '../uploads/avatars/3.jpg', '2025-04-26', 1, 123456789),
-(6, 'janviercharly@gmail.com', 'charly.janvier', 'janvier', 'charly', NULL, NULL, 'test', NULL, '2025-05-15', 1, NULL);
+(6, 'janviercharly@gmail.com', 'charly.janvier', 'janvier', 'charly', NULL, NULL, 'test', NULL, '2025-05-15', 1, NULL),
+(7, 'emma.tesla@gmail.com', 'emmat', 'Tesla', 'Emma', '2000-07-10', '42 boulevard Voltaire', 'emma123', '../uploads/avatars/7.jpg', '2025-05-22', 1, 612345678),
+(8, 'leo.dupont@yahoo.fr', 'leoleo', 'Dupont', 'Léo', '1999-02-20', '15 rue Lafayette', 'leodupont', '../uploads/avatars/8.png', '2025-05-22', 1, 698765432),
+(9, 'jade.martin@outlook.fr', 'jadem', 'Martin', 'Jade', '2002-12-03', '8 chemin des Vignes', 'jadepass', '../uploads/avatars/9.png', '2025-05-22', 1, 678432198),
+(10, 'samuel.khan@protonmail.com', 'samk', 'Khan', 'Samuel', '2001-05-17', '29 rue du Commerce', 'samuelkhan', '../uploads/avatars/10.png', '2025-05-22', 0, 654321897),
+(11, 'lina.rossi@gmail.com', 'lina_r', 'Rossi', 'Lina', '2004-09-09', '77 rue des Écoles', 'linapwd', '../uploads/avatars/11.jpg', '2025-05-22', 1, 623456789);
 
 --
 -- Index pour les tables déchargées
@@ -354,7 +364,7 @@ ALTER TABLE `salle`
 -- AUTO_INCREMENT pour la table `user_`
 --
 ALTER TABLE `user_`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Contraintes pour les tables déchargées

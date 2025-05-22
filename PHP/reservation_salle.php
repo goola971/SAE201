@@ -98,7 +98,7 @@
                                 </button>
                             </div>
                             <!-- bootstrap -->
-                            <article class="row d-flex justify-content-center align-items-center flex-column ">
+                            <article class="row d-flex justify-content-center align-items-center flex-column w-100">
                                 <!-- <div
                                     class="who-list-user-item col-12 d-flex justify-content-between align-items-center gap-2">
                                     <div class="d-flex justify-content-between align-items-center w-100">
@@ -164,9 +164,7 @@
                                         foreach ($etudiants as $etudiant) {
                                 ?>
                                 <div
-                                    class="who-list-user-item col-12 d-flex justify-content-between align-items-center gap-2">
-                                    <input type="text" name="id_etudiant" style="display: none;"
-                                        value="<?= htmlspecialchars($etudiant['id']) ?>">
+                                    class="who-list-user-item col-12 d-flex justify-content-between align-items-center gap-2 w-100">
                                     <div class="d-flex justify-content-between align-items-center w-100">
                                         <div class="d-flex justify-content-between align-items-center gap-2">
                                             <img src="<?= htmlspecialchars($etudiant['avatar'] ?? '../IMG/default-avatar.png') ?>"

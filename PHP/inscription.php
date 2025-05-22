@@ -61,13 +61,7 @@
                         <div style="position:relative; width:100%;">
                             <input type="date" name="date_naissance" id="date_naissance" style="padding-right:2.5em;" />
                             <span
-                                style="position:absolute; right:1em; top:50%; transform:translateY(-50%); pointer-events:none;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <rect x="3" y="4" width="18" height="18" rx="2" fill="#ebebeb" stroke="#7b7b7b"
-                                        stroke-width="1.5" />
-                                    <path d="M8 2v4M16 2v4M3 10h18" stroke="#7b7b7b" stroke-width="1.5" />
-                                </svg>
+                                <img src=".../res/calendar.svg" alt="">
                             </span>
                         </div>
                         <label for="mdp">Mot de passe *</label>

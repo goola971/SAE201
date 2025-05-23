@@ -62,8 +62,10 @@ function nextStep(currentStep, nextStep, requiredFields = []) {
 
 	if (nextStep === "step4") {
 		document.querySelector(".progress").style.display = "none";
+		document.getElementById("formTitle").style.display = "none";
 	} else {
 		document.querySelector(".progress").style.display = "";
+		document.getElementById("formTitle").style.display = "";
 		document.getElementById("progressBar").style.width =
 			stepIndex[nextStep] + "%";
 	}
@@ -74,8 +76,10 @@ function prevStep(currentStep, prevStep) {
 	document.getElementById(prevStep).style.display = "block";
 	if (prevStep === "step4") {
 		document.querySelector(".progress").style.display = "none";
+		document.getElementById("formTitle").style.display = "none";
 	} else {
 		document.querySelector(".progress").style.display = "";
+		document.getElementById("formTitle").style.display = "";
 		document.getElementById("progressBar").style.width =
 			stepIndex[prevStep] + "%";
 	}
@@ -105,13 +109,14 @@ function nextStep3() {
 	document.getElementById("progressBar").style.width = "100%";
 }
 
-// Gestion du bouton Se connecter
+// Gestion du bouton Se connecter : REVOIR BOUTON
 window.addEventListener("DOMContentLoaded", function () {
 	const btnConnect = document.getElementById("btnConnect");
 	if (btnConnect) {
 		btnConnect.addEventListener("click", function () {
 			// On soumet le formulaire à ce moment
 			document.getElementById("inscriptionForm").submit();
+			window.location.href = "connexion.php";
 		});
 	}
 });

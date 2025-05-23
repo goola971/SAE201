@@ -78,7 +78,8 @@ main section h1 {
 	align-self: flex-start;
 }
 
-#inscriptionForm button {
+#inscriptionForm button,
+#step4 button {
 	width: 100%;
 	height: 7vh;
 	display: flex;
@@ -161,19 +162,14 @@ main section .formContainer p a {
 #step4 {
 	display: none;
 	text-align: center;
-	padding: 3rem 1rem 2rem 1rem;
-	background: #fff;
-	border-radius: 2rem;
-	box-shadow: 0 2px 16px #0001;
-	max-width: 600px;
-	margin: 2rem auto;
 }
+
 #step4 h2 {
-	font-size: 2rem;
-	margin-bottom: 2rem;
+	font-size: 1;
+	margin-bottom: 1rem;
 }
 #step4 img {
-	max-width: 220px;
+	max-width: 300px;
 	margin: 2rem auto 2rem auto;
 	display: block;
 }

@@ -16,7 +16,7 @@
     <main>
         <section>
             <div class="formContainer">
-                <h1>Créez votre compte</h1>
+                <h1 id="formTitle">Créez votre compte</h1>
                 <form id="inscriptionForm" action="../PHPpure/inscriptionUser.php" method="post">
                     <!-- Step 1 -->
                     <div class="step" id="step1">
@@ -57,12 +57,9 @@
                 <!-- Step 4 : Confirmation -->
                 <div class="step" id="step4" style="display: none; text-align:center;">
                     <h2>Votre compte a été créé avec succès.</h2>
-                    <img src="../res/co.png" alt="" style="max-width:200px; margin: 2rem auto; display:block;"/>
-                    <button id="btnConnect" class="btn btn-lg" style="background:#E47390; color:white; margin-top:2rem;">Se connecter</button>
+                    <img src="../img/co.png" alt="" style="max-width:200px; margin: 2rem auto; display:block;">
+                    <!-- <button type="button" onclick="btnConnect()">Se connecter</button> CHANGER BOUTON + JS -->
                 </div>
-                <p>
-                    Déjà un compte? <a href="connexion.html">Connectez-vous</a>
-                </p>
             </div>
             <div class="progress">
                 <div class="progress-bar" id="progressBar" role="progressbar"

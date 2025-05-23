@@ -43,6 +43,14 @@ $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
                         Salles
                     </a>
                 </li>
+                <?php
+                if (isset($_SESSION['user']['role'])) {
+                    if ($_SESSION['user']['role'] == 'Administrateur') {
+                        // accepter reservation
+                        echo '<li><a href="accepter_reservation.php" id="accepter_reservation" class="active"><img src="../res/accepter_reservation.svg" alt="" />Reservations à accepter</a></li>';
+                    }
+                }
+                ?>
             </ul>
         </nav>
     </article>

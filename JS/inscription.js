@@ -1,8 +1,8 @@
 function nextStep() {
 	const nom = document.getElementById("nom").value;
 	const prenom = document.getElementById("prenom").value;
-	const role = document.getElementById("role").value;
-	if (nom && prenom && role) {
+	const pseudo = document.getElementById("pseudo").value;
+	if (nom && prenom && pseudo) {
 		document.getElementById("step1").style.display = "none";
 		document.getElementById("step2").style.display = "block";
 		document.getElementById("progressBar").style.width = "50%";

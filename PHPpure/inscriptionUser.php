@@ -6,14 +6,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupération des données du formulaire
     $nom = trim($_POST['nom']);
     $prenom = trim($_POST['prenom']);
-    $role = trim($_POST['role']);
+    $pseudo = trim($_POST['pseudo']);
     $date_naissance = trim($_POST['date_naissance']);
     $adresse = trim($_POST['adresse']);
     $email = trim($_POST['email']);
     $mot_de_passe = trim($_POST['mot_de_passe']);
     
-    // Création du pseudo (prénom.nom)
-    $pseudo = strtolower($prenom . '.' . $nom);
+    // // Création du pseudo (prénom.nom)
+    // $pseudo = strtolower($prenom . '.' . $nom);
     
     // Date d'inscription
     $date_inscription = date('Y-m-d');
@@ -22,8 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $valable = 0;
 
     // Vérification que tous les champs sont remplis
-    if (empty($nom) || empty($prenom) || empty($role) || empty($date_naissance) || 
-        empty($adresse) || empty($email) || empty($mot_de_passe)) {
+    if (empty($nom) || empty($prenom) || empty($pseudo) || empty($date_naissance) || empty($email) || empty($mot_de_passe)) {
         die('Veuillez remplir tous les champs.');
     }
 
@@ -48,14 +47,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo->beginTransaction();
 
         // Insertion dans la table user_
-        $sql = "INSERT INTO user_ (pseudo, nom, prenom, email, mot_de_passe, date_inscription, valable, date_naissance, adresse) 
-                VALUES (:pseudo, :nom, :prenom, :email, :mot_de_passe, :date_inscription, :valable, :date_naissance, :adresse)";
+        $sql = "INSERT INTO user_ (nom, prenom, pseudo, email, mot_de_passe, date_inscription, valable, date_naissance, adresse) 
+                VALUES (:nom, :prenom, :pseudo, :email, :mot_de_passe, :date_inscription, :valable, :date_naissance, :adresse)";
         
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
-            'pseudo' => $pseudo,
             'nom' => $nom,
             'prenom' => $prenom,
+            'pseudo' => $pseudo,
             'email' => $email,
             'mot_de_passe' => $mot_de_passe, // Note: Dans un cas réel, il faudrait hasher le mot de passe
             'date_inscription' => $date_inscription,

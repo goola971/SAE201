@@ -28,8 +28,8 @@
             case 'profil':
                 echo '<h1>Mon profil</h1>';
                 break;
-            case 'reservations':
-                echo '<h1>Mes réservation</h1>';
+            case 'reservation':
+                echo '<h1>Mes réservations</h1>';
                 break;
             case 'salles':
                 echo '<h1>Salles</h1>';

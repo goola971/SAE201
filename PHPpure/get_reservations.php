@@ -33,14 +33,29 @@ if ($role !== 'Administrateur') {
             r.date_debut AS start,
             r.date_fin AS end,
             m.designation AS title,
-            u.avatar
+            u.avatar,
+            'materiel' as type
         FROM reservations r
         JOIN concerne c ON r.idR = c.idR
         JOIN materiel m ON c.idM = m.idM
         JOIN reservation_users ru ON r.idR = ru.idR
         JOIN user_ u ON ru.id = u.id
         WHERE r.valide = 1 AND r.idR IN ($placeholders)
-        ORDER BY r.date_debut
+        UNION ALL
+        SELECT 
+            r.idR,
+            r.date_debut AS start,
+            r.date_fin AS end,
+            s.nom AS title,
+            u.avatar,
+            'salle' as type
+        FROM reservations r
+        JOIN concerne_salle cs ON r.idR = cs.idR
+        JOIN salle s ON cs.idS = s.idS
+        JOIN reservation_users ru ON r.idR = ru.idR
+        JOIN user_ u ON ru.id = u.id
+        WHERE r.valide = 1 AND r.idR IN ($placeholders)
+        ORDER BY start
     ";
     $stmt = $pdo->prepare($sql);
     $stmt->execute($reservationIds);
@@ -52,14 +67,29 @@ if ($role !== 'Administrateur') {
             r.date_debut AS start,
             r.date_fin AS end,
             m.designation AS title,
-            u.avatar
+            u.avatar,
+            'materiel' as type
         FROM reservations r
         JOIN concerne c ON r.idR = c.idR
         JOIN materiel m ON c.idM = m.idM
         JOIN reservation_users ru ON r.idR = ru.idR
         JOIN user_ u ON ru.id = u.id
         WHERE r.valide = 1
-        ORDER BY r.date_debut
+        UNION ALL
+        SELECT 
+            r.idR,
+            r.date_debut AS start,
+            r.date_fin AS end,
+            s.nom AS title,
+            u.avatar,
+            'salle' as type
+        FROM reservations r
+        JOIN concerne_salle cs ON r.idR = cs.idR
+        JOIN salle s ON cs.idS = s.idS
+        JOIN reservation_users ru ON r.idR = ru.idR
+        JOIN user_ u ON ru.id = u.id
+        WHERE r.valide = 1
+        ORDER BY start
     ";
     $stmt = $pdo->query($sql);
 }
@@ -75,6 +105,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             'title' => $row['title'],
             'start' => $row['start'],
             'end' => $row['end'],
+            'type' => $row['type'],
             'avatars' => []
         ];
     }

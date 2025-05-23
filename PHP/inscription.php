@@ -54,7 +54,7 @@
                         <button type="button" onclick="prevStep('step3', 'step2')">Retour</button>
                     </div>
                 </form>
-                <!-- Step 4: Confirmation -->
+                <!-- Step 4 : Confirmation -->
                 <div class="step" id="step4" style="display: none; text-align:center;">
                     <h2>Votre compte a été créé avec succès.</h2>
                     <img src="../res/co.png" alt="" style="max-width:200px; margin: 2rem auto; display:block;"/>

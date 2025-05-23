@@ -114,7 +114,7 @@ main section .formContainer p a {
 .calendar {
 	position: absolute;
 	top: 50%;
-	right: 0.75em; /* ajustable selon l'espace que tu veux */
+	right: 0.75em; /* ajustable selon l'espace */
 	transform: translateY(-50%);
 	pointer-events: none; /* pour que le clic passe à l'input */
 	display: flex;
@@ -125,7 +125,7 @@ main section .formContainer p a {
 .calendar img {
 	width: 1.2em; /* taille adaptée */
 	height: 1.2em;
-	opacity: 0.6; /* optionnel pour un effet plus discret */
+	opacity: 0.6; /* plus discret */
 }
 
 .progress {
@@ -157,8 +157,8 @@ main section .formContainer p a {
 	}
 }
 
-/* Step 5 confirmation */
-#step5 {
+/* Step 4 confirmation */
+#step4 {
 	display: none;
 	text-align: center;
 	padding: 3rem 1rem 2rem 1rem;
@@ -168,16 +168,16 @@ main section .formContainer p a {
 	max-width: 600px;
 	margin: 2rem auto;
 }
-#step5 h2 {
+#step4 h2 {
 	font-size: 2rem;
 	margin-bottom: 2rem;
 }
-#step5 img {
+#step4 img {
 	max-width: 220px;
 	margin: 2rem auto 2rem auto;
 	display: block;
 }
-#step5 button {
+#step4 button {
 	background: #e47390;
 	color: #fff;
 	border: none;
@@ -187,16 +187,6 @@ main section .formContainer p a {
 	margin-top: 2rem;
 	transition: background 0.2s;
 }
-#step5 button:hover {
+#step4 button:hover {
 	background: #d15b7a;
-}
-
-/* Masquer les flèches sur input type number */
-#numero_etudiant::-webkit-outer-spin-button,
-#numero_etudiant::-webkit-inner-spin-button {
-	-webkit-appearance: none;
-	margin: 0;
-}
-#numero_etudiant {
-	-moz-appearance: textfield;
 }

@@ -1,4 +1,4 @@
-// Indice de progression unique pour toutes les étapes
+// Progression bar
 const stepIndex = { step1: 33, step2: 66, step3: 100, step4: 100 };
 
 function nextStep(currentStep, nextStep, requiredFields = []) {
@@ -17,7 +17,7 @@ function nextStep(currentStep, nextStep, requiredFields = []) {
 					break;
 				}
 			} else if (field === "mdp" || field === "confirme_mdp") {
-				// Vérification de l'égalité et de la force du mdp si on passe du step3 au step4
+				// Vérification de l'égalité et de la force du mdp
 				if (currentStep === "step3" && nextStep === "step4") {
 					const mdp = document.getElementById("mdp").value;
 					const confirme_mdp =

@@ -12,7 +12,7 @@ include("../PHPpure/entete.php");
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="../CSS/style.css" />
-    <link rel="stylesheet" href="../CSS/index.css" />
+    <link rel="stylesheet" href="../CSS/materiels.css" />
     <link rel="stylesheet" href="../CSS/header.css" />
     <title>Matériels</title>
 </head>
@@ -23,58 +23,111 @@ include("../PHPpure/entete.php");
     include("aside.php");
     ?>
     <main>
-        <p>Cliquer sur une image pour entrer en mode VR 360°.</p>
+        <section class="container-fluid d-flex flex-column gap-5">
+            <div>
+                <h3 class="fs-1 fw-bold">Favoris</h3>
+            </div>
+            <div class="row justify-content-center align-items-center">
 
-        <!-- Image 1 -->
-        <div id="imageContainer1" style="margin-bottom: 20px;">
-            <img id="imageToClick1" src="../IMG/materiel1.png" alt="Matériel 1" style="width: 60%; cursor: pointer;">
-            <h3>Réservation du Matériel 1</h3>
-            <a href="reservationMateriel1.php">
-                <button style="background-color: #c44e63; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
-                    Réserver
-                </button>
-            </a>
-        </div>
+            </div>
+        </section>
+        <section class="container-fluid d-flex flex-column gap-5">
+            <div class="d-flex justify-content-between align-items-center">
+                <h3 class="fs-1 fw-bold">Tous</h3>
+                <div class="d-flex justify-content-between align-items-center gap-3 w-50">
+                    <input type="search" placeholder="Rechercher" class="form-control p-3 search-input">
+                    <button class="search-btn btn p-3"><img src="../res/search.svg" alt="search"></button>
+                </div>
+            </div>
+            <!-- flex wrap qui change de 3 en 2 en 1 en dessous de 768px -->
+            <div class="row justify-content-center align-items-center g-5 flex-wrap">
+                <!-- position relative -->
+                <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative">
+                    <!-- padding left et droite 2 -->
+                    <div
+                        class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
+                        <button class="btn bg-transparent border-0">
+                            <img src="../res/heartPlein.svg" alt="favory">
+                        </button>
 
-        <!-- Image 2 -->
-        <div id="imageContainer2">
-            <img id="imageToClick2" src="../IMG/materiel2.jpg" alt="Matériel 2" style="width: 60%; cursor: pointer;">
-            <h3>Réservation du Matériel 2</h3>
-            <a href="reservationMateriel2.php">
-                <button style="background-color: #c44e63; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
-                    Réserver
-                </button>
-            </a>
-        </div>
+                    </div>
+                    <img src="../IMG/co.png" alt="co" class="w-70 rounded-5">
+                    <div class="d-flex justify-content-center align-items-center flex-column">
+                        <p class="text-center fs-3 fw-bold w-70">Micro - HyperX HX-MICQC-BK QuadCast</p>
+                        <button class="btn btn-danger text-white w-50 p-3 ">Réserver</button>
+                    </div>
+                </div>
+                <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative">
+                    <!-- padding left et droite 2 -->
+                    <div
+                        class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
+                        <button class="btn bg-transparent border-0">
+                            <img src="../res/heartPlein.svg" alt="favory">
+                        </button>
 
-        <!-- Scène VR cachée au début -->
-        <a-scene id="vrScene" style="display: none; height: 100vh;">
-            <a-sky id="sky" rotation="0 -90 0"></a-sky>
-        </a-scene>
+                    </div>
+                    <img src="../IMG/co.png" alt="co" class="w-70 rounded-5">
+                    <div class="d-flex justify-content-center align-items-center flex-column">
+                        <p class="text-center fs-3 fw-bold w-70">Micro - HyperX HX-MICQC-BK QuadCast</p>
+                        <button class="btn btn-danger text-white w-50 p-3 ">Réserver</button>
+                    </div>
+                </div>
+                <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative">
+                    <!-- padding left et droite 2 -->
+                    <div
+                        class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
+                        <button class="btn bg-transparent border-0">
+                            <img src="../res/heartPlein.svg" alt="favory">
+                        </button>
+
+                    </div>
+                    <img src="../IMG/co.png" alt="co" class="w-70 rounded-5">
+                    <div class="d-flex justify-content-center align-items-center flex-column">
+                        <p class="text-center fs-3 fw-bold w-70">Micro - HyperX HX-MICQC-BK QuadCast</p>
+                        <button class="btn btn-danger text-white w-50 p-3 ">Réserver</button>
+                    </div>
+                </div>
+                <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative">
+                    <!-- padding left et droite 2 -->
+                    <div
+                        class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
+                        <button class="btn bg-transparent border-0">
+                            <img src="../res/heartPlein.svg" alt="favory">
+                        </button>
+
+                    </div>
+                    <img src="../IMG/co.png" alt="co" class="w-70 rounded-5">
+                    <div class="d-flex justify-content-center align-items-center flex-column">
+                        <p class="text-center fs-3 fw-bold w-70">Micro - HyperX HX-MICQC-BK QuadCast</p>
+                        <button class="btn btn-danger text-white w-50 p-3 ">Réserver</button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
     <script src="../JS/sideBarre.js"></script>
     <script src="../JS/index.js"></script>
     <script>
-        const vrScene = document.getElementById('vrScene');
-        const sky = document.getElementById('sky');
+    const vrScene = document.getElementById('vrScene');
+    const sky = document.getElementById('sky');
 
-        // Fonction pour lancer la scène avec une image donnée
-        function showVR(imageSrc) {
-            document.getElementById('imageContainer1').style.display = 'none';
-            document.getElementById('imageContainer2').style.display = 'none';
-            sky.setAttribute('src', imageSrc);
-            vrScene.style.display = 'block';
-        }
+    // Fonction pour lancer la scène avec une image donnée
+    function showVR(imageSrc) {
+        document.getElementById('imageContainer1').style.display = 'none';
+        document.getElementById('imageContainer2').style.display = 'none';
+        sky.setAttribute('src', imageSrc);
+        vrScene.style.display = 'block';
+    }
 
-        // Clic sur image 1
-        document.getElementById('imageToClick1').addEventListener('click', function() {
-            showVR('../IMG/materiel1.png');
-        });
+    // Clic sur image 1
+    document.getElementById('imageToClick1').addEventListener('click', function() {
+        showVR('../IMG/materiel1.png');
+    });
 
-        // Clic sur image 2
-        document.getElementById('imageToClick2').addEventListener('click', function() {
-            showVR('../IMG/materiel2.jpg');
-        });
+    // Clic sur image 2
+    document.getElementById('imageToClick2').addEventListener('click', function() {
+        showVR('../IMG/materiel2.jpg');
+    });
     </script>
 </body>
 

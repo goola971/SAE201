@@ -114,9 +114,9 @@ main section .formContainer p a {
 .calendar {
 	position: absolute;
 	top: 50%;
-	right: 0.75em; /* ajustable selon l’espace que tu veux */
+	right: 0.75em; /* ajustable selon l'espace que tu veux */
 	transform: translateY(-50%);
-	pointer-events: none; /* pour que le clic passe à l’input */
+	pointer-events: none; /* pour que le clic passe à l'input */
 	display: flex;
 	align-items: center;
 	height: 100%;
@@ -155,4 +155,48 @@ main section .formContainer p a {
 		gap: 6vh;
 		border-radius: 2vw;
 	}
+}
+
+/* Step 5 confirmation */
+#step5 {
+	display: none;
+	text-align: center;
+	padding: 3rem 1rem 2rem 1rem;
+	background: #fff;
+	border-radius: 2rem;
+	box-shadow: 0 2px 16px #0001;
+	max-width: 600px;
+	margin: 2rem auto;
+}
+#step5 h2 {
+	font-size: 2rem;
+	margin-bottom: 2rem;
+}
+#step5 img {
+	max-width: 220px;
+	margin: 2rem auto 2rem auto;
+	display: block;
+}
+#step5 button {
+	background: #e47390;
+	color: #fff;
+	border: none;
+	border-radius: 0.7rem;
+	padding: 1rem 2.5rem;
+	font-size: 1.2rem;
+	margin-top: 2rem;
+	transition: background 0.2s;
+}
+#step5 button:hover {
+	background: #d15b7a;
+}
+
+/* Masquer les flèches sur input type number */
+#numero_etudiant::-webkit-outer-spin-button,
+#numero_etudiant::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+#numero_etudiant {
+	-moz-appearance: textfield;
 }

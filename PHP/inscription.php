@@ -41,9 +41,9 @@
                         <input type="text" placeholder="Ex : 1 rue de la paix, 75000 Paris" name="adresse" id="adresse" required />
                         <label for="email">Email *</label>
                         <input type="email" placeholder="Nom" name="email" id="email" required />
-                        <button type="button" onclick="nextStep2()">Continuer</button>
-                        <button type="button" onclick="prevStep()">Retour</button>
+                        <!-- <button type="button" onclick="nextStep2()">Continuer</button> -->
                         <button type="submit">Continuer</button>
+                        <button type="button" onclick="prevStep()">Retour</button>
                     </div>
                     <!-- Step 3 -->
                     <div class="step" id="step3" style="display: none;">
@@ -56,7 +56,7 @@
                         <input type="password" placeholder="blablabla" name="mdp" id="mdp" required />
                         <label for="confirme_mdp">Confirmez un mot de passe*</label>
                         <input type="password" placeholder="blablabla" name="confirme_mdp" id="confirme_mdp" required />
-                        <button type="button" onclick="nextStep3()">Continuer</button>
+                        <!-- <button type="button" onclick="nextStep3()">Continuer</button> -->
                         <button type="button" onclick="prevStep()">Retour</button>
                         <button type="submit">Continuer</button>
                     </div>

@@ -12,9 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email']);
     $mdp = trim($_POST['mdp']);
     $confirme_mdp = trim($_POST['confirme_mdp']);
-    
-    // // Création du pseudo (prénom.nom)
-    // $pseudo = strtolower($prenom . '.' . $nom);
+
     
     // Date d'inscription
     $date_inscription = date('Y-m-d');
@@ -23,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $valable = 0;
 
     // Vérification que tous les champs sont remplis
-    if (empty($nom) || empty($prenom) || empty($pseudo) || empty($date_naissance) || empty($email) || empty($mdp) || empty($confirme_mdp)) {
+    if (empty($nom) || empty($prenom) || empty($date_naissance) || empty($email) || empty($mdp) || empty($confirme_mdp)) {
         die('Veuillez remplir tous les champs.');
     }
 
@@ -40,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bindParam(':pseudo', $pseudo, PDO::PARAM_STR);
     $stmt->execute();
     if ($stmt->fetch()) {
-        die('Ce pseudo est déjà utilisé.');
+        die('Cet utilisateur existe déjà.');
     }
 
     try {
@@ -68,10 +66,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Récupération de l'ID de l'utilisateur nouvellement créé
         $userId = $pdo->lastInsertId();
 
-        // // Insertion dans la table de rôle correspondante
-        // $sql = "INSERT INTO $role (id) VALUES (:id)";
-        // $stmt = $pdo->prepare($sql);
-        // $stmt->execute(['id' => $userId]);
 
         // Validation de la transaction
         $pdo->commit();

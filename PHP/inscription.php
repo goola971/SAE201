@@ -24,8 +24,8 @@
                         <input type="text" placeholder="Nom" name="nom" id="nom" required />
                         <label for="prenom">Prénom *</label>
                         <input type="text" placeholder="Prénom" name="prenom" id="prenom" required />
-                        <label for="pseudo">Pseudo *</label>
-                        <input type="text" placeholder="prénom.nom" name="pseudo" id="pseudo" required />
+                        <label for="pseudo">Pseudo <span class="retenir">(à retenir)</span></label>
+                        <input type="text" placeholder="prénom.nom" name="pseudo" id="pseudo" required readonly />
                         <button type="button" onclick="nextStep()">Continuer</button>
                     </div>
                     <!-- Step 2 -->
@@ -33,15 +33,14 @@
                         <label for="date_naissance">Date de naissance</label>
                         <div style="position:relative; width:100%;">
                             <input type="date" name="date_naissance" id="date_naissance" style="padding-right:2.5em;" />
-                            <span
-                                <img src=".../res/calendar.svg" alt="">
+                            <span class="calendar">
+                                <img src="../res/calendar.svg" alt="">
                             </span>
                         </div>
                         <label for="adresse">Adresse postale</label>
-                        <input type="text" placeholder="Ex : 1 rue de la paix, 75000 Paris" name="adresse" id="adresse" required />
+                        <input type="text" placeholder="Ex : 1 rue de la paix, 75000 Paris" name="adresse" id="adresse" />
                         <label for="email">Email *</label>
                         <input type="email" placeholder="Nom" name="email" id="email" required />
-                        <!-- <button type="button" onclick="nextStep2()">Continuer</button> -->
                         <button type="submit">Continuer</button>
                         <button type="button" onclick="prevStep()">Retour</button>
                     </div>

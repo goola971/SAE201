@@ -128,8 +128,7 @@
                                     <div class="d-flex justify-content-between align-items-center w-100">
                                         <div class="d-flex justify-content-between align-items-center gap-2">
                                             <img src="<?= htmlspecialchars($etudiant['avatar'] ?? '../uploads/default.png') ?>"
-                                                alt="" class="avatarAjouterEtudiant supprimer"
-                                                id="<?= $etudiant['id'] ?>">
+                                                alt="" class="avatarAjouterEtudiant " id="<?= $etudiant['id'] ?>">
                                             <div
                                                 class="etudiantInfo d-flex justify-content-end align-items-start flex-column">
                                                 <p><?= htmlspecialchars($etudiant['prenom']) . ' ' . htmlspecialchars($etudiant['nom']) ?>

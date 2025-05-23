@@ -350,3 +350,8 @@ main.reservation-container {
 .who-list-user-container {
 	flex-direction: column;
 }
+
+.supprimer:hover {
+	content: url("../res/x.svg");
+	cursor: pointer;
+}

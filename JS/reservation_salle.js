@@ -104,3 +104,48 @@ function changeMonth(offset) {
 }
 
 document.addEventListener("DOMContentLoaded", renderCalendar);
+
+const addAvatar = document.getElementById("add-avatar");
+const whoListUser = document.getElementById("who-list-user");
+const closeUserList = document.getElementById("close-user-list");
+addAvatar.addEventListener("click", () => {
+	whoListUser.classList.add("active");
+});
+closeUserList.addEventListener("click", () => {
+	whoListUser.classList.remove("active");
+});
+const avatarContainer = document.getElementById("avatar-container");
+const ajouterUserButton = document.getElementsByClassName("ajouterUserButton");
+const whoListUserItem = document.getElementsByClassName("who-list-user-item");
+
+for (let i = 0; i < ajouterUserButton.length; i++) {
+	ajouterUserButton[i].addEventListener("click", () => {
+		const item = whoListUserItem[i];
+		const avatarSrc = item.querySelector("img").src;
+		const userId = item.id;
+
+		// Vérifier si un avatar avec ce userId existe déjà dans avatarContainer
+		if (avatarContainer.querySelector(`img[data-user-id="${userId}"]`)) {
+			// L'avatar existe déjà, on ne fait rien (ou tu peux afficher un message)
+			alert("Cet utilisateur est déjà ajouté !");
+			return;
+		}
+
+		// Créer un nouvel élément img
+		const newAvatar = document.createElement("img");
+		newAvatar.src = avatarSrc;
+		newAvatar.classList.add("avatar");
+		newAvatar.setAttribute("data-user-id", userId);
+
+		// Ajouter le nouvel avatar dans le container
+		avatarContainer.appendChild(newAvatar);
+
+		// Créer un input caché pour envoyer l'id dans le formulaire
+		const input = document.createElement("input");
+		input.type = "hidden";
+		input.name = "user_ids[]";
+		input.value = userId;
+		input.setAttribute("data-user-id", userId);
+		avatarContainer.appendChild(input);
+	});
+}

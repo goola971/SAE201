@@ -26,7 +26,7 @@
                         <input type="text" placeholder="Prénom" name="prenom" id="prenom" required />
                         <label for="pseudo">Pseudo <span class="retenir">(à retenir)</span></label>
                         <input type="text" placeholder="prénom.nom" name="pseudo" id="pseudo" required readonly />
-                        <button type="button" onclick="nextStep()">Continuer</button>
+                        <button type="button" onclick="nextStep('step1', 'step2', ['nom', 'prenom', 'pseudo'])">Continuer</button>
                     </div>
                     <!-- Step 2 -->
                     <div class="step" id="step2" style="display: none;">
@@ -41,25 +41,25 @@
                         <input type="text" placeholder="Ex : 1 rue de la paix, 75000 Paris" name="adresse" id="adresse" />
                         <label for="email">Email *</label>
                         <input type="email" placeholder="Nom" name="email" id="email" required />
-                        <button type="submit">Continuer</button>
-                        <button type="button" onclick="prevStep()">Retour</button>
+                        <button type="button" onclick="nextStep('step2', 'step3', ['email'])">Continuer</button>
+                        <button type="button" onclick="prevStep('step2', 'step1')">Retour</button>
                     </div>
                     <!-- Step 3 -->
                     <div class="step" id="step3" style="display: none;">
-                        <label for="numero_etudiant">Numéro étudiant</label>
-                        <div style="position:relative; width:100%;">
-                            <input type="number" name="numero_etudiant" id="numero_etudiant" style="padding-right:2.5em;" />
-    
-                        </div>
                         <label for="mdp">Mot de passe *</label>
                         <input type="password" placeholder="blablabla" name="mdp" id="mdp" required />
-                        <label for="confirme_mdp">Confirmez un mot de passe*</label>
+                        <label for="confirme_mdp">Confirmez un mot de passe *</label>
                         <input type="password" placeholder="blablabla" name="confirme_mdp" id="confirme_mdp" required />
-                        <!-- <button type="button" onclick="nextStep3()">Continuer</button> -->
-                        <button type="button" onclick="prevStep()">Retour</button>
-                        <button type="submit">Continuer</button>
+                        <button type="button" onclick="nextStep('step3', 'step4', ['mdp', 'confirme_mdp'])">Continuer</button>
+                        <button type="button" onclick="prevStep('step3', 'step2')">Retour</button>
                     </div>
                 </form>
+                <!-- Step 4: Confirmation -->
+                <div class="step" id="step4" style="display: none; text-align:center;">
+                    <h2>Votre compte a été créé avec succès.</h2>
+                    <img src="../res/co.png" alt="" style="max-width:200px; margin: 2rem auto; display:block;"/>
+                    <button id="btnConnect" class="btn btn-lg" style="background:#E47390; color:white; margin-top:2rem;">Se connecter</button>
+                </div>
                 <p>
                     Déjà un compte? <a href="connexion.html">Connectez-vous</a>
                 </p>

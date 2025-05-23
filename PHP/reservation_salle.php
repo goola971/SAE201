@@ -187,7 +187,7 @@
         salleInput.value = salle;
         salleTitle.textContent = `Salle ${salle}`;
         salleImage.src = salle === '138' ? 'https://glistening-sunburst-222dae.netlify.app/salle/salle138.png' :
-            'https://glistening-sunburst-222dae.netlify.app/salle/salle212.png';
+            'https://glistening-sunburst-222dae.netlify.app/salle/salle212.jpg';
     }
 
     // Gestion des clics sur les boutons

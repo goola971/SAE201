@@ -149,3 +149,14 @@ for (let i = 0; i < ajouterUserButton.length; i++) {
 		avatarContainer.appendChild(input);
 	});
 }
+
+const user_ids = document.getElementById("user_ids");
+var addU = "";
+// ajouter tout les id des utilisateurs .avatar data-user-id dans le input user_ids
+document.addEventListener("DOMContentLoaded", () => {
+	addU = user_ids.value;
+	const userIds = document.querySelectorAll(".avatar");
+	userIds.forEach((userId) => {
+		user_ids.value = addU + userId.dataset.userId + ",";
+	});
+});

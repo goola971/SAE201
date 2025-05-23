@@ -29,7 +29,7 @@ include("../PHPpure/entete.php");
             </div>
             <div class="row justify-content-start align-items-center">
                 <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative w-25">
-                    <!-- padding left et droite 2 -->
+
                     <div
                         class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
                         <button class="btn bg-transparent border-0">
@@ -56,8 +56,8 @@ include("../PHPpure/entete.php");
             <!-- flex wrap qui change de 3 en 2 en 1 en dessous de 768px -->
             <div class="row justify-content-start align-items-center g-5 ">
                 <!-- position relative -->
-                <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative w-25">
-                    <!-- padding left et droite 2 -->
+                <!-- <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative w-25">
+                   
                     <div
                         class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
                         <button class="btn bg-transparent border-0">
@@ -72,7 +72,7 @@ include("../PHPpure/entete.php");
                     </div>
                 </div>
                 <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative w-25">
-                    <!-- padding left et droite 2 -->
+                   
                     <div
                         class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
                         <button class="btn bg-transparent border-0">
@@ -87,7 +87,7 @@ include("../PHPpure/entete.php");
                     </div>
                 </div>
                 <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative w-25">
-                    <!-- padding left et droite 2 -->
+                   
                     <div
                         class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
                         <button class="btn bg-transparent border-0">
@@ -102,7 +102,7 @@ include("../PHPpure/entete.php");
                     </div>
                 </div>
                 <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative w-25">
-                    <!-- padding left et droite 2 -->
+                   
                     <div
                         class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
                         <button class="btn bg-transparent border-0">
@@ -117,7 +117,7 @@ include("../PHPpure/entete.php");
                     </div>
                 </div>
                 <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative w-25">
-                    <!-- padding left et droite 2 -->
+                   
                     <div
                         class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
                         <button class="btn bg-transparent border-0">
@@ -130,7 +130,28 @@ include("../PHPpure/entete.php");
                         <p class="text-center fs-auto fw-bold w-100">Micro - HyperX HX-MICQC-BK QuadCast</p>
                         <button class="btn btn-danger text-white w-50 p-3 ">Réserver</button>
                     </div>
-                </div>
+                </div> -->
+                <?php
+                require_once("../PHPpure/connexion.php");
+                // requperer les img dans https://glistening-sunburst-222dae.netlify.app/materiel/[photop]
+                $sql = "SELECT * FROM materiel";
+                $result = $pdo->query($sql);
+                while ($row = $result->fetch()) {
+                    echo "<div class='col-4 d-flex justify-content-center align-items-center flex-column position-relative'>";
+                    echo "<div class='position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4'>";
+                    echo "<button class='btn bg-transparent border-0'>";
+                    echo "<img src='../res/heartVide.svg' alt='favory'>";
+                    echo "</button>";
+                    echo "</div>";
+                    // img meme taille que la div
+                    echo "<img src='https://glistening-sunburst-222dae.netlify.app/materiel/" . $row['photo'] . "' alt='materiel' class='w-100 rounded-5 materiel-image'>";
+                    echo "<div class='d-flex justify-content-center align-items-center flex-column w-100'>";
+                    echo "<p class='text-center fs-auto fw-bold w-100'>" . $row['designation'] . "</p>";
+                    echo "<button class='btn btn-danger text-white w-50 p-3'>Réserver</button>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+                ?>
             </div>
         </section>
     </main>

@@ -82,7 +82,7 @@
                                         $requete->execute([$id_utilisateur]);
                                         $utilisateur = $requete->fetch();
                                         $avatar = $utilisateur["avatar"];
-                                        echo "<img src='$avatar' class='avatar' name='id'>";
+                                        echo "<img src='$avatar' class='avatar' data-user-id='$id_utilisateur'>";
                                     }
                                 ?>
                             </div>

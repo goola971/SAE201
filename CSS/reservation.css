@@ -9,6 +9,11 @@ main {
 	gap: 3vh;
 }
 
+main a {
+	color: #6b7a99 !important;
+	text-decoration: none !important;
+}
+
 .calendarHeader {
 	display: flex;
 	justify-content: space-between;

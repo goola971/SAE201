@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : jeu. 22 mai 2025 à 19:32
+-- Généré le : ven. 23 mai 2025 à 17:13
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -88,6 +88,15 @@ CREATE TABLE `concerne_salle` (
   `idR` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `concerne_salle`
+--
+
+INSERT INTO `concerne_salle` (`idS`, `idR`) VALUES
+(1, 20),
+(1, 23),
+(2, 25);
+
 -- --------------------------------------------------------
 
 --
@@ -103,8 +112,7 @@ CREATE TABLE `enseignant` (
 --
 
 INSERT INTO `enseignant` (`id`) VALUES
-(3),
-(8);
+(3);
 
 -- --------------------------------------------------------
 
@@ -127,7 +135,10 @@ CREATE TABLE `etudiant` (
 INSERT INTO `etudiant` (`id`, `numeroEtudiant`, `grpTP_TD_Promo`, `promotion`, `td`) VALUES
 (1, NULL, NULL, 'MMI - 1', 'TD - 2'),
 (2, 'E20251002', NULL, 'MMI - 1', 'TD - 1'),
-(7, NULL, NULL, '', '');
+(7, NULL, NULL, '', ''),
+(8, NULL, NULL, '', ''),
+(10, NULL, NULL, '', ''),
+(11, NULL, NULL, '', '');
 
 -- --------------------------------------------------------
 
@@ -182,7 +193,11 @@ INSERT INTO `reservations` (`idR`, `date_debut`, `date_fin`, `valide`, `motif`, 
 (2, '2025-04-26 09:00:00', '2025-04-26 11:00:00', 0, 'Tournage TP', 'Besoin urgent', 'signBob', 'docAdmin2.pdf'),
 (3, '2025-04-21 16:08:58', '2025-04-21 18:08:58', 1, 'pour sae201', 'important ', 'jcp', 'jcp'),
 (4, '2025-05-21 14:00:00', '2025-05-21 15:00:00', 0, 'PASKE JE VEUX', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
-(5, '2025-05-21 14:00:00', '2025-05-21 15:00:00', 0, 'kgufkuyoyugf', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien');
+(20, '2025-05-30 14:00:00', '2025-05-30 16:00:00', 0, 'charlytest', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
+(21, '2025-05-30 00:00:00', '2025-05-30 00:00:00', 0, 'test e nouveau', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
+(22, '2025-05-30 00:00:00', '2025-05-30 00:00:00', 0, 'test e nouveau', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
+(23, '2025-05-30 00:00:00', '2025-05-30 00:00:00', 1, 'test e nouveau', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
+(25, '2025-05-30 14:00:00', '2025-05-30 16:00:00', 1, 'essaie de sale212', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien');
 
 -- --------------------------------------------------------
 
@@ -201,9 +216,19 @@ CREATE TABLE `reservation_users` (
 
 INSERT INTO `reservation_users` (`id`, `idR`) VALUES
 (1, 4),
-(1, 5),
+(1, 20),
+(1, 21),
+(1, 22),
+(1, 23),
+(1, 25),
 (2, 1),
-(2, 2);
+(2, 2),
+(2, 23),
+(2, 25),
+(7, 23),
+(8, 23),
+(10, 23),
+(11, 25);
 
 -- --------------------------------------------------------
 
@@ -226,8 +251,8 @@ CREATE TABLE `salle` (
 --
 
 INSERT INTO `salle` (`idS`, `nom`, `type`, `capacite`, `photo`, `etat`, `description`) VALUES
-(1, 'Salle A101', 'Amphi', 100, 'a101.jpg', 'Disponible', 'Grand amphithéâtre'),
-(2, 'Salle B204', 'Réunion', 20, 'b204.jpg', 'Disponible', 'Salle de réunion équipée');
+(1, 'Salle 138', 'Amphi', 100, 'https://glistening-sunburst-222dae.netlify.app/salle/salle138.png', 'Disponible', 'Grand amphithéâtre'),
+(2, 'Salle 212', 'Réunion', 20, 'https://glistening-sunburst-222dae.netlify.app/salle/salle212.jpg', 'Disponible', 'Salle de réunion équipée');
 
 -- --------------------------------------------------------
 
@@ -259,11 +284,11 @@ INSERT INTO `user_` (`id`, `email`, `pseudo`, `nom`, `prenom`, `Date_de_naissanc
 (2, 'bob@gmail.com', 'bobby', 'Martin', 'Bob', '2001-09-15', '25 avenue Victor Hugo', 'hashed_pwd2', '../uploads/avatars/2.jpg', '2025-04-26', 1, 123456789),
 (3, 'clara@gmail.com', 'clarou', 'Lemoine', 'Clara', '2003-01-30', '3 place de la République', 'clarou', '../uploads/avatars/3.jpg', '2025-04-26', 1, 123456789),
 (6, 'janviercharly@gmail.com', 'charly.janvier', 'janvier', 'charly', NULL, NULL, 'test', NULL, '2025-05-15', 1, NULL),
-(7, 'emma.tesla@gmail.com', 'emmat', 'Tesla', 'Emma', '2000-07-10', '42 boulevard Voltaire', 'emma123', '../uploads/avatars/7.jpg', '2025-05-22', 1, 612345678),
-(8, 'leo.dupont@yahoo.fr', 'leoleo', 'Dupont', 'Léo', '1999-02-20', '15 rue Lafayette', 'leodupont', '../uploads/avatars/8.png', '2025-05-22', 1, 698765432),
-(9, 'jade.martin@outlook.fr', 'jadem', 'Martin', 'Jade', '2002-12-03', '8 chemin des Vignes', 'jadepass', '../uploads/avatars/9.png', '2025-05-22', 1, 678432198),
-(10, 'samuel.khan@protonmail.com', 'samk', 'Khan', 'Samuel', '2001-05-17', '29 rue du Commerce', 'samuelkhan', '../uploads/avatars/10.png', '2025-05-22', 0, 654321897),
-(11, 'lina.rossi@gmail.com', 'lina_r', 'Rossi', 'Lina', '2004-09-09', '77 rue des Écoles', 'linapwd', '../uploads/avatars/11.jpg', '2025-05-22', 1, 623456789);
+(7, 'emma.tesla@gmail.com', 'emmat', 'Tesla', 'Emma', '2000-07-10', '42 boulevard Voltaire', 'emma123', NULL, '2025-05-22', 1, 612345678),
+(8, 'leo.dupont@yahoo.fr', 'leoleo', 'Dupont', 'Léo', '1999-02-20', '15 rue Lafayette', 'leodupont', NULL, '2025-05-22', 1, 698765432),
+(9, 'jade.martin@outlook.fr', 'jadem', 'Martin', 'Jade', '2002-12-03', '8 chemin des Vignes', 'jadepass', NULL, '2025-05-22', 1, 678432198),
+(10, 'samuel.khan@protonmail.com', 'samk', 'Khan', 'Samuel', '2001-05-17', '29 rue du Commerce', 'samuelkhan', NULL, '2025-05-22', 1, 654321897),
+(11, 'lina.rossi@gmail.com', 'lina_r', 'Rossi', 'Lina', '2004-09-09', '77 rue des Écoles', 'linapwd', NULL, '2025-05-22', 1, 623456789);
 
 --
 -- Index pour les tables déchargées
@@ -352,7 +377,7 @@ ALTER TABLE `materiel`
 -- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `idR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `idR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT pour la table `salle`

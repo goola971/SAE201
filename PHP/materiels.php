@@ -40,7 +40,7 @@ include("../PHPpure/entete.php");
                 </div>
             </div>
             <!-- flex wrap qui change de 3 en 2 en 1 en dessous de 768px -->
-            <div class="row justify-content-center align-items-center g-5 flex-wrap">
+            <div class="row justify-content-center align-items-center g-5 ">
                 <!-- position relative -->
                 <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative">
                     <!-- padding left et droite 2 -->

@@ -111,6 +111,23 @@ main section .formContainer p a {
 	transition: all 0.2s ease-in-out;
 }
 
+.calendar {
+	position: absolute;
+	top: 50%;
+	right: 0.75em; /* ajustable selon l’espace que tu veux */
+	transform: translateY(-50%);
+	pointer-events: none; /* pour que le clic passe à l’input */
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.calendar img {
+	width: 1.2em; /* taille adaptée */
+	height: 1.2em;
+	opacity: 0.6; /* optionnel pour un effet plus discret */
+}
+
 .progress {
 	width: 100%;
 	height: 10px;

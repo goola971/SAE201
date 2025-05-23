@@ -1,15 +1,15 @@
-// function nextStep() {
-// 	const nom = document.getElementById("nom").value;
-// 	const prenom = document.getElementById("prenom").value;
-// 	const pseudo = document.getElementById("pseudo").value;
-// 	if (nom && prenom && pseudo) {
-// 		document.getElementById("step1").style.display = "none";
-// 		document.getElementById("step2").style.display = "block";
-// 		document.getElementById("progressBar").style.width = "50%";
-// 	} else {
-// 		alert("Veuillez remplir tous les champs");
-// 	}
-// }
+function nextStep() {
+	const nom = document.getElementById("nom").value;
+	const prenom = document.getElementById("prenom").value;
+	const pseudo = document.getElementById("pseudo").value;
+	if (nom && prenom && pseudo) {
+		document.getElementById("step1").style.display = "none";
+		document.getElementById("step2").style.display = "block";
+		document.getElementById("progressBar").style.width = "50%";
+	} else {
+		alert("Veuillez remplir tous les champs");
+	}
+}
 
 function prevStep() {
 	document.getElementById("step2").style.display = "none";

@@ -73,39 +73,46 @@
                     <div class="who">
                         <h3>Qui réserve ?</h3>
                         <div class="avatars">
-                            <?php
-                            require_once("../PHPpure/connexion.php");
-                            $id_utilisateur = $_SESSION["user"]["id"];
-                            if ($_SESSION["user"]["role"] == "Etudiant(e)") {
-                                $requete = $pdo->prepare("SELECT * FROM user_ WHERE id = ?");
-                                $requete->execute([$id_utilisateur]);
-                                $utilisateur = $requete->fetch();
-                                $avatar = $utilisateur["avatar"];
-                                echo "<img src='$avatar' class='avatar' name='id'>";
-                            }
-                            ?>
+                            <div id="avatar-container">
+                                <?php
+                                    require_once("../PHPpure/connexion.php");
+                                    $id_utilisateur = $_SESSION["user"]["id"];
+                                    if ($_SESSION["user"]["role"] == "Etudiant(e)") {
+                                        $requete = $pdo->prepare("SELECT * FROM user_ WHERE id = ?");
+                                        $requete->execute([$id_utilisateur]);
+                                        $utilisateur = $requete->fetch();
+                                        $avatar = $utilisateur["avatar"];
+                                        echo "<img src='$avatar' class='avatar' name='id'>";
+                                    }
+                                ?>
+                            </div>
                             <!-- liste qui va contenir les id des utilisateurs -->
+                            <input type="hidden" name="user_ids[]" id="user_ids">
 
                             <button class="add-avatar" id="add-avatar" type="button">+</button>
 
                         </div>
-                        <sections class="who-list-user ">
-                            <img src="../res/x.svg" alt="" class="close-user-list">
+                        <section class="who-list-user" id="who-list-user">
+                            <button type="button" class="close-user-list" id="close-user-list">
+                                <img src="../res/x.svg" alt="">
+                            </button>
                             <h3>Chercher un étudiant</h3>
                             <div class="search-container">
                                 <input type="text" name="search" id="search" placeholder="Rechercher un étudiant">
-                                <button type="button" class="search-button">
+                                <button type="button" class="search-button" id="search-button">
                                     <img src="../res/search.svg" alt="">
                                 </button>
                             </div>
                             <!-- bootstrap o -->
-                            <article class=" row d-flex justify-content-center align-items-center flex-column w-100 who-list-user-container" id="overflowY">
+                            <article
+                                class="d-flex justify-content-center align-items-center flex-column w-100 who-list-user-container"
+                                id="overflowY">
                                 <?php
                                 require_once("../PHPpure/connexion.php");
                                 if (isset($_SESSION['user'])) {
                                     $idConnecte = $_SESSION['user']['id'];
                                     $sql = "
-                                            SELECT u.nom, u.prenom, u.avatar, e.promotion, e.td
+                                            SELECT u.id, u.nom, u.prenom, u.avatar, e.promotion, e.td
                                             FROM user_ u
                                             INNER JOIN etudiant e ON u.id= e.id
                                             WHERE u.id != :idConnecte
@@ -114,38 +121,34 @@
                                     $stmt->bindParam(':idConnecte', $idConnecte, PDO::PARAM_INT);
                                     $stmt->execute();
                                     $etudiants = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
                                     foreach ($etudiants as $etudiant) {
-
                                 ?>
-                                        <div
-                                            class="who-list-user-item col-12 d-flex justify-content-between align-items-center gap-2 w-100" id="<?= $etudiant['id'] ?>">
-                                            <div class="d-flex justify-content-between align-items-center w-100">
-                                                <div class="d-flex justify-content-between align-items-center gap-2">
-                                                    <img src="<?= htmlspecialchars($etudiant['avatar'] ?? '../IMG/default-avatar.png') ?>"
-                                                        alt="" class="avatarAjouterEtudiant">
-                                                    <div
-                                                        class="etudiantInfo d-flex justify-content-end align-items-start flex-column">
-                                                        <p><?= htmlspecialchars($etudiant['prenom']) . ' ' . htmlspecialchars($etudiant['nom']) ?>
-                                                        </p>
-                                                        <p><?= htmlspecialchars($etudiant['promotion']) ?></p>
-                                                    </div>
-                                                </div>
-                                                <p><?= htmlspecialchars($etudiant['td']) ?></p>
+                                <div class="who-list-user-item col-12 d-flex justify-content-between align-items-center gap-2 w-100"
+                                    id="<?= $etudiant['id'] ?>">
+                                    <div class="d-flex justify-content-between align-items-center w-100">
+                                        <div class="d-flex justify-content-between align-items-center gap-2">
+                                            <img src="<?= htmlspecialchars($etudiant['avatar'] ?? '../uploads/default.png') ?>"
+                                                alt="" class="avatarAjouterEtudiant supprimer"
+                                                id="<?= $etudiant['id'] ?>">
+                                            <div
+                                                class="etudiantInfo d-flex justify-content-end align-items-start flex-column">
+                                                <p><?= htmlspecialchars($etudiant['prenom']) . ' ' . htmlspecialchars($etudiant['nom']) ?>
+                                                </p>
+                                                <p><?= htmlspecialchars($etudiant['promotion']) ?></p>
                                             </div>
-                                            <button type="button" class="ajouterUserButton">ajouter</button>
                                         </div>
-
+                                        <p><?= htmlspecialchars($etudiant['td']) ?></p>
+                                    </div>
+                                    <button type="button" class="ajouterUserButton">ajouter</button>
+                                </div>
                                 <?php
                                     }
                                 } else {
                                     echo "Utilisateur non connecté.";
                                 }
                                 ?>
-
                             </article>
-
-                        </sections>
+                        </section>
                     </div>
 
                     <div class="signature-section">
@@ -171,42 +174,43 @@
     <script src="../JS/sideBarre.js"></script>
     <script src="../JS/reservation_salle.js"></script>
     <script>
-        // Gestion du sélecteur de salle
-        const salleButtons = document.querySelectorAll('.salle-selector button');
-        const salleInput = document.getElementById('selected-salle');
-        const salleImage = document.getElementById('salle-image');
-        const salleTitle = document.getElementById('salle-title');
+    // Gestion du sélecteur de salle
+    const salleButtons = document.querySelectorAll('.salle-selector button');
+    const salleInput = document.getElementById('selected-salle');
+    const salleImage = document.getElementById('salle-image');
+    const salleTitle = document.getElementById('salle-title');
 
-        // Fonction pour mettre à jour l'interface en fonction de la salle sélectionnée
-        function updateSalleInterface(salle) {
-            salleButtons.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.salle === salle);
-            });
-            salleInput.value = salle;
-            salleTitle.textContent = `Salle ${salle}`;
-            salleImage.src = salle === '138' ? 'https://glistening-sunburst-222dae.netlify.app/salle/salle138.png' :
-                'https://glistening-sunburst-222dae.netlify.app/salle/salle212.png';
-        }
-
-        // Gestion des clics sur les boutons
-        salleButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                updateSalleInterface(button.dataset.salle);
-            });
+    // Fonction pour mettre à jour l'interface en fonction de la salle sélectionnée
+    function updateSalleInterface(salle) {
+        salleButtons.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.salle === salle);
         });
+        salleInput.value = salle;
+        salleTitle.textContent = `Salle ${salle}`;
+        salleImage.src = salle === '138' ? 'https://glistening-sunburst-222dae.netlify.app/salle/salle138.png' :
+            'https://glistening-sunburst-222dae.netlify.app/salle/salle212.png';
+    }
 
-        // Sélection initiale basée sur l'URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const initialSalle = urlParams.get('salle');
-        if (initialSalle && (initialSalle === '138' || initialSalle === '212')) {
-            updateSalleInterface(initialSalle);
-        }
+    // Gestion des clics sur les boutons
+    salleButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            updateSalleInterface(button.dataset.salle);
+        });
+    });
 
-        // Affichage du message de succès si présent
-        if (urlParams.get('success') === '1') {
-            alert('Réservation effectuée avec succès !');
-        }
+    // Sélection initiale basée sur l'URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialSalle = urlParams.get('salle');
+    if (initialSalle && (initialSalle === '138' || initialSalle === '212')) {
+        updateSalleInterface(initialSalle);
+    }
+
+    // Affichage du message de succès si présent
+    if (urlParams.get('success') === '1') {
+        alert('Réservation effectuée avec succès !');
+    }
     </script>
+    .
 </body>
 
 </html>

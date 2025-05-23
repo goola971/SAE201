@@ -38,9 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $motif = $_POST['motif'];
     $signature = $_POST['signature'];
     $userId = $_SESSION["user"]["id"];
+    $user_ids = $_POST['user_ids'];
+    
+
     $commentaire = "rien";
     $document = "rien";
     $salle = $_POST['salle'];
+
 
     // transformer le horaire en format date heure donc 14h - 15h devient 14:00 15:00 et creer date debut = date + horaire debut et date fin = date + horaire fin
     $horaire = explode("-", $horaire);
@@ -65,8 +69,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $idReservation = $pdo->lastInsertId();
 
     // Insérer l'utilisateur dans la réservation
-    $requete = $pdo->prepare("INSERT INTO reservation_users (idR, id) VALUES (?, ?)");
-    $requete->execute([$idReservation, $userId]);
+    $requete = $pdo->prepare("INSERT INTO reservation_users (id, idR ) VALUES (?, ?)");
+    $requete->execute([$userId, $idReservation]);
+
+    foreach ($user_ids as $userId) {
+        print_r($user_ids)
+    }
 
     // Insérer la salle dans la réservation
     $requete = $pdo->prepare("INSERT INTO concerne_salle (idR, idS) VALUES (?, ?)");

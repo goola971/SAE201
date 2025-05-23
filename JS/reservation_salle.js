@@ -135,6 +135,7 @@ for (let i = 0; i < ajouterUserButton.length; i++) {
 		const newAvatar = document.createElement("img");
 		newAvatar.src = avatarSrc;
 		newAvatar.classList.add("avatar");
+		newAvatar.classList.add("supprimer");
 		newAvatar.setAttribute("data-user-id", userId);
 
 		// Ajouter le nouvel avatar dans le container
@@ -150,13 +151,35 @@ for (let i = 0; i < ajouterUserButton.length; i++) {
 	});
 }
 
-const user_ids = document.getElementById("user_ids");
-var addU = "";
-// ajouter tout les id des utilisateurs .avatar data-user-id dans le input user_ids
 document.addEventListener("DOMContentLoaded", () => {
-	addU = user_ids.value;
 	const userIds = document.querySelectorAll(".avatar");
-	userIds.forEach((userId) => {
-		user_ids.value = addU + userId.dataset.userId + ",";
+
+	// Supprimer les anciens inputs s'il y en a
+	document
+		.querySelectorAll("input[name='user_ids[]']")
+		.forEach((el) => el.remove());
+
+	userIds.forEach((userAvatar) => {
+		const hiddenInput = document.createElement("input");
+		hiddenInput.type = "hidden";
+		hiddenInput.name = "user_ids[]";
+		hiddenInput.value = userAvatar.dataset.userId;
+		avatarContainer.appendChild(hiddenInput);
 	});
+});
+
+// Écoute le clic sur n'importe quelle image avec la classe "supprimer"
+avatarContainer.addEventListener("click", (e) => {
+	if (e.target.classList.contains("supprimer")) {
+		const userId = e.target.getAttribute("data-user-id");
+
+		// Supprime l'avatar cliqué
+		e.target.remove();
+
+		// Supprime aussi l'input caché avec ce userId
+		const input = avatarContainer.querySelector(
+			`input[data-user-id="${userId}"]`
+		);
+		if (input) input.remove();
+	}
 });

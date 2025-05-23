@@ -354,4 +354,5 @@ main.reservation-container {
 .supprimer:hover {
 	content: url("../res/x.svg");
 	cursor: pointer;
+	z-index: 5;
 }

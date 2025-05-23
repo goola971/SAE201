@@ -147,7 +147,7 @@ include("../PHPpure/entete.php");
                     echo "<img src='https://glistening-sunburst-222dae.netlify.app/materiel/" . $row['photo'] . "' alt='materiel' class='w-100 rounded-5 materiel-image'>";
                     echo "<div class='d-flex justify-content-center align-items-center flex-column w-100'>";
                     echo "<p class='text-center fs-auto fw-bold w-100'>" . $row['designation'] . "</p>";
-                    echo "<button class='btn btn-danger text-white w-50 p-3'>Réserver</button>";
+                    echo "<button class='btn btn-danger text-white w-50 p-3' onclick='reserverMateriel(" . $row['idM'] . ")'>Réserver</button>";
                     echo "</div>";
                     echo "</div>";
                 }
@@ -158,26 +158,9 @@ include("../PHPpure/entete.php");
     <script src="../JS/sideBarre.js"></script>
     <script src="../JS/index.js"></script>
     <script>
-        const vrScene = document.getElementById('vrScene');
-        const sky = document.getElementById('sky');
-
-        // Fonction pour lancer la scène avec une image donnée
-        function showVR(imageSrc) {
-            document.getElementById('imageContainer1').style.display = 'none';
-            document.getElementById('imageContainer2').style.display = 'none';
-            sky.setAttribute('src', imageSrc);
-            vrScene.style.display = 'block';
+        function reserverMateriel(idM) {
+            window.location.href = "reservation_materiel.php?idM=" + idM;
         }
-
-        // Clic sur image 1
-        document.getElementById('imageToClick1').addEventListener('click', function() {
-            showVR('../IMG/materiel1.png');
-        });
-
-        // Clic sur image 2
-        document.getElementById('imageToClick2').addEventListener('click', function() {
-            showVR('../IMG/materiel2.jpg');
-        });
     </script>
 </body>
 

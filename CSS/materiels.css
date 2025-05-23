@@ -58,3 +58,39 @@ button:hover {
 	object-fit: cover;
 	border-radius: 20px;
 }
+
+.responsive-flex {
+	flex-wrap: wrap;
+}
+
+/* Styles responsifs pour les cartes de matériel */
+@media screen and (max-width: 800px) {
+	.responsive-flex .col-4 {
+		width: 50% !important;
+		flex: 0 0 50% !important;
+		max-width: 50% !important;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.responsive-flex .col-4 {
+		width: 100% !important;
+		flex: 0 0 100% !important;
+		max-width: 100% !important;
+	}
+}
+
+/* Ajustement de la largeur des images et conteneurs */
+.responsive-flex .col-4 {
+	padding: 10px;
+}
+
+.responsive-flex .col-4 img {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+.responsive-flex .col-4 .d-flex {
+	width: 100%;
+}

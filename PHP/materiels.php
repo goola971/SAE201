@@ -27,8 +27,22 @@ include("../PHPpure/entete.php");
             <div>
                 <h3 class="fs-1 fw-bold">Favoris</h3>
             </div>
-            <div class="row justify-content-center align-items-center">
+            <div class="row justify-content-start align-items-center">
+                <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative w-25">
+                    <!-- padding left et droite 2 -->
+                    <div
+                        class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
+                        <button class="btn bg-transparent border-0">
+                            <img src="../res/heartVide.svg" alt="favory">
+                        </button>
 
+                    </div>
+                    <img src="../IMG/co.png" alt="co" class="w-100 rounded-5">
+                    <div class="d-flex justify-content-center align-items-center flex-column">
+                        <p class="text-center fs-auto fw-bold w-100">Micro - HyperX HX-MICQC-BK QuadCast</p>
+                        <button class="btn btn-danger text-white w-50 p-3 ">Réserver</button>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="container-fluid d-flex flex-column gap-5">
@@ -40,65 +54,80 @@ include("../PHPpure/entete.php");
                 </div>
             </div>
             <!-- flex wrap qui change de 3 en 2 en 1 en dessous de 768px -->
-            <div class="row justify-content-center align-items-center g-5 ">
+            <div class="row justify-content-start align-items-center g-5 ">
                 <!-- position relative -->
-                <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative">
+                <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative w-25">
                     <!-- padding left et droite 2 -->
                     <div
                         class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
                         <button class="btn bg-transparent border-0">
-                            <img src="../res/heartPlein.svg" alt="favory">
+                            <img src="../res/heartVide.svg" alt="favory">
                         </button>
 
                     </div>
-                    <img src="../IMG/co.png" alt="co" class="w-70 rounded-5">
+                    <img src="../IMG/co.png" alt="co" class="w-100 rounded-5">
                     <div class="d-flex justify-content-center align-items-center flex-column">
-                        <p class="text-center fs-3 fw-bold w-70">Micro - HyperX HX-MICQC-BK QuadCast</p>
+                        <p class="text-center fs-auto fw-bold w-100">Micro - HyperX HX-MICQC-BK QuadCast</p>
                         <button class="btn btn-danger text-white w-50 p-3 ">Réserver</button>
                     </div>
                 </div>
-                <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative">
+                <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative w-25">
                     <!-- padding left et droite 2 -->
                     <div
                         class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
                         <button class="btn bg-transparent border-0">
-                            <img src="../res/heartPlein.svg" alt="favory">
+                            <img src="../res/heartVide.svg" alt="favory">
                         </button>
 
                     </div>
-                    <img src="../IMG/co.png" alt="co" class="w-70 rounded-5">
+                    <img src="../IMG/co.png" alt="co" class="w-100 rounded-5">
                     <div class="d-flex justify-content-center align-items-center flex-column">
-                        <p class="text-center fs-3 fw-bold w-70">Micro - HyperX HX-MICQC-BK QuadCast</p>
+                        <p class="text-center fs-auto fw-bold w-100">Micro - HyperX HX-MICQC-BK QuadCast</p>
                         <button class="btn btn-danger text-white w-50 p-3 ">Réserver</button>
                     </div>
                 </div>
-                <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative">
+                <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative w-25">
                     <!-- padding left et droite 2 -->
                     <div
                         class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
                         <button class="btn bg-transparent border-0">
-                            <img src="../res/heartPlein.svg" alt="favory">
+                            <img src="../res/heartVide.svg" alt="favory">
                         </button>
 
                     </div>
-                    <img src="../IMG/co.png" alt="co" class="w-70 rounded-5">
+                    <img src="../IMG/co.png" alt="co" class="w-100 rounded-5">
                     <div class="d-flex justify-content-center align-items-center flex-column">
-                        <p class="text-center fs-3 fw-bold w-70">Micro - HyperX HX-MICQC-BK QuadCast</p>
+                        <p class="text-center fs-auto fw-bold w-100">Micro - HyperX HX-MICQC-BK QuadCast</p>
                         <button class="btn btn-danger text-white w-50 p-3 ">Réserver</button>
                     </div>
                 </div>
-                <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative">
+                <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative w-25">
                     <!-- padding left et droite 2 -->
                     <div
                         class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
                         <button class="btn bg-transparent border-0">
-                            <img src="../res/heartPlein.svg" alt="favory">
+                            <img src="../res/heartVide.svg" alt="favory">
                         </button>
 
                     </div>
-                    <img src="../IMG/co.png" alt="co" class="w-70 rounded-5">
+                    <img src="../IMG/co.png" alt="co" class="w-100 rounded-5">
                     <div class="d-flex justify-content-center align-items-center flex-column">
-                        <p class="text-center fs-3 fw-bold w-70">Micro - HyperX HX-MICQC-BK QuadCast</p>
+                        <p class="text-center fs-auto fw-bold w-100">Micro - HyperX HX-MICQC-BK QuadCast</p>
+                        <button class="btn btn-danger text-white w-50 p-3 ">Réserver</button>
+                    </div>
+                </div>
+                <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative w-25">
+                    <!-- padding left et droite 2 -->
+                    <div
+                        class="position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4">
+                        <button class="btn bg-transparent border-0">
+                            <img src="../res/heartVide.svg" alt="favory">
+                        </button>
+
+                    </div>
+                    <img src="../IMG/co.png" alt="co" class="w-100 rounded-5">
+                    <div class="d-flex justify-content-center align-items-center flex-column">
+                        <p class="text-center fs-auto fw-bold w-100">Micro - HyperX HX-MICQC-BK QuadCast</p>
                         <button class="btn btn-danger text-white w-50 p-3 ">Réserver</button>
                     </div>
                 </div>
@@ -108,26 +137,26 @@ include("../PHPpure/entete.php");
     <script src="../JS/sideBarre.js"></script>
     <script src="../JS/index.js"></script>
     <script>
-    const vrScene = document.getElementById('vrScene');
-    const sky = document.getElementById('sky');
+        const vrScene = document.getElementById('vrScene');
+        const sky = document.getElementById('sky');
 
-    // Fonction pour lancer la scène avec une image donnée
-    function showVR(imageSrc) {
-        document.getElementById('imageContainer1').style.display = 'none';
-        document.getElementById('imageContainer2').style.display = 'none';
-        sky.setAttribute('src', imageSrc);
-        vrScene.style.display = 'block';
-    }
+        // Fonction pour lancer la scène avec une image donnée
+        function showVR(imageSrc) {
+            document.getElementById('imageContainer1').style.display = 'none';
+            document.getElementById('imageContainer2').style.display = 'none';
+            sky.setAttribute('src', imageSrc);
+            vrScene.style.display = 'block';
+        }
 
-    // Clic sur image 1
-    document.getElementById('imageToClick1').addEventListener('click', function() {
-        showVR('../IMG/materiel1.png');
-    });
+        // Clic sur image 1
+        document.getElementById('imageToClick1').addEventListener('click', function() {
+            showVR('../IMG/materiel1.png');
+        });
 
-    // Clic sur image 2
-    document.getElementById('imageToClick2').addEventListener('click', function() {
-        showVR('../IMG/materiel2.jpg');
-    });
+        // Clic sur image 2
+        document.getElementById('imageToClick2').addEventListener('click', function() {
+            showVR('../IMG/materiel2.jpg');
+        });
     </script>
 </body>
 

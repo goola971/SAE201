@@ -1,5 +1,5 @@
 function toggleSidebar() {
-	const sidebar = document.querySelector(".sidebar");
+	const sidebar = document.querySelector("aside");
 	const menuimg = document.getElementById("menuimg");
 	if (sidebar.classList.contains("active")) {
 		sidebar.classList.remove("active");
@@ -10,18 +10,25 @@ function toggleSidebar() {
 	}
 }
 
-// recuperer le dernier / sans le .html ou .php
+// Récupérer le nom de la page actuelle
 const url = window.location.href;
 const lastSlashIndex = url.lastIndexOf("/");
 const lastPart = url.substring(lastSlashIndex + 1);
 const pageName = lastPart.split(".")[0];
 
-// mettre la class active sur le lien correspondant
-const links = document.querySelectorAll(".menu a");
-const imglinks = document.querySelectorAll(".menu a img");
+// Mettre la classe active sur le lien correspondant
+const links = document.querySelectorAll("aside nav ul li a");
 links.forEach((link) => {
+	// Retirer la classe active de tous les liens
 	link.classList.remove("active");
+
+	// Ajouter la classe active au lien correspondant à la page actuelle
 	if (link.id === pageName) {
+		link.classList.add("active");
+	}
+
+	// Gestion spéciale pour la page materiels
+	if (pageName === "materiels" && link.id === "materiel") {
 		link.classList.add("active");
 	}
 });

@@ -28,35 +28,38 @@
         <!-- Image 1 -->
         <div id="imageContainer1" style="margin-bottom: 20px;">
             <img id="imageToClick1" src="../IMG/image.png" alt="Salle 138" style="width: 60%; cursor: pointer;">
-            <h3>Réservation de la salle 138</h3>
-            <a href="reservation_salle.php?salle=138">
-                <button
-                    style="background-color: #c44e63; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
-                    Réserver
-                </button>
-            </a>
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 60%; margin-top: 1vh;">
+                <h3 style="margin: 0;">Réservation de la salle 138</h3>
+                <a href="reservation_salle.php?salle=138">
+                    <button style="background-color: #c44e63; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                        Réserver
+                    </button>
+                </a>
+            </div>
         </div>
 
         <!-- Image 2 -->
         <div id="imageContainer2">
             <img id="imageToClick2" src="../IMG/image2.jpg" alt="Salle 212" style="width: 60%; cursor: pointer;">
-            <h3>Réservation de la salle 212</h3>
-            <a href="reservation_salle.php?salle=212">
-                <button
-                    style="background-color: #c44e63; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
-                    Réserver
-                </button>
-            </a>
+            <div style="display: flex; justify-content: space-between; align-items: center; width: 60%; margin-top: 1vh;">
+                <h3 style="margin: 0;">Réservation de la salle 212</h3>
+                <a href="reservation_salle.php?salle=212">
+                    <button style="background-color: #c44e63; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                        Réserver
+                    </button>
+                </a>
+            </div>
         </div>
 
         <!-- Scène VR -->
-        <div id="vrContainer" style="display: none; width: 100%; height: 100vh;">
-            <a-scene id="vrScene" embedded style="width: 100%; height: 100%;">
-                <a-sky id="sky" rotation="0 -90 0"></a-sky>
+        <div id="vrContainer" style="display: none; width: 100%; height: 100vh; position: fixed; top: 0; left: 0; z-index: 1000;">
+            <a-scene id="vrScene" embedded style="width: 100%; height: 100%;" renderer="antialias: true; precision: high">
+                <a-sky id="sky" rotation="0 -90 0" material="shader: flat; side: double"></a-sky>
+                <a-entity camera look-controls="reverseMouseDrag: true"></a-entity>
             </a-scene>
 
             <button id="backButton" style="
-                position: absolute;
+                position: fixed;
                 bottom: 30px;
                 right: 30px;
                 z-index: 9999;
@@ -85,10 +88,28 @@
             sky.setAttribute('src', imageSrc);
             vrContainer.style.display = 'block';
             backButton.style.display = 'block';
-            document.body.style.overflow = 'auto';
+            document.body.style.overflow = 'hidden';
+
+            // Forcer le plein écran pour une meilleure expérience VR
+            if (vrContainer.requestFullscreen) {
+                vrContainer.requestFullscreen();
+            } else if (vrContainer.webkitRequestFullscreen) {
+                vrContainer.webkitRequestFullscreen();
+            } else if (vrContainer.msRequestFullscreen) {
+                vrContainer.msRequestFullscreen();
+            }
         }
 
         function exitVR() {
+            // Sortir du mode plein écran
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) {
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) {
+                document.msExitFullscreen();
+            }
+
             vrContainer.style.display = 'none';
             document.getElementById('imageContainer1').style.display = 'block';
             document.getElementById('imageContainer2').style.display = 'block';

@@ -28,11 +28,14 @@
             case 'profil':
                 echo '<h1>Mon profil</h1>';
                 break;
-            case 'reservation':
+            case 'reservations':
                 echo '<h1>Mes réservation</h1>';
                 break;
             case 'salles':
                 echo '<h1>Salles</h1>';
+                break;
+            case 'materiels':
+                echo '<h1>Matériels</h1>';
                 break;
             default:
                 echo '<h1>ya pas le nom ou c mal mis</h1>';

@@ -75,15 +75,15 @@
                         <div class="avatars">
                             <div id="avatar-container">
                                 <?php
-                                    require_once("../PHPpure/connexion.php");
-                                    $id_utilisateur = $_SESSION["user"]["id"];
-                                    if ($_SESSION["user"]["role"] == "Etudiant(e)") {
-                                        $requete = $pdo->prepare("SELECT * FROM user_ WHERE id = ?");
-                                        $requete->execute([$id_utilisateur]);
-                                        $utilisateur = $requete->fetch();
-                                        $avatar = $utilisateur["avatar"];
-                                        echo "<img src='$avatar' class='avatar' data-user-id='$id_utilisateur'>";
-                                    }
+                                require_once("../PHPpure/connexion.php");
+                                $id_utilisateur = $_SESSION["user"]["id"];
+                                if ($_SESSION["user"]["role"] == "Etudiant(e)") {
+                                    $requete = $pdo->prepare("SELECT * FROM user_ WHERE id = ?");
+                                    $requete->execute([$id_utilisateur]);
+                                    $utilisateur = $requete->fetch();
+                                    $avatar = $utilisateur["avatar"];
+                                    echo "<img src='$avatar' class='avatar' data-user-id='$id_utilisateur'>";
+                                }
                                 ?>
                             </div>
                             <!-- liste qui va contenir les id des utilisateurs -->
@@ -123,23 +123,23 @@
                                     $etudiants = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     foreach ($etudiants as $etudiant) {
                                 ?>
-                                <div class="who-list-user-item col-12 d-flex justify-content-between align-items-center gap-2 w-100"
-                                    id="<?= $etudiant['id'] ?>">
-                                    <div class="d-flex justify-content-between align-items-center w-100">
-                                        <div class="d-flex justify-content-between align-items-center gap-2">
-                                            <img src="<?= htmlspecialchars($etudiant['avatar'] ?? '../uploads/default.png') ?>"
-                                                alt="" class="avatarAjouterEtudiant " id="<?= $etudiant['id'] ?>">
-                                            <div
-                                                class="etudiantInfo d-flex justify-content-end align-items-start flex-column">
-                                                <p><?= htmlspecialchars($etudiant['prenom']) . ' ' . htmlspecialchars($etudiant['nom']) ?>
-                                                </p>
-                                                <p><?= htmlspecialchars($etudiant['promotion']) ?></p>
+                                        <div class="who-list-user-item col-12 d-flex justify-content-between align-items-center gap-2 w-100"
+                                            id="<?= $etudiant['id'] ?>">
+                                            <div class="d-flex justify-content-between align-items-center w-100">
+                                                <div class="d-flex justify-content-between align-items-center gap-2">
+                                                    <img src="<?= htmlspecialchars($etudiant['avatar'] ?? '../uploads/default.png') ?>"
+                                                        alt="" class="avatarAjouterEtudiant " id="<?= $etudiant['id'] ?>">
+                                                    <div
+                                                        class="etudiantInfo d-flex justify-content-end align-items-start flex-column">
+                                                        <p><?= htmlspecialchars($etudiant['prenom']) . ' ' . htmlspecialchars($etudiant['nom']) ?>
+                                                        </p>
+                                                        <p><?= htmlspecialchars($etudiant['promotion']) ?></p>
+                                                    </div>
+                                                </div>
+                                                <p><?= htmlspecialchars($etudiant['td']) ?></p>
                                             </div>
+                                            <button type="button" class="ajouterUserButton">ajouter</button>
                                         </div>
-                                        <p><?= htmlspecialchars($etudiant['td']) ?></p>
-                                    </div>
-                                    <button type="button" class="ajouterUserButton">ajouter</button>
-                                </div>
                                 <?php
                                     }
                                 } else {
@@ -173,41 +173,41 @@
     <script src="../JS/sideBarre.js"></script>
     <script src="../JS/reservation_salle.js"></script>
     <script>
-    // Gestion du sélecteur de salle
-    const salleButtons = document.querySelectorAll('.salle-selector button');
-    const salleInput = document.getElementById('selected-salle');
-    const salleImage = document.getElementById('salle-image');
-    const salleTitle = document.getElementById('salle-title');
+        // Gestion du sélecteur de salle
+        const salleButtons = document.querySelectorAll('.salle-selector button');
+        const salleInput = document.getElementById('selected-salle');
+        const salleImage = document.getElementById('salle-image');
+        const salleTitle = document.getElementById('salle-title');
 
-    // Fonction pour mettre à jour l'interface en fonction de la salle sélectionnée
-    function updateSalleInterface(salle) {
-        salleButtons.forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.salle === salle);
+        // Fonction pour mettre à jour l'interface en fonction de la salle sélectionnée
+        function updateSalleInterface(salle) {
+            salleButtons.forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.salle === salle);
+            });
+            salleInput.value = salle;
+            salleTitle.textContent = `Salle ${salle}`;
+            salleImage.src = salle === '138' ? 'https://glistening-sunburst-222dae.netlify.app/salle/salle138.png' :
+                'https://glistening-sunburst-222dae.netlify.app/salle/salle212.jpg';
+        }
+
+        // Gestion des clics sur les boutons
+        salleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                updateSalleInterface(button.dataset.salle);
+            });
         });
-        salleInput.value = salle;
-        salleTitle.textContent = `Salle ${salle}`;
-        salleImage.src = salle === '138' ? 'https://glistening-sunburst-222dae.netlify.app/salle/salle138.png' :
-            'https://glistening-sunburst-222dae.netlify.app/salle/salle212.jpg';
-    }
 
-    // Gestion des clics sur les boutons
-    salleButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            updateSalleInterface(button.dataset.salle);
-        });
-    });
+        // Sélection initiale basée sur l'URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialSalle = urlParams.get('salle');
+        if (initialSalle && (initialSalle === '138' || initialSalle === '212')) {
+            updateSalleInterface(initialSalle);
+        }
 
-    // Sélection initiale basée sur l'URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const initialSalle = urlParams.get('salle');
-    if (initialSalle && (initialSalle === '138' || initialSalle === '212')) {
-        updateSalleInterface(initialSalle);
-    }
-
-    // Affichage du message de succès si présent
-    if (urlParams.get('success') === '1') {
-        alert('Réservation effectuée avec succès !');
-    }
+        // Affichage du message de succès si présent
+        if (urlParams.get('success') === '1') {
+            alert('Réservation effectuée avec succès !');
+        }
     </script>
     .
 </body>

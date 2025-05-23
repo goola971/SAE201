@@ -114,6 +114,48 @@
                             </div>
                         ";
             }
+
+            // pareil pour les réservations de salle
+            $sql = "
+                        SELECT 
+                            r.date_debut,
+                            r.date_fin,
+                            r.valide,
+                            s.nom AS salle  
+                        FROM reservations r
+                        JOIN concerne_salle cs ON r.idR = cs.idR
+                        JOIN salle s ON cs.idS = s.idS
+                        JOIN reservation_users ru ON r.idR = ru.idR
+                        WHERE ru.id = :user_id
+                        ORDER BY r.date_debut DESC
+            ";
+
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
+            $stmt->execute();
+
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $date = date("d/m/Y", strtotime($row['date_debut']));
+                $startHour = date("H\hi", strtotime($row['date_debut']));
+                $endHour = date("H\hi", strtotime($row['date_fin']));
+
+                if ($row['valide'] == 0) {
+                    $status = "attente";
+                } elseif ($row['valide'] == 1) {
+                    $status = "accepté";
+                } elseif ($row['valide'] == 2) {
+                    $status = "réfusé";
+                }
+                echo "
+                            <div class='line'>  
+                                <p>Réservation de {$row['salle']}</p>
+                                <p>$date</p>
+                                <p>$startHour - $endHour</p>
+                                <button class='$status'></button>
+                            </div>
+                        ";
+            }
+
             ?>
         </article>
     </section>

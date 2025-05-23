@@ -10,7 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $date_naissance = trim($_POST['date_naissance']);
     $adresse = trim($_POST['adresse']);
     $email = trim($_POST['email']);
-    $mot_de_passe = trim($_POST['mot_de_passe']);
+    $mdp = trim($_POST['mdp']);
+    $confirme_mdp = trim($_POST['confirme_mdp']);
     
     // // Création du pseudo (prénom.nom)
     // $pseudo = strtolower($prenom . '.' . $nom);
@@ -22,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $valable = 0;
 
     // Vérification que tous les champs sont remplis
-    if (empty($nom) || empty($prenom) || empty($pseudo) || empty($date_naissance) || empty($email) || empty($mot_de_passe)) {
+    if (empty($nom) || empty($prenom) || empty($pseudo) || empty($date_naissance) || empty($email) || empty($mdp) || empty($confirme_mdp)) {
         die('Veuillez remplir tous les champs.');
     }
 
@@ -47,8 +48,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo->beginTransaction();
 
         // Insertion dans la table user_
-        $sql = "INSERT INTO user_ (nom, prenom, pseudo, email, mot_de_passe, date_inscription, valable, date_naissance, adresse) 
-                VALUES (:nom, :prenom, :pseudo, :email, :mot_de_passe, :date_inscription, :valable, :date_naissance, :adresse)";
+        $sql = "INSERT INTO user_ (nom, prenom, pseudo, email, mdp, confirme_mdp, date_inscription, valable, date_naissance, adresse) 
+                VALUES (:nom, :prenom, :pseudo, :email, :mdp, :confirme_mdp, :date_inscription, :valable, :date_naissance, :adresse)";
         
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
@@ -56,7 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'prenom' => $prenom,
             'pseudo' => $pseudo,
             'email' => $email,
-            'mot_de_passe' => $mot_de_passe, // Note: Dans un cas réel, il faudrait hasher le mot de passe
+            'mdp' => $mdp, // HASHER LE MDP
+            'confirme_mdp' => $confirme_mdp, // HASHER LE MDP
             'date_inscription' => $date_inscription,
             'valable' => $valable,
             'date_naissance' => $date_naissance,
@@ -66,10 +68,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Récupération de l'ID de l'utilisateur nouvellement créé
         $userId = $pdo->lastInsertId();
 
-        // Insertion dans la table de rôle correspondante
-        $sql = "INSERT INTO $role (id) VALUES (:id)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(['id' => $userId]);
+        // // Insertion dans la table de rôle correspondante
+        // $sql = "INSERT INTO $role (id) VALUES (:id)";
+        // $stmt = $pdo->prepare($sql);
+        // $stmt->execute(['id' => $userId]);
 
         // Validation de la transaction
         $pdo->commit();

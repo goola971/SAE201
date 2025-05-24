@@ -9,7 +9,7 @@ class PDF extends FPDF
         $this->Image('../IMG/co.png', 5, 5, 30);
         $this->SetFont('Arial', 'B', 15);
         $this->Cell(80);
-        $this->Cell(30, 30, 'Confirmation de Reservation', 0, 0, 'C');
+        $this->Cell(30, 30, 'Confirmation de réservation', 0, 0, 'C');
         $this->Ln(20);
     }
 
@@ -50,24 +50,24 @@ if (isset($_GET['idR'])) {
             $pdf->SetFont('Arial', '', 12);
 
             $pdf->SetFont('Arial', 'B', 12);
-            $pdf->Cell(0, 10, 'Details de la Reservation', 0, 1);
+            $pdf->Cell(0, 10, 'Détails de la réservation', 0, 1);
             $pdf->SetFont('Arial', '', 12);
 
-            $pdf->Cell(40, 10, 'Motif:', 0);
+            $pdf->Cell(40, 10, 'Motif :', 0);
             $pdf->Cell(0, 10, $reservation['motif'], 0, 1);
 
-            $pdf->Cell(40, 10, 'Date de debut:', 0);
+            $pdf->Cell(40, 10, 'Date de début :', 0);
             $pdf->Cell(0, 10, date('d/m/Y H:i', strtotime($reservation['date_debut'])), 0, 1);
-            $pdf->Cell(40, 10, 'Date de fin:', 0);
+            $pdf->Cell(40, 10, 'Date de fin :', 0);
             $pdf->Cell(0, 10, date('d/m/Y H:i', strtotime($reservation['date_fin'])), 0, 1);
 
             $status = $reservation['valide'] == 1 ? "Valide" : ($reservation['valide'] == 2 ? "Refuse" : "En attente");
-            $pdf->Cell(40, 10, 'Statut:', 0);
+            $pdf->Cell(40, 10, 'Statut :', 0);
             $pdf->Cell(0, 10, $status, 0, 1);
 
             $pdf->Ln(5);
             $pdf->SetFont('Arial', 'B', 12);
-            $pdf->Cell(0, 10, 'Materiels reserves:', 0, 1);
+            $pdf->Cell(0, 10, 'Matériel reservé :', 0, 1);
             $pdf->SetFont('Arial', '', 12);
 
             if ($reservation['materiels']) {
@@ -77,12 +77,12 @@ if (isset($_GET['idR'])) {
                     $pdf->Cell(0, 10, "- $designation ($reference)", 0, 1);
                 }
             } else {
-                $pdf->Cell(0, 10, "Aucun materiel reserve", 0, 1);
+                $pdf->Cell(0, 10, "Aucun matériel réservé", 0, 1);
             }
 
             $pdf->Ln(5);
             $pdf->SetFont('Arial', 'B', 12);
-            $pdf->Cell(0, 10, 'Salles reservees:', 0, 1);
+            $pdf->Cell(0, 10, 'Salle réservée :', 0, 1);
             $pdf->SetFont('Arial', '', 12);
 
             if ($reservation['salles']) {
@@ -92,12 +92,12 @@ if (isset($_GET['idR'])) {
                     $pdf->Cell(0, 10, "- $nom ($type)", 0, 1);
                 }
             } else {
-                $pdf->Cell(0, 10, "Aucune salle reservee", 0, 1);
+                $pdf->Cell(0, 10, "Aucune salle réservée", 0, 1);
             }
 
             $pdf->Ln(5);
             $pdf->SetFont('Arial', 'B', 12);
-            $pdf->Cell(0, 10, 'Reservateurs:', 0, 1);
+            $pdf->Cell(0, 10, 'Réservateurs:', 0, 1);
             $pdf->SetFont('Arial', '', 12);
 
             if ($reservation['users']) {
@@ -111,7 +111,7 @@ if (isset($_GET['idR'])) {
             if ($reservation['commentaires']) {
                 $pdf->Ln(5);
                 $pdf->SetFont('Arial', 'B', 12);
-                $pdf->Cell(0, 10, 'Commentaires:', 0, 1);
+                $pdf->Cell(0, 10, 'Commentaires :', 0, 1);
                 $pdf->SetFont('Arial', '', 12);
                 $pdf->MultiCell(0, 10, $reservation['commentaires']);
             }
@@ -119,11 +119,11 @@ if (isset($_GET['idR'])) {
             // Génération du PDF
             $pdf->Output('D', 'reservation_' . $idR . '.pdf');
         } else {
-            echo "Reservation non trouvee";
+            echo "Réservation non trouvée";
         }
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
     }
 } else {
-    echo "ID de reservation non specifie";
+    echo "ID de réservation non spécifié";
 }

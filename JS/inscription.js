@@ -1,5 +1,5 @@
 // Progression bar
-const stepIndex = { step1: 33, step2: 66, step3: 100, step4: 100 };
+const stepIndex = { step1: 33, step2: 66, step3: 100 };
 
 function nextStep(currentStep, nextStep, requiredFields = []) {
 	let valid = true;
@@ -16,6 +16,7 @@ function nextStep(currentStep, nextStep, requiredFields = []) {
 				break;
 			}
 
+			// Email validation
 			if (field === "email") {
 				const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 				if (!emailRegex.test(value)) {
@@ -27,8 +28,18 @@ function nextStep(currentStep, nextStep, requiredFields = []) {
 		}
 	}
 
-	// Validation spécifique des mots de passe (pour step3 → step4)
-	if (currentStep === "step3" && nextStep === "step4") {
+	if (!valid) {
+		if (firstInvalid) firstInvalid.focus();
+		if (requiredFields.includes("email")) {
+			alert("Veuillez entrer un email valide.");
+		} else {
+			alert("Veuillez remplir tous les champs obligatoires.");
+		}
+		return;
+	}
+
+	// Validation spécifique des mots de passe
+	if (currentStep === "step3") {
 		const mdp = document.getElementById("mdp").value.trim();
 		const confirme_mdp = document
 			.getElementById("confirme_mdp")
@@ -55,43 +66,25 @@ function nextStep(currentStep, nextStep, requiredFields = []) {
 		return;
 	}
 
-	if (!valid) {
-		if (firstInvalid) firstInvalid.focus();
-		if (requiredFields.includes("email")) {
-			alert("Veuillez entrer un email valide.");
-		} else {
-			alert("Veuillez remplir tous les champs obligatoires.");
-		}
-		return;
-	}
-
+	// Etape suivante
 	document.getElementById(currentStep).style.display = "none";
 	document.getElementById(nextStep).style.display = "block";
 
-	if (nextStep === "step4") {
-		document.querySelector(".progress").style.display = "none";
-		document.getElementById("formTitle").style.display = "none";
-	} else {
-		document.querySelector(".progress").style.display = "";
-		document.getElementById("formTitle").style.display = "";
-		document.getElementById("progressBar").style.width =
-			stepIndex[nextStep] + "%";
-	}
+	// Progression bar
+	document.querySelector(".progress").style.display = "";
+	document.getElementById("formTitle").style.display = "";
+	document.getElementById("progressBar").style.width =
+		stepIndex[nextStep] + "%";
 }
 
 function prevStep(currentStep, prevStep) {
 	document.getElementById(currentStep).style.display = "none";
 	document.getElementById(prevStep).style.display = "block";
 
-	if (prevStep === "step4") {
-		document.querySelector(".progress").style.display = "none";
-		document.getElementById("formTitle").style.display = "none";
-	} else {
-		document.querySelector(".progress").style.display = "";
-		document.getElementById("formTitle").style.display = "";
-		document.getElementById("progressBar").style.width =
-			stepIndex[prevStep] + "%";
-	}
+	document.querySelector(".progress").style.display = "";
+	document.getElementById("formTitle").style.display = "";
+	document.getElementById("progressBar").style.width =
+		stepIndex[prevStep] + "%";
 }
 
 // Auto-remplissage pseudo : prenom.nom
@@ -110,13 +103,3 @@ function updatePseudo() {
 // MAJ pseudo à chaque saisie dans nom ou prénom
 prenomInput.addEventListener("input", updatePseudo);
 nomInput.addEventListener("input", updatePseudo);
-
-// Gestion du bouton Se connecter : REVOIR BOUTON
-window.addEventListener("DOMContentLoaded", function () {
-	const btnConnect = document.getElementById("btnConnect");
-	if (btnConnect) {
-		btnConnect.addEventListener("click", function () {
-			window.location.href = "../PHP/connexion.html";
-		});
-	}
-});

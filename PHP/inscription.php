@@ -8,7 +8,7 @@
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="../CSS/style.css">
     <link rel="stylesheet" href="../CSS/inscription.css">
-    <link rel="stylesheet" href="../CSS/header.css">
+    <!-- <link rel="stylesheet" href="../CSS/header.css"> -->
     <title>Inscription</title>
 </head>
 
@@ -26,7 +26,7 @@
                         <input type="text" placeholder="Prénom" name="prenom" id="prenom" required />
                         <label for="pseudo">Pseudo <span class="retenir">(à retenir)</span></label>
                         <input type="text" placeholder="prénom.nom" name="pseudo" id="pseudo" required readonly />
-                        <button type="button" onclick="nextStep('step1', 'step2', ['nom', 'prenom', 'pseudo'])">Continuer</button>
+                        <button type="button" onclick="nextStep('step1', 'step2', ['nom', 'prenom'])">Continuer</button>
                     </div>
                     <!-- Step 2 -->
                     <div class="step" id="step2" style="display: none;">
@@ -47,24 +47,17 @@
                     <!-- Step 3 -->
                     <div class="step" id="step3" style="display: none;">
                         <label for="mdp">Mot de passe *</label>
-                        <input type="password" placeholder="blablabla" name="mdp" id="mdp" required />
+                        <input type="password" placeholder="Ex : Mot2passe!" name="mdp" id="mdp" required />
                         <label for="confirme_mdp">Confirmez un mot de passe *</label>
-                        <input type="password" placeholder="blablabla" name="confirme_mdp" id="confirme_mdp" required />
-                        <button type="button" onclick="nextStep('step3', 'step4')">Valider</button>
+                        <input type="password" placeholder="" name="confirme_mdp" id="confirme_mdp" required />
+                        <button type="submit">Valider</button>
+                        <button type="button" onclick="prevStep('step3', 'step2')">Retour</button>
                     </div>
                 </form>
-                <!-- Step 4 : Confirmation -->
-                <div class="step" id="step4" style="display: none; text-align:center;">
-                    <h2>Votre compte a été créé avec succès.</h2>
-                    <img src="../img/co.png" alt="">
-                    <!-- style="max-width:280px; margin: 2rem auto; display:block;"> -->
-                    <button id="btnConnect">Se connecter</button>
-                </div>
-            </div>
-            <div class="progress">
-                <div class="progress-bar" id="progressBar" role="progressbar"
-                    style="width: 25%; background-color:#E47390;"></div>
-            </div>
+                <div class="progress">
+    <div class="progress-bar" id="progressBar" role="progressbar"
+        style="width: 25%; background-color:#E47390;"></div>
+</div>
         </section>
     </main>
     <script src="../JS/inscription.js"></script>

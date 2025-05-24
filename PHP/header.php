@@ -37,6 +37,9 @@
             case 'materiels':
                 echo '<h1>Matériels</h1>';
                 break;
+            case 'listeDesReservations':
+                echo '<h1>Liste des réservations</h1>';
+                break;
             default:
                 echo '<h1>ya pas le nom ou c mal mis</h1>';
         }

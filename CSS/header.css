@@ -172,16 +172,16 @@ aside .autre nav {
 	justify-content: start;
 	flex-direction: column;
 	padding: 0;
-	width: 100%;
+	width: 100% !important;
 	gap: 2vh;
 }
 
 aside .menu nav ul,
 aside .autre nav ul {
-	display: flex;
-	justify-content: start;
-	flex-direction: column;
-	width: 100%;
+	display: flex !important;
+	justify-content: start !important;
+	flex-direction: column !important;
+	width: 100% !important;
 	margin-left: -2vw;
 	gap: 1vh;
 	list-style: none;
@@ -192,8 +192,8 @@ aside .autre nav ul li a {
 	display: flex;
 	justify-content: start;
 	align-items: center;
-	width: 100%;
-	height: 6vh;
+	width: 100% !important;
+	height: 6vh !important;
 	gap: 1vw;
 	cursor: pointer;
 	transition: all 0.2s ease-in-out;

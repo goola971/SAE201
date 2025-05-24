@@ -20,10 +20,10 @@
     <section class="table">
         <!-- utilisateion de bootstrap -->
         <article class="header_Table">
-            <p>type de reservation</p>
-            <p>Date de la réservation</p>
+            <p>Type de réservation</p>
+            <p>Date de réservation</p>
             <p>Créneau de réservation</p>
-            <p>Status</p>
+            <p>Statut</p>
         </article>
         <article class="body_Table">
             <!-- <div class="line">

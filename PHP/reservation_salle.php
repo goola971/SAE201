@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Réservation de salle</title>
+    <title>Réservation Salle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- bootstrap  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -23,7 +23,7 @@
 
     <main class="reservation-container">
         <form action="../PHPpure/reservation_salle.php" method="post">
-            <h1>Procédures de réservations</h1>
+            <h1>Procédure de réservation</h1>
 
             <div class="salle-selector">
                 <button type="button" class="active" data-salle="138">Salle 138</button>

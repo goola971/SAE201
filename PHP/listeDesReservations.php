@@ -16,7 +16,7 @@ include("../PHPpure/entete.php");
     <link rel="stylesheet" href="../CSS/index.css" />
     <link rel="stylesheet" href="../CSS/header.css" />
     <link rel="stylesheet" href="../CSS/modifPopupReservation.css" />
-    <title>Document</title>
+    <title>Liste des réservations</title>
 </head>
 
 <body>
@@ -25,12 +25,12 @@ include("../PHPpure/entete.php");
     include("aside.php");
     ?>
     <main>
-        <h1>Reservations</h1>
+        <h1>Réservations</h1>
         <section class="table">
             <article class="header_Table">
-                <p>Nom de la reservation</p>
-                <p>date de la reservation</p>
-                <p>Status</p>
+                <p>Nom de la réservation</p>
+                <p>Date de la réservation</p>
+                <p>Statut</p>
 
             </article>
             <article class="body_Table">

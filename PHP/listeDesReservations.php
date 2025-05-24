@@ -1,5 +1,9 @@
 <?php
 include("../PHPpure/entete.php");
+if ($_SESSION['user']['role'] != 'Administrateur') {
+    header('Location: ../PHP/index.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>

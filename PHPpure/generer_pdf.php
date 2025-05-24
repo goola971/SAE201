@@ -30,7 +30,7 @@ if (!$res) {
 $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial', 'B', 16);
-$pdf->Cell(0, 10, 'Accusé de Réception de Réservation', 0, 1, 'C');
+$pdf->Cell(0, 10, 'Accusé de réception de réservation', 0, 1, 'C');
 
 $pdf->Ln(10);
 $pdf->SetFont('Arial', '', 12);
@@ -40,7 +40,7 @@ $pdf->Ln(5);
 $pdf->Cell(0, 10, "Réservation n°{$res['idR']}", 0, 1);
 
 $pdf->Ln(5);
-$pdf->MultiCell(0, 10, "Matériel(s) : {$res['materiels']}");
+$pdf->MultiCell(0, 10, "Matériel : {$res['materiels']}");
 $pdf->Cell(0, 10, "Date de début : {$res['date_debut']}", 0, 1);
 $pdf->Cell(0, 10, "Date de fin : {$res['date_fin']}", 0, 1);
 $pdf->MultiCell(0, 10, "Motif : {$res['motif']}");

@@ -56,9 +56,11 @@ if ($role !== 'Administrateur') {
         JOIN user_ u ON ru.id = u.id
         WHERE r.valide = 1 AND r.idR IN ($placeholders)
         ORDER BY start
-    ";
+    "; // IMPORTANT : il faut passer deux fois les mêmes params (pour chaque IN)
+    $params = array_merge($reservationIds, $reservationIds);
+
     $stmt = $pdo->prepare($sql);
-    $stmt->execute($reservationIds);
+    $stmt->execute($params);
 } else {
     // admin : récupère tout
     $sql = "

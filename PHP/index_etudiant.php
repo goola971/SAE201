@@ -121,7 +121,9 @@
                             r.date_debut,
                             r.date_fin,
                             r.valide,
-                            s.nom AS salle  
+                            s.nom AS salle,
+                            r.idR AS idR
+
                         FROM reservations r
                         JOIN concerne_salle cs ON r.idR = cs.idR
                         JOIN salle s ON cs.idS = s.idS
@@ -151,10 +153,16 @@
                                 <p>Réservation de {$row['salle']}</p>
                                 <p>$date</p>
                                 <p>$startHour - $endHour</p>
-                                <button class='$status'></button>
+                                <div class='statusButton'>
+                                    <button class='$status'></button>
+                                    <button class='telecharger' onclick='window.open(\"../PHPpure/genererpdf.php?idR={$row['idR']}\", \"_blank\")'>Télécharger</button>
+                                </div>
                             </div>
                         ";
             }
+
+            // ajouter bouton pour telecharger le pdf
+
 
             ?>
         </article>

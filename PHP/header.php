@@ -40,6 +40,12 @@
             case 'listeDesReservations':
                 echo '<h1>Liste des réservations</h1>';
                 break;
+            case 'reservation_salle':
+                echo '<h1>Réservation de salle</h1>';
+                break;
+            case 'reservation_materiel':
+                echo '<h1>Réservation de matériel</h1>';
+                break;
             default:
                 echo '<h1>ya pas le nom ou c mal mis</h1>';
         }

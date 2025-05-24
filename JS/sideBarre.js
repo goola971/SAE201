@@ -30,5 +30,14 @@ links.forEach((link) => {
 	// Gestion spéciale pour la page materiels
 	if (pageName === "materiels" && link.id === "materiel") {
 		link.classList.add("active");
+	} else if (pageName === "reservation_materiel" && link.id === "materiel") {
+		link.classList.add("active");
+	} else if (pageName === "reservation_salle" && link.id === "salles") {
+		link.classList.add("active");
+	} else if (
+		pageName === "listeDesReservations" &&
+		link.id === "accepter_reservation"
+	) {
+		link.classList.add("active");
 	}
 });

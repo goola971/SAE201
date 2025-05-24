@@ -173,16 +173,3 @@ main section .formContainer p a {
 	margin: 2rem auto 2rem auto;
 	display: block;
 }
-#step4 button {
-	background: #e47390;
-	color: #fff;
-	border: none;
-	border-radius: 0.7rem;
-	padding: 1rem 2.5rem;
-	font-size: 1.2rem;
-	margin-top: 2rem;
-	transition: background 0.2s;
-}
-#step4 button:hover {
-	background: #d15b7a;
-}

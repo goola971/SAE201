@@ -41,6 +41,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Cet utilisateur existe déjà.');
     }
 
+    // Hashage mdp
+    $mdp_hash = password_hash($mdp, PASSWORD_DEFAULT);
+
     try {
         // Début de la transaction
         $pdo->beginTransaction();
@@ -55,8 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'prenom' => $prenom,
             'pseudo' => $pseudo,
             'email' => $email,
-            'mdp' => $mdp, // HASHER LE MDP
-            'confirme_mdp' => $confirme_mdp, // HASHER LE MDP
+            'mdp' => $mdp_hash,
             'date_inscription' => $date_inscription,
             'valable' => $valable,
             'date_naissance' => $date_naissance,

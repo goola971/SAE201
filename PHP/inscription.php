@@ -50,15 +50,15 @@
                         <input type="password" placeholder="blablabla" name="mdp" id="mdp" required />
                         <label for="confirme_mdp">Confirmez un mot de passe *</label>
                         <input type="password" placeholder="blablabla" name="confirme_mdp" id="confirme_mdp" required />
-                        <button type="button" onclick="nextStep('step3', 'step4', ['mdp', 'confirme_mdp'])">Continuer</button>
-                        <button type="button" onclick="prevStep('step3', 'step2')">Retour</button>
+                        <button type="button" onclick="nextStep('step3', 'step4')">Valider</button>
                     </div>
                 </form>
                 <!-- Step 4 : Confirmation -->
                 <div class="step" id="step4" style="display: none; text-align:center;">
                     <h2>Votre compte a été créé avec succès.</h2>
-                    <img src="../img/co.png" alt="" style="max-width:200px; margin: 2rem auto; display:block;">
-                    <!-- <button type="button" onclick="btnConnect()">Se connecter</button> CHANGER BOUTON + JS -->
+                    <img src="../img/co.png" alt="">
+                    <!-- style="max-width:280px; margin: 2rem auto; display:block;"> -->
+                    <button id="btnConnect">Se connecter</button>
                 </div>
             </div>
             <div class="progress">

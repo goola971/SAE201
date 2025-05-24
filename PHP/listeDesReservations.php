@@ -165,7 +165,7 @@ include("../PHPpure/entete.php");
         <form class="modifPopupReservation" action="../PHPpure/reservationValidation.php" method="POST">
             <div class="modifPopupReservation_content">
                 <div class="modifPopupReservation_content_header">
-                    <h3>Modifier la reservation</h3>
+                    <h3>Modifier la réservation</h3>
                     <button class="close_modifPopupReservation">
                         <img src="../res/x.svg" alt="close">
                     </button>
@@ -173,7 +173,7 @@ include("../PHPpure/entete.php");
                 <input type="hidden" name="idR" id="idR">
                 <div class="modifPopupReservation_content_body">
                     <div class="modifPopupReservation_content_body_item">
-                        <label for="motif">Motif de la reservation</label>
+                        <label for="motif">Motif de la réservation</label>
                         <input type="text" id="motif" placeholder="Motif" disabled>
                     </div>
                     <div class="modifPopupReservation_content_body_item">
@@ -185,7 +185,7 @@ include("../PHPpure/entete.php");
                         <input type="datetime-local" id="date_fin" placeholder="Date de fin" disabled>
                     </div>
                     <div class="modifPopupReservation_content_body_item">
-                        <label for="status">Status</label>
+                        <label for="status">Statut</label>
                         <select name="status" id="status">
                             <option value="0" selected>En attente</option>
                             <option value="1">Validée</option>
@@ -193,7 +193,7 @@ include("../PHPpure/entete.php");
                         </select>
                     </div>
                     <div class="modifPopupReservation_content_body_item">
-                        <label for="materiels">Materiels</label>
+                        <label for="materiels">Matériels</label>
                         <input type="text" id="materiels" placeholder="Materiels" disabled>
                     </div>
                     <!-- ou -->
@@ -202,7 +202,7 @@ include("../PHPpure/entete.php");
                         <input type="text" id="sallesinput" placeholder="Salles" disabled>
                     </div>
                     <div class="avatar-container">
-                        <label for="avatar">Qui reserve :</label>
+                        <label for="avatar">Qui réserve :</label>
                         <div class="avatar-container_img">
                             <img src="../IMG/jinx.png" alt="">
                         </div>

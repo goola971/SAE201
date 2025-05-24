@@ -23,7 +23,7 @@
     ?>
 
     <main>
-        <p>Cliquer sur une image et mettez-là en grand écran pour entrer en mode VR 360°.</p>
+        <p>Cliquer sur une image pour entrer en mode VR 360°.</p>
 
         <!-- Image 1 -->
         <div id="imageContainer1" style="margin-bottom: 20px;">

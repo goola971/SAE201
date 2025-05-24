@@ -68,12 +68,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Récupération de l'ID de l'utilisateur nouvellement créé
         $userId = $pdo->lastInsertId();
 
-
         // Validation de la transaction
         $pdo->commit();
-
-        // Redirection vers la page de connexion avec un message de succès
-        header('Location: ../PHP/connexion.html?inscription=success');
+        header('Location: ../PHP/inscription_confirme.html?inscription=success');
         exit();
 
     } catch (Exception $e) {
@@ -82,4 +79,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Une erreur est survenue lors de l\'inscription : ' . $e->getMessage());
     }
 }
-?> 
+?>

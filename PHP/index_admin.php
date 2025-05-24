@@ -105,7 +105,7 @@
                 <input type="tel" name="tel" id="tel" placeholder="Téléphone" disabled>
             </div>
             <div class="role">
-                <label for="role">Définir un status à l'utilisateur</label>
+                <label for="role">Définir un statut à l'utilisateur</label>
                 <select name="role" id="role">
                     <option value="etudiant">Etudiant</option>
                     <option value="enseignant">Enseignant</option>

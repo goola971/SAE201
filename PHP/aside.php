@@ -21,9 +21,9 @@ $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
                         <?php
                         if (isset($_SESSION['user']['role'])) {
                             if ($_SESSION['user']['role'] == 'Etudiant(e)') {
-                                echo 'Mes reservations';
+                                echo 'Mes réservations';
                             } else {
-                                echo 'Reservations';
+                                echo 'Réservations';
                             }
                         }
                         ?>
@@ -33,7 +33,7 @@ $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
                     <a href="materiels.php" id="materiel"
                         <?php echo ($current_page === 'materiels') ? 'class="active"' : ''; ?>>
                         <img src="../res/materiel.svg" alt="" />
-                        Materiels
+                        Matériel
                     </a>
                 </li>
                 <li>

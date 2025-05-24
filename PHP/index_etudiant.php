@@ -115,7 +115,7 @@
                         ";
             }
 
-            // pareil pour les réservations de salle
+            // Pareil pour les réservations de salle
             $sql = "
                         SELECT 
                             r.date_debut,

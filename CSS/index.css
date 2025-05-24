@@ -191,6 +191,13 @@ main .reservation div .searchContainer button img {
 	transition: all 0.2s ease-in-out;
 }
 
+.statusButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1vw;
+}
+
 .table .body_Table .line button.attente {
 	color: #f9a308;
 	border: 0.15vw solid #f9a308;

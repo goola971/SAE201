@@ -105,7 +105,7 @@
                             </div>
                             <!-- bootstrap o -->
                             <article
-                                class="d-flex justify-content-center align-items-center flex-column w-100 who-list-user-container"
+                                class="d-flex justify-content-start align-items-center flex-column w-100 who-list-user-container"
                                 id="overflowY">
                                 <?php
                                 require_once("../PHPpure/connexion.php");

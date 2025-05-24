@@ -9,6 +9,22 @@ document.addEventListener("DOMContentLoaded", function () {
 		img.onerror = null; // Évite les boucles infinies
 	}
 
+	// Fonction pour formater la liste des matériels ou salles
+	// function formatList(items) {
+	// 	if (!items || items.length === 0) return "Aucun";
+	// 	return items
+	// 		.map((item) => {
+	// 			if (item.designation) {
+	// 				// C'est un matériel
+	// 				return `${item.designation} (${item.reference})`;
+	// 			} else {
+	// 				// C'est une salle
+	// 				return `${item.nom} (${item.type})`;
+	// 			}
+	// 		})
+	// 		.join(", ");
+	// }
+
 	// Fonction pour ouvrir le popup
 	function openPopup(button) {
 		const id = button.dataset.id;
@@ -16,17 +32,29 @@ document.addEventListener("DOMContentLoaded", function () {
 		const dateDebut = button.dataset.dateDebut;
 		const dateFin = button.dataset.dateFin;
 		const status = button.dataset.status;
-		const materiels = button.dataset.materiels;
-		const salles = button.dataset.salles;
+		const materiels = JSON.parse(button.dataset.materiels);
+		const salles = JSON.parse(button.dataset.salles);
 		const users = JSON.parse(button.dataset.users);
+		console.log(materiels);
+		console.log(salles);
 
 		// Remplir les champs du formulaire
+		document.getElementById("idR").value = id;
 		document.getElementById("motif").value = motif;
 		document.getElementById("date_debut").value = dateDebut;
 		document.getElementById("date_fin").value = dateFin;
 		document.getElementById("status").value = status;
-		document.getElementById("materiels").value = materiels;
-		document.getElementById("salles").value = salles;
+		// recuperer materiels[designation] et salles[nom]
+		document.getElementById("materiels").value = materiels
+			.map((item) => item.designation)
+			.join(", ");
+		document.getElementById("sallesinput").value = salles
+			.map((item) => item.nom)
+			.join(", ");
+		console.log(
+			document.getElementById("materiels").value,
+			document.getElementById("sallesinput").value
+		);
 
 		// Mettre à jour les avatars
 		const avatarContainer = document.querySelector(".avatar-container_img");

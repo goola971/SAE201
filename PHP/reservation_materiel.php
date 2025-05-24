@@ -105,30 +105,46 @@
                                     <img src="../res/search.svg" alt="">
                                 </button>
                             </div>
-                            <article class="d-flex justify-content-center align-items-center flex-column w-100 who-list-user-container" id="overflowY">
+                            <article
+                                class="d-flex justify-content-start align-items-center flex-column w-100 who-list-user-container"
+                                id="overflowY">
                                 <?php
                                 require_once("../PHPpure/connexion.php");
                                 if (isset($_SESSION['user'])) {
                                     $idConnecte = $_SESSION['user']['id'];
                                     $sql = "
-                                        SELECT u.id, u.nom, u.prenom, u.avatar, e.promotion, e.td
-                                        FROM user_ u
-                                        INNER JOIN etudiant e ON u.id= e.id
-                                        WHERE u.id != :idConnecte
-                                    ";
+                                            SELECT u.id, u.nom, u.prenom, u.avatar, e.promotion, e.td
+                                            FROM user_ u
+                                            INNER JOIN etudiant e ON u.id= e.id
+                                            WHERE u.id != :idConnecte
+                                        ";
                                     $stmt = $pdo->prepare($sql);
                                     $stmt->bindParam(':idConnecte', $idConnecte, PDO::PARAM_INT);
                                     $stmt->execute();
                                     $etudiants = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     foreach ($etudiants as $etudiant) {
-                                        echo "<div class='user-item' data-user-id='{$etudiant['id']}'>";
-                                        echo "<img src='{$etudiant['avatar']}' alt='Avatar' class='user-avatar'>";
-                                        echo "<div class='user-info'>";
-                                        echo "<span class='user-name'>{$etudiant['prenom']} {$etudiant['nom']}</span>";
-                                        echo "<span class='user-details'>Promotion: {$etudiant['promotion']} - TD: {$etudiant['td']}</span>";
-                                        echo "</div>";
-                                        echo "</div>";
+                                ?>
+                                        <div class="who-list-user-item col-12 d-flex justify-content-between align-items-center gap-2 w-100"
+                                            id="<?= $etudiant['id'] ?>">
+                                            <div class="d-flex justify-content-between align-items-center w-100">
+                                                <div class="d-flex justify-content-between align-items-center gap-2">
+                                                    <img src="<?= htmlspecialchars($etudiant['avatar'] ?? '../uploads/default.png') ?>"
+                                                        alt="" class="avatarAjouterEtudiant " id="<?= $etudiant['id'] ?>">
+                                                    <div
+                                                        class="etudiantInfo d-flex justify-content-end align-items-start flex-column">
+                                                        <p><?= htmlspecialchars($etudiant['prenom']) . ' ' . htmlspecialchars($etudiant['nom']) ?>
+                                                        </p>
+                                                        <p><?= htmlspecialchars($etudiant['promotion']) ?></p>
+                                                    </div>
+                                                </div>
+                                                <p><?= htmlspecialchars($etudiant['td']) ?></p>
+                                            </div>
+                                            <button type="button" class="ajouterUserButton">ajouter</button>
+                                        </div>
+                                <?php
                                     }
+                                } else {
+                                    echo "Utilisateur non connecté.";
                                 }
                                 ?>
                             </article>

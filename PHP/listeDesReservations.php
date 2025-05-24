@@ -64,8 +64,8 @@ include("../PHPpure/entete.php");
 
                 // Récupération des réservations
                 $sql = "SELECT r.*, 
-                        GROUP_CONCAT(DISTINCT m.designation) as materiels, 
-                        GROUP_CONCAT(DISTINCT s.nom) as salles,
+                        GROUP_CONCAT(DISTINCT CONCAT(m.idM, ':', m.designation, ':', m.refernceM) SEPARATOR '||') as materiels, 
+                        GROUP_CONCAT(DISTINCT CONCAT(s.idS, ':', s.nom, ':', s.type) SEPARATOR '||') as salles,
                         GROUP_CONCAT(DISTINCT CONCAT(u.id, ':', u.nom, ':', u.prenom, ':', COALESCE(u.avatar, 'default')) SEPARATOR '||') as users
                         FROM reservations r
                         LEFT JOIN concerne c ON r.idR = c.idR
@@ -84,9 +84,42 @@ include("../PHPpure/entete.php");
 
                     if (count($result) > 0) {
                         foreach ($result as $row) {
-                            $status = $row['valide'] == 1 ? "Validée" : "En attente";
-                            $materiels = $row['materiels'] ? $row['materiels'] : "Aucun matériel";
-                            $salles = $row['salles'] ? $row['salles'] : "Aucune salle";
+                            // $status = $row['valide'] == 1 || $row['valide'] == 2 ? "Validée" : "En attente";
+                            if ($row['valide'] == 1) {
+                                $status = "Validée";
+                            } else if ($row['valide'] == 2) {
+                                $status = "Refusée";
+                            } else {
+                                $status = "En attente";
+                            }
+
+                            // Traitement des matériels
+                            $materiels = [];
+                            if ($row['materiels']) {
+                                $materielsArray = explode('||', $row['materiels']);
+                                foreach ($materielsArray as $materielStr) {
+                                    list($id, $designation, $reference) = explode(':', $materielStr);
+                                    $materiels[] = [
+                                        'id' => $id,
+                                        'designation' => $designation,
+                                        'reference' => $reference
+                                    ];
+                                }
+                            }
+
+                            // Traitement des salles
+                            $salles = [];
+                            if ($row['salles']) {
+                                $sallesArray = explode('||', $row['salles']);
+                                foreach ($sallesArray as $salleStr) {
+                                    list($id, $nom, $type) = explode(':', $salleStr);
+                                    $salles[] = [
+                                        'id' => $id,
+                                        'nom' => $nom,
+                                        'type' => $type
+                                    ];
+                                }
+                            }
 
                             // Traitement des utilisateurs
                             $users = [];
@@ -113,8 +146,8 @@ include("../PHPpure/entete.php");
                                     data-date-debut="' . date('Y-m-d\TH:i', strtotime($row['date_debut'])) . '"
                                     data-date-fin="' . date('Y-m-d\TH:i', strtotime($row['date_fin'])) . '"
                                     data-status="' . $row['valide'] . '"
-                                    data-materiels="' . htmlspecialchars($materiels) . '"
-                                    data-salles="' . htmlspecialchars($salles) . '"
+                                    data-materiels=\'' . json_encode($materiels) . '\'
+                                    data-salles=\'' . json_encode($salles) . '\'
                                     data-users=\'' . json_encode($users) . '\'></button>';
                             echo '</div>';
                         }
@@ -129,7 +162,7 @@ include("../PHPpure/entete.php");
                 ?>
             </article>
         </section>
-        <form class="modifPopupReservation" action="" method="POST">
+        <form class="modifPopupReservation" action="../PHPpure/reservationValidation.php" method="POST">
             <div class="modifPopupReservation_content">
                 <div class="modifPopupReservation_content_header">
                     <h3>Modifier la reservation</h3>
@@ -137,18 +170,19 @@ include("../PHPpure/entete.php");
                         <img src="../res/x.svg" alt="close">
                     </button>
                 </div>
+                <input type="hidden" name="idR" id="idR">
                 <div class="modifPopupReservation_content_body">
                     <div class="modifPopupReservation_content_body_item">
                         <label for="motif">Motif de la reservation</label>
-                        <input type="text" name="motif" id="motif" placeholder="Motif" disabled>
+                        <input type="text" id="motif" placeholder="Motif" disabled>
                     </div>
                     <div class="modifPopupReservation_content_body_item">
                         <label for="date_debut">Date de début</label>
-                        <input type="datetime-local" name="date_debut" id="date_debut" placeholder="Date de début" disabled>
+                        <input type="datetime-local" id="date_debut" placeholder="Date de début" disabled>
                     </div>
                     <div class="modifPopupReservation_content_body_item">
                         <label for="date_fin">Date de fin</label>
-                        <input type="datetime-local" name="date_fin" id="date_fin" placeholder="Date de fin" disabled>
+                        <input type="datetime-local" id="date_fin" placeholder="Date de fin" disabled>
                     </div>
                     <div class="modifPopupReservation_content_body_item">
                         <label for="status">Status</label>
@@ -160,12 +194,12 @@ include("../PHPpure/entete.php");
                     </div>
                     <div class="modifPopupReservation_content_body_item">
                         <label for="materiels">Materiels</label>
-                        <input type="text" name="materiels" id="materiels" placeholder="Materiels" disabled>
+                        <input type="text" id="materiels" placeholder="Materiels" disabled>
                     </div>
                     <!-- ou -->
                     <div class="modifPopupReservation_content_body_item">
                         <label for="salles">Salles</label>
-                        <input type="text" name="salles" id="salles" placeholder="Salles" disabled>
+                        <input type="text" id="sallesinput" placeholder="Salles" disabled>
                     </div>
                     <div class="avatar-container">
                         <label for="avatar">Qui reserve :</label>

@@ -3,7 +3,7 @@
     <p><?php echo $_SESSION['user']['prenom'] ?></p>
 </section>
 <section class="reservation">
-    <h2>Liste des Utilisateurs</h2>
+    <h2>Liste des utilisateurs</h2>
     <div class="search">
         <p>Consulter l'historique</p>
         <div class="searchContainer">
@@ -16,8 +16,8 @@
     <section class="table">
         <article class="header_Table">
             <p>Nom d'utilisateur</p>
-            <p>date d'inscription</p>
-            <p>Status</p>
+            <p>Date d'inscription</p>
+            <p>Statut</p>
 
         </article>
         <article class="body_Table">

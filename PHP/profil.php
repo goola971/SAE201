@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../CSS/profil.css" />
     <link rel="stylesheet" href="../CSS/header.css" />
     <!-- bootstrap -->
-    <title>Document</title>
+    <title>Profil</title>
 </head>
 
 <body>
@@ -58,7 +58,7 @@
                         <input type="text" id="nom" name="nom" value="<?php echo $_SESSION['user']['nom'] ?>">
                     </div>
                     <div>
-                        <label for="prenom">Prrenom</label>
+                        <label for="prenom">Prénom</label>
                         <input type="text" id="prenom" name="prenom" value="<?php echo $_SESSION['user']['prenom'] ?>">
                     </div>
                     <button type="submit">Modifier</button>
@@ -75,9 +75,9 @@
             </form>
             <form action="" method="post">
                 <h1>Mot de passe</h1>
-                <p>Modifier qon mot de passe</p>
+                <p>Modifier mon mot de passe</p>
                 <div>
-                    <label for="password">Mot de passe actuelle</label>
+                    <label for="password">Mot de passe actuel</label>
                     <input type="password" id="password" name="password" required>
                 </div>
                 <div>

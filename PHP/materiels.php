@@ -14,7 +14,7 @@ include("../PHPpure/entete.php");
     <link rel="stylesheet" href="../CSS/style.css" />
     <link rel="stylesheet" href="../CSS/materiels.css" />
     <link rel="stylesheet" href="../CSS/header.css" />
-    <title>Matériels</title>
+    <title>Matériel</title>
 </head>
 
 <body>

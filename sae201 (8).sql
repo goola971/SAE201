@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : ven. 23 mai 2025 à 21:10
+-- Généré le : sam. 24 mai 2025 à 23:49
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -67,6 +67,13 @@ CREATE TABLE `concerne` (
   `idM` int(11) NOT NULL,
   `idR` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `concerne`
+--
+
+INSERT INTO `concerne` (`idM`, `idR`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -198,8 +205,8 @@ INSERT INTO `reservations` (`idR`, `date_debut`, `date_fin`, `valide`, `motif`, 
 (1, '2025-04-22 10:00:00', '2025-04-22 12:00:00', 1, 'Projet vidéo', 'RAS', 'signAlice', 'docAdmin1.pdf'),
 (2, '2025-04-26 09:00:00', '2025-04-26 11:00:00', 0, 'Tournage TP', 'Besoin urgent', 'signBob', 'docAdmin2.pdf'),
 (3, '2025-04-21 16:08:58', '2025-04-21 18:08:58', 1, 'pour sae201', 'important ', 'jcp', 'jcp'),
-(4, '2025-05-21 14:00:00', '2025-05-21 15:00:00', 0, 'PASKE JE VEUX', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
-(20, '2025-05-30 14:00:00', '2025-05-30 16:00:00', 0, 'charlytest', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
+(4, '2025-05-21 14:00:00', '2025-05-21 15:00:00', 1, 'PASKE JE VEUX', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
+(20, '2025-05-30 14:00:00', '2025-05-30 16:00:00', 1, 'charlytest', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
 (21, '2025-05-30 00:00:00', '2025-05-30 00:00:00', 0, 'test e nouveau', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
 (22, '2025-05-30 00:00:00', '2025-05-30 00:00:00', 0, 'test e nouveau', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
 (25, '2025-05-30 14:00:00', '2025-05-30 16:00:00', 1, 'essaie de sale212', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
@@ -229,7 +236,11 @@ INSERT INTO `reservation_users` (`id`, `idR`) VALUES
 (1, 26),
 (2, 1),
 (2, 2),
+(2, 20),
 (2, 25),
+(7, 20),
+(10, 20),
+(11, 20),
 (11, 25);
 
 -- --------------------------------------------------------
@@ -270,7 +281,7 @@ CREATE TABLE `user_` (
   `prenom` varchar(50) DEFAULT NULL,
   `Date_de_naissance` date DEFAULT NULL,
   `adresse` varchar(50) DEFAULT NULL,
-  `mot_de_passe` varchar(50) DEFAULT NULL,
+  `mot_de_passe` varchar(100) DEFAULT NULL,
   `avatar` varchar(50) DEFAULT NULL,
   `date_inscription` date DEFAULT current_timestamp(),
   `valable` tinyint(1) DEFAULT 0,
@@ -282,15 +293,16 @@ CREATE TABLE `user_` (
 --
 
 INSERT INTO `user_` (`id`, `email`, `pseudo`, `nom`, `prenom`, `Date_de_naissance`, `adresse`, `mot_de_passe`, `avatar`, `date_inscription`, `valable`, `telephone`) VALUES
-(1, 'alice@gmail.com', 'alice123', 'Durand', 'Alice', '2002-04-21', '10 rue des Lilas', 'alice123', '../uploads/avatars/1.png', '2025-04-26', 1, 123456789),
-(2, 'bob@gmail.com', 'bobby', 'Martin', 'Bob', '2001-09-15', '25 avenue Victor Hugo', 'bobby', '../uploads/avatars/2.jpg', '2025-04-26', 1, 123456789),
-(3, 'clara@gmail.com', 'clarou', 'Lemoine', 'Clara', '2003-01-30', '3 place de la République', 'clarou', '../uploads/avatars/3.jpg', '2025-04-26', 1, 123456789),
-(6, 'janviercharly@gmail.com', 'charly.janvier', 'janvier', 'charly', NULL, NULL, 'test', NULL, '2025-05-15', 1, NULL),
-(7, 'emma.tesla@gmail.com', 'emmat', 'Tesla', 'Emma', '2000-07-10', '42 boulevard Voltaire', 'emma123', NULL, '2025-05-22', 1, 612345678),
-(8, 'leo.dupont@yahoo.fr', 'leoleo', 'Dupont', 'Léo', '1999-02-20', '15 rue Lafayette', 'leodupont', NULL, '2025-05-22', 1, 698765432),
-(9, 'jade.martin@outlook.fr', 'jadem', 'Martin', 'Jade', '2002-12-03', '8 chemin des Vignes', 'jadepass', NULL, '2025-05-22', 1, 678432198),
-(10, 'samuel.khan@protonmail.com', 'samk', 'Khan', 'Samuel', '2001-05-17', '29 rue du Commerce', 'samuelkhan', NULL, '2025-05-22', 1, 654321897),
-(11, 'lina.rossi@gmail.com', 'lina_r', 'Rossi', 'Lina', '2004-09-09', '77 rue des Écoles', 'linapwd', NULL, '2025-05-22', 1, 623456789);
+(1, 'alice@gmail.com', 'alice123', 'Durand', 'Alice', '2002-04-21', '10 rue des Lilas', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', '../uploads/avatars/1.png', '2025-04-26', 1, 123456789),
+(2, 'bob@gmail.com', 'bobby', 'Martin', 'Bob', '2001-09-15', '25 avenue Victor Hugo', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', '../uploads/avatars/2.jpg', '2025-04-26', 1, 123456789),
+(3, 'clara@gmail.com', 'clarou', 'Lemoine', 'Clara', '2003-01-30', '3 place de la République', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', '../uploads/avatars/3.jpg', '2025-04-26', 1, 123456789),
+(6, 'janviercharly@gmail.com', 'charly.janvier', 'janvier', 'charly', NULL, NULL, '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', NULL, '2025-05-15', 1, NULL),
+(7, 'emma.tesla@gmail.com', 'emmat', 'Tesla', 'Emma', '2000-07-10', '42 boulevard Voltaire', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', NULL, '2025-05-22', 1, 612345678),
+(8, 'leo.dupont@yahoo.fr', 'leoleo', 'Dupont', 'Léo', '1999-02-20', '15 rue Lafayette', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', NULL, '2025-05-22', 1, 698765432),
+(9, 'jade.martin@outlook.fr', 'jadem', 'Martin', 'Jade', '2002-12-03', '8 chemin des Vignes', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', NULL, '2025-05-22', 1, 678432198),
+(10, 'samuel.khan@protonmail.com', 'samk', 'Khan', 'Samuel', '2001-05-17', '29 rue du Commerce', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', NULL, '2025-05-22', 1, 654321897),
+(11, 'lina.rossi@gmail.com', 'lina_r', 'Rossi', 'Lina', '2004-09-09', '77 rue des Écoles', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', NULL, '2025-05-22', 1, 623456789),
+(15, 'ssdfsdf@gmail.com', 'sdfsdf.sdfqsdf', 'sdfqsdf', 'sdfsdf', '2025-05-10', '2, Allée de la Marne', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', NULL, '2025-05-24', 0, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -391,7 +403,7 @@ ALTER TABLE `salle`
 -- AUTO_INCREMENT pour la table `user_`
 --
 ALTER TABLE `user_`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Contraintes pour les tables déchargées

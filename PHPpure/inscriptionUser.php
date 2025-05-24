@@ -5,18 +5,26 @@ require_once('connexion.php');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Récupération des données du formulaire
     $nom = trim($_POST['nom']);
+    echo $nom;
     $prenom = trim($_POST['prenom']);
+    echo $prenom;
     $pseudo = trim($_POST['pseudo']);
+    echo $pseudo;
     $date_naissance = trim($_POST['date_naissance']);
+    echo $date_naissance;
     $adresse = trim($_POST['adresse']);
+    echo $adresse;
     $email = trim($_POST['email']);
+    echo $email;
     $mdp = trim($_POST['mdp']);
+    echo $mdp;
     $confirme_mdp = trim($_POST['confirme_mdp']);
+    echo $confirme_mdp;
 
-    
+
     // Date d'inscription
     $date_inscription = date('Y-m-d');
-    
+
     // Par défaut, le compte n'est pas validé (valable = 0)
     $valable = 0;
 
@@ -42,26 +50,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Hashage mdp
-    $mdp_hash = password_hash($mdp, PASSWORD_DEFAULT);
+    $mot_de_passe_hash = password_hash($mdp, PASSWORD_DEFAULT);
 
     try {
         // Début de la transaction
         $pdo->beginTransaction();
 
         // Insertion dans la table user_
-        $sql = "INSERT INTO user_ (nom, prenom, pseudo, email, mdp, confirme_mdp, date_inscription, valable, date_naissance, adresse) 
-                VALUES (:nom, :prenom, :pseudo, :email, :mdp, :confirme_mdp, :date_inscription, :valable, :date_naissance, :adresse)";
-        
+        $sql = "INSERT INTO user_ (nom, prenom, pseudo, email, mot_de_passe,   valable, date_de_naissance, adresse) 
+                VALUES (:nom, :prenom, :pseudo, :email, :mot_de_passe,  :valable, :date_de_naissance, :adresse)";
+
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
             'nom' => $nom,
             'prenom' => $prenom,
             'pseudo' => $pseudo,
             'email' => $email,
-            'mdp' => $mdp_hash,
-            'date_inscription' => $date_inscription,
+            'mot_de_passe' => $mot_de_passe_hash,
             'valable' => $valable,
-            'date_naissance' => $date_naissance,
+            'date_de_naissance' => $date_naissance,
             'adresse' => $adresse
         ]);
 
@@ -70,13 +77,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Validation de la transaction
         $pdo->commit();
-        header('Location: ../PHP/inscription_confirme.html?inscription=success');
+        header('Location: ../PHP/inscription_confirme.html');
         exit();
-
     } catch (Exception $e) {
         // En cas d'erreur, annulation de la transaction
         $pdo->rollBack();
         die('Une erreur est survenue lors de l\'inscription : ' . $e->getMessage());
     }
 }
-?>

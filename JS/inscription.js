@@ -66,6 +66,8 @@ function nextStep(currentStep, nextStep, requiredFields = []) {
 		return;
 	}
 
+	// DATE DE NAISSANCEEEEEEEEEEEEEE OBLIGATOIREEEEEE //
+
 	// Etape suivante
 	document.getElementById(currentStep).style.display = "none";
 	document.getElementById(nextStep).style.display = "block";

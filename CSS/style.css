@@ -54,3 +54,7 @@ main {
 	scrollbar-color: #e4587d #f4f1f1;
 	height: 100%;
 }
+
+.a-enter-vr-button {
+	display: none !important;
+}

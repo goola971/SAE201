@@ -183,3 +183,42 @@ avatarContainer.addEventListener("click", (e) => {
 		if (input) input.remove();
 	}
 });
+
+const materielButtons = document.querySelectorAll(".salle-selector button");
+const materielInput = document.getElementById("selected-materiel");
+const materielImage = document.getElementById("materiel-image");
+const materielTitle = document.getElementById("materiel-title");
+
+// Fonction pour mettre à jour l'interface en fonction du matériel sélectionné
+function updateMaterielInterface(materiel) {
+	materielButtons.forEach((btn) => {
+		btn.classList.toggle("active", btn.dataset.materiel === materiel);
+	});
+	materielInput.value = materiel;
+	if (materiel === "1") {
+		materielTitle.textContent = "Caméra";
+		materielImage.src = "../IMG/canon.jpg";
+	} else {
+		materielTitle.textContent = "Trépied Manfrotto";
+		materielImage.src = "../IMG/manfrotto.jpg";
+	}
+}
+
+// Gestion des clics sur les boutons
+materielButtons.forEach((button) => {
+	button.addEventListener("click", () => {
+		updateMaterielInterface(button.dataset.materiel);
+	});
+});
+
+// Sélection initiale basée sur l'URL
+const urlParams = new URLSearchParams(window.location.search);
+const initialMateriel = urlParams.get("materiel");
+if (initialMateriel && (initialMateriel === "1" || initialMateriel === "2")) {
+	updateMaterielInterface(initialMateriel);
+}
+
+// Affichage du message de succès si présent
+if (urlParams.get("success") === "1") {
+	alert("Réservation effectuée avec succès !");
+}

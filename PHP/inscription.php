@@ -54,6 +54,10 @@
                         <button type="button" onclick="prevStep('step3', 'step2')">Retour</button>
                     </div>
                 </form>
+                <p>
+					Pas encore de compte?
+					<a href="connexion.html">Connectez-vous</a>
+					</p>
                 <div class="progress">
     <div class="progress-bar" id="progressBar" role="progressbar"
         style="width: 25%; background-color:#E47390;"></div>

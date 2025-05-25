@@ -30,9 +30,9 @@
                     </div>
                     <!-- Step 2 -->
                     <div class="step" id="step2" style="display: none;">
-                        <label for="date_naissance">Date de naissance</label>
+                        <label for="date_naissance">Date de naissance *</label>
                         <div style="position:relative; width:100%;">
-                            <input type="date" name="date_naissance" id="date_naissance" style="padding-right:2.5em;" />
+                            <input type="date" name="date_naissance" id="date_naissance" style="padding-right:2.5em;" required />
                             <span class="calendar">
                                 <img src="../res/calendar.svg" alt="">
                             </span>

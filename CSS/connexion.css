@@ -55,12 +55,12 @@ main section form input {
 	border: none;
 	background-color: #ebebeb;
 	font-size: 1.2vw;
-	color: #7b7b7b;
+	color: #9c9c9c;
 	font-family: "Absans", sans-serif;
 }
 
 main section form input::placeholder {
-	color: #7b7b7b;
+	color: #9c9c9c;
 }
 
 main section form .remember {
@@ -91,7 +91,7 @@ main section form .remember .souvenir {
 	cursor: pointer;
 	font-size: 1vw;
 	user-select: none;
-	color: #7b7b7b;
+	color: #9c9c9c;
 }
 
 /* boîte custom à gauche du texte */

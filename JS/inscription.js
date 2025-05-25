@@ -5,6 +5,52 @@ function nextStep(currentStep, nextStep, requiredFields = []) {
 	let valid = true;
 	let firstInvalid = null;
 
+	// Validation spécifique pour l'étape 2
+	if (currentStep === "step2") {
+		const dateNaissance = document
+			.getElementById("date_naissance")
+			.value.trim();
+		const email = document.getElementById("email").value.trim();
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+		// Cas 1: Rien n'est rempli
+		if (!dateNaissance && !email) {
+			alert("Veuillez remplir tous les champs obligatoires.");
+			return;
+		}
+
+		// Cas 2: Seulement email rempli
+		if (!dateNaissance && email) {
+			alert("Veuillez entrer une date de naissance.");
+			document.getElementById("date_naissance").focus();
+			return;
+		}
+
+		// Cas 3: Seulement date de naissance remplie
+		if (dateNaissance && !email) {
+			alert("Veuillez entrer une adresse email.");
+			document.getElementById("email").focus();
+			return;
+		}
+
+		// Cas 4: Email mal formaté
+		if (email && !emailRegex.test(email)) {
+			alert("Veuillez entrer une adresse email valide.");
+			document.getElementById("email").focus();
+			return;
+		}
+
+		// Si tout est valide, on continue
+		document.getElementById(currentStep).style.display = "none";
+		document.getElementById(nextStep).style.display = "block";
+		document.querySelector(".progress").style.display = "";
+		document.getElementById("formTitle").style.display = "";
+		document.getElementById("progressBar").style.width =
+			stepIndex[nextStep] + "%";
+		return;
+	}
+
+	// Validation pour les autres étapes
 	for (let field of requiredFields) {
 		const input = document.getElementById(field);
 		if (input) {
@@ -25,6 +71,16 @@ function nextStep(currentStep, nextStep, requiredFields = []) {
 					break;
 				}
 			}
+
+			// Date de naissance validation
+			if (field === "date_naissance") {
+				const dateRegex = /^\d{2}-\d{2}-\d{4}$/;
+				if (!dateRegex.test(value)) {
+					valid = false;
+					firstInvalid = input;
+					break;
+				}
+			}
 		}
 	}
 
@@ -32,6 +88,8 @@ function nextStep(currentStep, nextStep, requiredFields = []) {
 		if (firstInvalid) firstInvalid.focus();
 		if (requiredFields.includes("email")) {
 			alert("Veuillez entrer un email valide.");
+		} else if (requiredFields.includes("date_naissance")) {
+			alert("Veuillez entrer une date de naissance");
 		} else {
 			alert("Veuillez remplir tous les champs obligatoires.");
 		}
@@ -45,7 +103,7 @@ function nextStep(currentStep, nextStep, requiredFields = []) {
 			.getElementById("confirme_mdp")
 			.value.trim();
 		const mdpRegex =
-			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{8,}$/;
+			/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d]).{6,}$/;
 
 		if (!mdp || !confirme_mdp) {
 			alert("Veuillez remplir tous les champs obligatoires.");
@@ -53,20 +111,20 @@ function nextStep(currentStep, nextStep, requiredFields = []) {
 		}
 		if (!mdpRegex.test(mdp)) {
 			alert(
-				"Le mot de passe doit faire au moins 8 caractères et contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial."
+				"Le mot de passe doit faire au moins 6 caractères et contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial."
 			);
+			document.getElementById("mdp").focus();
 			return;
 		}
 		if (mdp !== confirme_mdp) {
 			alert("Les mots de passe ne correspondent pas.");
+			document.getElementById("confirme_mdp").focus();
 			return;
 		}
-		// Valide = Soumission du formulaire
+		// Si tout est valide, on soumet le formulaire
 		document.getElementById("inscriptionForm").submit();
 		return;
 	}
-
-	// DATE DE NAISSANCEEEEEEEEEEEEEE OBLIGATOIREEEEEE //
 
 	// Etape suivante
 	document.getElementById(currentStep).style.display = "none";

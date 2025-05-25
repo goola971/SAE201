@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $valable = 0;
 
     // Vérification que tous les champs sont remplis
-    if (empty($nom) || empty($prenom) || empty($date_naissance) || empty($email) || empty($mdp) || empty($confirme_mdp)) {
+    if (empty($nom) || empty($prenom) || empty($email) || empty($mdp) || empty($confirme_mdp)) {
         die('Veuillez remplir tous les champs.');
     }
 
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo->beginTransaction();
 
         // Insertion dans la table user_
-        $sql = "INSERT INTO user_ (nom, prenom, pseudo, email, mot_de_passe,   valable, date_de_naissance, adresse) 
+        $sql = "INSERT INTO user_ (nom, prenom, pseudo, email, mot_de_passe, valable, date_de_naissance, adresse) 
                 VALUES (:nom, :prenom, :pseudo, :email, :mot_de_passe,  :valable, :date_de_naissance, :adresse)";
 
         $stmt = $pdo->prepare($sql);

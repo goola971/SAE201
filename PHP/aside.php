@@ -49,7 +49,7 @@ $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
                     <li>
                         <a href="listeDesReservations.php" id="accepter_reservation"
                             <?php echo ($current_page === 'listeDesReservations') ? 'class="active"' : ''; ?>>
-                            <img src="../res/accepter_reservation.svg" alt="" />
+                            <img src="../res/liste_rsrv.svg" alt="" />
                             Liste des réservations
                         </a>
                     </li>
@@ -71,9 +71,9 @@ $current_page = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);
                     </a>
                 </li>
                 <li>
-                    <a href="" id="ent">
+                    <a href="https://intranet-edu.univ-eiffel.fr/ent" id="ent">
                         <img src="../res/univ.svg" alt="" />
-                        Accéder à L'ent
+                        Accéder à l'ENT 
                     </a>
                 </li>
             </ul>

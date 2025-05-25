@@ -150,7 +150,7 @@
                 <input type="email" name="email" id="email" placeholder="Email">
             </div>
             <div class="motDePasse">
-                <label for="motDePasse">Attribuer un Mot de passe</label>
+                <label for="motDePasse">Attribuer un mot de passe</label>
                 <input type="password" name="motDePasse" id="motDePasse" placeholder="Mot de passe">
             </div>
 

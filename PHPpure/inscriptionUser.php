@@ -57,8 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $pdo->beginTransaction();
 
         // Insertion dans la table user_
-        $sql = "INSERT INTO user_ (nom, prenom, pseudo, email, mot_de_passe, valable, date_de_naissance, adresse) 
-                VALUES (:nom, :prenom, :pseudo, :email, :mot_de_passe,  :valable, :date_de_naissance, :adresse)";
+        $sql = "INSERT INTO user_ (nom, prenom, pseudo, email, mot_de_passe, valable, adresse) 
+                VALUES (:nom, :prenom, :pseudo, :email, :mot_de_passe,  :valable, :adresse)";
 
         $stmt = $pdo->prepare($sql);
         $stmt->execute([
@@ -68,7 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'email' => $email,
             'mot_de_passe' => $mot_de_passe_hash,
             'valable' => $valable,
-            'date_de_naissance' => $date_naissance,
             'adresse' => $adresse
         ]);
 

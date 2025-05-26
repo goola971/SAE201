@@ -172,44 +172,8 @@
 
     <script src="../JS/sideBarre.js"></script>
     <script src="../JS/reservation_salle.js"></script>
-    <script>
-        // Gestion du sélecteur de salle
-        const salleButtons = document.querySelectorAll('.salle-selector button');
-        const salleInput = document.getElementById('selected-salle');
-        const salleImage = document.getElementById('salle-image');
-        const salleTitle = document.getElementById('salle-title');
 
-        // Fonction pour mettre à jour l'interface en fonction de la salle sélectionnée
-        function updateSalleInterface(salle) {
-            salleButtons.forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.salle === salle);
-            });
-            salleInput.value = salle;
-            salleTitle.textContent = `Salle ${salle}`;
-            salleImage.src = salle === '138' ? 'https://glistening-sunburst-222dae.netlify.app/salle/salle138.png' :
-                'https://glistening-sunburst-222dae.netlify.app/salle/salle212.jpg';
-        }
 
-        // Gestion des clics sur les boutons
-        salleButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                updateSalleInterface(button.dataset.salle);
-            });
-        });
-
-        // Sélection initiale basée sur l'URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const initialSalle = urlParams.get('salle');
-        if (initialSalle && (initialSalle === '138' || initialSalle === '212')) {
-            updateSalleInterface(initialSalle);
-        }
-
-        // Affichage du message de succès si présent
-        if (urlParams.get('success') === '1') {
-            alert('Réservation effectuée avec succès !');
-        }
-    </script>
-    .
 </body>
 
 </html>

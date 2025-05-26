@@ -10,7 +10,8 @@
 
 <header class="header">
     <div class="logo">
-        <p>Logo + nom</p>
+        <!-- <p>Logo + nom</p> -->
+        <img src="../IMG/logo.png" alt="">
     </div>
     <button class="menuButton" onclick="toggleSidebar()">
         <img src="../res/menu.svg" alt="" id="menuimg" />

@@ -212,8 +212,8 @@ if ($_SESSION['user']['role'] != 'Administrateur') {
                         </div>
                     </div>
                     <div class="button-container">
-                        <button type="button" class="supprimer">Supprimer</button>
-                        <button type="submit">Modifier</button>
+                        <button type="submit" class="supprimer" name="supprimer">Supprimer</button>
+                        <button type="submit" name="modifier">Modifier</button>
                     </div>
                 </div>
             </div>
@@ -221,6 +221,13 @@ if ($_SESSION['user']['role'] != 'Administrateur') {
     </main>
     <script src="../JS/sideBarre.js"></script>
     <script src="../JS/listeDesReservations.js"></script>
+    <script>
+        function supprimerReservation() {
+            if (confirm("Voulez-vous vraiment supprimer cette réservation ?")) {
+                window.location.href = "../PHPpure/supprimer_reservation.php?idR=" + idR;
+            }
+        }
+    </script>
 </body>
 
 </html>

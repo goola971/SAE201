@@ -112,7 +112,7 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         ];
     }
 
-    $events[$key]['avatars'][] = $row['avatar'] ?: "/img/default-avatar.png";
+    $events[$key]['avatars'][] = $row['avatar'] ?: "../uploads/default.png";
 }
 
 echo json_encode(array_values($events));

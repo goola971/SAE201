@@ -184,39 +184,48 @@ avatarContainer.addEventListener("click", (e) => {
 	}
 });
 
-const materielButtons = document.querySelectorAll(".salle-selector button");
-const materielInput = document.getElementById("selected-materiel");
-const materielImage = document.getElementById("materiel-image");
-const materielTitle = document.getElementById("materiel-title");
+// Gestion des boutons de sélection de salle
+document.addEventListener("DOMContentLoaded", function () {
+	const salleButtons = document.querySelectorAll(".salle-selector button");
+	const salleInput = document.getElementById("selected-salle");
+	const salleImage = document.getElementById("salle-image");
+	const salleTitle = document.getElementById("salle-title");
 
-// Fonction pour mettre à jour l'interface en fonction du matériel sélectionné
-function updateMaterielInterface(materiel) {
-	materielButtons.forEach((btn) => {
-		btn.classList.toggle("active", btn.dataset.materiel === materiel);
-	});
-	materielInput.value = materiel;
-	if (materiel === "1") {
-		materielTitle.textContent = "Caméra";
-		materielImage.src = "../IMG/canon.jpg";
-	} else {
-		materielTitle.textContent = "Trépied Manfrotto";
-		materielImage.src = "../IMG/manfrotto.jpg";
+	// Fonction pour mettre à jour l'interface en fonction de la salle sélectionnée
+	function updateSalleInterface(salle) {
+		// Mettre à jour les boutons
+		salleButtons.forEach((btn) => {
+			btn.classList.toggle("active", btn.dataset.salle === salle);
+		});
+
+		// Mettre à jour l'input caché
+		salleInput.value = salle;
+
+		// Mettre à jour le titre
+		salleTitle.textContent = `Salle ${salle}`;
+
+		// Mettre à jour l'image
+		salleImage.src =
+			salle === "138"
+				? "https://glistening-sunburst-222dae.netlify.app/salle/salle138.png"
+				: "https://glistening-sunburst-222dae.netlify.app/salle/salle212.jpg";
 	}
-}
 
-// Gestion des clics sur les boutons
-materielButtons.forEach((button) => {
-	button.addEventListener("click", () => {
-		updateMaterielInterface(button.dataset.materiel);
+	// Ajouter les écouteurs d'événements sur les boutons
+	salleButtons.forEach((button) => {
+		button.addEventListener("click", function () {
+			const salle = this.dataset.salle;
+			updateSalleInterface(salle);
+		});
 	});
-});
 
-// Sélection initiale basée sur l'URL
-const urlParams = new URLSearchParams(window.location.search);
-const initialMateriel = urlParams.get("materiel");
-if (initialMateriel && (initialMateriel === "1" || initialMateriel === "2")) {
-	updateMaterielInterface(initialMateriel);
-}
+	// Sélection initiale basée sur l'URL
+	const urlParams = new URLSearchParams(window.location.search);
+	const initialSalle = urlParams.get("salle");
+	if (initialSalle && (initialSalle === "138" || initialSalle === "212")) {
+		updateSalleInterface(initialSalle);
+	}
+});
 
 // Affichage du message de succès si présent
 if (urlParams.get("success") === "1") {

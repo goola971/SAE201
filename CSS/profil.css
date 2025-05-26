@@ -162,12 +162,13 @@ hr {
 }
 
 .details .nomPrenom .nomPrenomInput div input {
-	font-size: 1.7vw;
+	font-size: 1.2vw;
 	width: 100%;
 	height: 100%;
 	border: 0.15vw solid #979797;
 	border-radius: 0.6vw;
 	padding: 0.6vw;
+	color: var(--gray-color);
 }
 
 .details .nomPrenom button {
@@ -359,11 +360,11 @@ hr {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
+	width: 100%;
 }
 .other div {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
 	flex-direction: column;
 	width: 100%;
 }

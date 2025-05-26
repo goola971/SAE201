@@ -98,7 +98,7 @@
                     <input type="text" id="adresse" name="adresse" value="">
                 </div>
                 <?php
-                if ($_SESSION['user']['role'] == "Etudiant") {
+                if ($_SESSION['user']['role'] == "Etudiant(e)") {
                 ?>
                     <div>
                         <label for="codePostal">Numéro étudiant</label>

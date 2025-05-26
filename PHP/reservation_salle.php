@@ -138,7 +138,7 @@
                                                 </div>
                                                 <p><?= htmlspecialchars($etudiant['td']) ?></p>
                                             </div>
-                                            <button type="button" class="ajouterUserButton">ajouter</button>
+                                            <button type="button" class="ajouterUserButton">Ajouter</button>
                                         </div>
                                 <?php
                                     }

@@ -94,7 +94,7 @@
             <form action="../PHPpure/profilModification.php" method="post" class="form other">
                 <h1>Autres</h1>
                 <div>
-                    <label for="adresse">Adresse Postale</label>
+                    <label for="adresse">Adresse postale</label>
                     <input type="text" id="adresse" name="adresse" value="<?php echo $_SESSION['user']['adresse'] ?>">
                 </div>
                 <?php

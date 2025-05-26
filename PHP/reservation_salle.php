@@ -152,7 +152,7 @@
 
                     <div class="signature-section">
                         <h3>Je signe</h3>
-                        <canvas id="signature-canvas" width="630" height="100"></canvas>
+                        <canvas id="signature-canvas" width="510" height="100"></canvas>
                         <button class="clear-signature" onclick="clearCanvas()" type="button">Effacer</button>
                         <input type="hidden" name="signature" id="signature-data">
 

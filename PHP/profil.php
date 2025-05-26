@@ -97,10 +97,16 @@
                     <label for="adresse">Adresse Postale</label>
                     <input type="text" id="adresse" name="adresse" value="">
                 </div>
-                <div>
-                    <label for="codePostal">Numéro étudiant</label>
-                    <input type="text" id="codePostal" name="codePostal" value="">
-                </div>
+                <?php
+                if ($_SESSION['user']['role'] == "Etudiant") {
+                ?>
+                    <div>
+                        <label for="codePostal">Numéro étudiant</label>
+                        <input type="text" id="codePostal" name="codePostal" value="">
+                    </div>
+                <?php
+                }
+                ?>
                 <button type="submit">Modifier</button>
             </form>
         </section>

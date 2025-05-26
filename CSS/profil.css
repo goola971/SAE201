@@ -139,7 +139,7 @@ hr {
 	justify-content: space-between;
 	width: 100%;
 	flex-direction: column;
-	gap: 1vw;
+	gap: 2vw;
 }
 
 .details .nomPrenom .nomPrenomInput {
@@ -159,7 +159,6 @@ hr {
 	justify-content: start;
 	align-items: start;
 	flex-direction: column;
-	gap: 0.6vw;
 }
 
 .details .nomPrenom .nomPrenomInput div input {
@@ -200,7 +199,6 @@ hr {
 	justify-content: space-between;
 	flex-direction: column;
 	width: 100%;
-	gap: 0.7vw;
 }
 
 .details .email label {
@@ -251,7 +249,6 @@ hr {
 	justify-content: space-between;
 	flex-direction: column;
 	width: 100%;
-	gap: 0.7vw;
 }
 
 .details .tel label {
@@ -301,7 +298,6 @@ hr {
 	justify-content: space-between;
 	flex-direction: column;
 	width: 100%;
-	gap: 0.7vw;
 }
 
 .password p {
@@ -313,9 +309,9 @@ hr {
 }
 
 .password p:nth-child(2) {
-	font-size: 1.2vw;
-	color: var(--gray-color);
+	font-size: 0.7vw;
 	font-weight: normal;
+	margin-bottom: 0.5vw;
 }
 
 .password div {
@@ -324,7 +320,6 @@ hr {
 	align-items: center;
 	flex-direction: column;
 	width: 100%;
-	gap: 1vw;
 }
 
 .password div label {
@@ -347,7 +342,7 @@ hr {
 	padding: 0.6vw;
 }
 
-.password div button {
+.password button {
 	display: none;
 	background-color: var(--gray-color);
 	color: var(--white-color);
@@ -356,8 +351,51 @@ hr {
 	padding: 0.6vw;
 }
 
-.details .other {
+.password button.active {
+	display: flex;
+}
+
+.other {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
+}
+.other div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+}
+
+.other div label {
+	font-size: 1.4vw;
+	/* font-weight: bold; */
+	color: var(--gray-color);
+	width: 100%;
+	display: flex;
+	justify-content: start;
+	align-items: start;
+}
+
+.other div input {
+	font-size: 1.2vw;
+	width: 100%;
+	height: 100%;
+	color: var(--gray-color);
+	border: 0.15vw solid #979797;
+	border-radius: 0.6vw;
+	padding: 0.6vw;
+}
+.other button {
+	display: none;
+	background-color: var(--gray-color);
+	color: var(--white-color);
+	border: none;
+	border-radius: 0.6vw;
+	padding: 0.6vw;
+}
+
+.other button.active {
+	display: flex;
 }

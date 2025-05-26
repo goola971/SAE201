@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 24 mai 2025 à 23:49
+-- Généré le : lun. 26 mai 2025 à 15:47
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -73,7 +73,10 @@ CREATE TABLE `concerne` (
 --
 
 INSERT INTO `concerne` (`idM`, `idR`) VALUES
-(1, 1);
+(1, 1),
+(1, 27),
+(5, 29),
+(8, 28);
 
 -- --------------------------------------------------------
 
@@ -137,6 +140,25 @@ INSERT INTO `etudiant` (`id`, `numeroEtudiant`, `grpTP_TD_Promo`, `promotion`, `
 (8, NULL, NULL, '', ''),
 (10, NULL, NULL, '', ''),
 (11, NULL, NULL, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `favori_materiel`
+--
+
+CREATE TABLE `favori_materiel` (
+  `id` int(11) NOT NULL,
+  `idM` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `favori_materiel`
+--
+
+INSERT INTO `favori_materiel` (`id`, `idM`) VALUES
+(3, 1),
+(3, 2);
 
 -- --------------------------------------------------------
 
@@ -210,7 +232,10 @@ INSERT INTO `reservations` (`idR`, `date_debut`, `date_fin`, `valide`, `motif`, 
 (21, '2025-05-30 00:00:00', '2025-05-30 00:00:00', 0, 'test e nouveau', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
 (22, '2025-05-30 00:00:00', '2025-05-30 00:00:00', 0, 'test e nouveau', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
 (25, '2025-05-30 14:00:00', '2025-05-30 16:00:00', 1, 'essaie de sale212', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
-(26, '2025-05-30 14:00:00', '2025-05-30 16:00:00', 1, 'essaie maison', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien');
+(26, '2025-05-30 14:00:00', '2025-05-30 16:00:00', 1, 'essaie maison', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
+(27, '2025-05-30 14:00:00', '2025-05-30 16:00:00', 1, ' sfsfddf', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
+(28, '2025-05-27 16:00:00', '2025-05-27 18:00:00', 0, 'manette pour une partie de FC pendant pause', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
+(29, '2025-06-05 16:00:00', '2025-06-05 18:00:00', 0, 'admin', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien');
 
 -- --------------------------------------------------------
 
@@ -234,14 +259,27 @@ INSERT INTO `reservation_users` (`id`, `idR`) VALUES
 (1, 22),
 (1, 25),
 (1, 26),
+(1, 27),
+(1, 28),
+(1, 29),
 (2, 1),
 (2, 2),
 (2, 20),
 (2, 25),
+(2, 28),
+(2, 29),
 (7, 20),
+(7, 28),
+(8, 27),
 (10, 20),
+(10, 27),
+(10, 28),
+(10, 29),
 (11, 20),
-(11, 25);
+(11, 25),
+(11, 27),
+(11, 28),
+(11, 29);
 
 -- --------------------------------------------------------
 
@@ -302,7 +340,9 @@ INSERT INTO `user_` (`id`, `email`, `pseudo`, `nom`, `prenom`, `Date_de_naissanc
 (9, 'jade.martin@outlook.fr', 'jadem', 'Martin', 'Jade', '2002-12-03', '8 chemin des Vignes', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', NULL, '2025-05-22', 1, 678432198),
 (10, 'samuel.khan@protonmail.com', 'samk', 'Khan', 'Samuel', '2001-05-17', '29 rue du Commerce', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', NULL, '2025-05-22', 1, 654321897),
 (11, 'lina.rossi@gmail.com', 'lina_r', 'Rossi', 'Lina', '2004-09-09', '77 rue des Écoles', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', NULL, '2025-05-22', 1, 623456789),
-(15, 'ssdfsdf@gmail.com', 'sdfsdf.sdfqsdf', 'sdfqsdf', 'sdfsdf', '2025-05-10', '2, Allée de la Marne', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', NULL, '2025-05-24', 0, NULL);
+(15, 'ssdfsdf@gmail.com', 'sdfsdf.sdfqsdf', 'sdfqsdf', 'sdfsdf', '2025-05-10', '2, Allée de la Marne', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', NULL, '2025-05-24', 0, NULL),
+(16, 'janviercharlyAZEAZE@gmail.com', 'azeaze.azeaze', 'AZEAZE', 'AZEAZE', '2025-05-25', '2, Allée de la Marne', '$2y$10$KFwvK9AK91Z5s.7b2PkRoO7GHEKgdSStGiOyI/KksdcV8SAl50mw.', NULL, '2025-05-25', 0, NULL),
+(17, 'TEST@test.test', 'test.test', 'TEST', 'TEST', '2025-05-25', '', '$2y$10$GH0H1vsxF0GPxxKzjOgpD.vOnoF6yHQTgwJ9bO3WcQv7yi/Nava3W', NULL, '2025-05-25', 0, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -345,6 +385,13 @@ ALTER TABLE `enseignant`
 --
 ALTER TABLE `etudiant`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Index pour la table `favori_materiel`
+--
+ALTER TABLE `favori_materiel`
+  ADD PRIMARY KEY (`id`,`idM`),
+  ADD KEY `idM` (`idM`);
 
 --
 -- Index pour la table `materiel`
@@ -391,7 +438,7 @@ ALTER TABLE `materiel`
 -- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `idR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `idR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT pour la table `salle`
@@ -403,7 +450,7 @@ ALTER TABLE `salle`
 -- AUTO_INCREMENT pour la table `user_`
 --
 ALTER TABLE `user_`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Contraintes pour les tables déchargées
@@ -446,6 +493,13 @@ ALTER TABLE `enseignant`
 --
 ALTER TABLE `etudiant`
   ADD CONSTRAINT `etudiant_ibfk_1` FOREIGN KEY (`id`) REFERENCES `user_` (`id`) ON DELETE CASCADE;
+
+--
+-- Contraintes pour la table `favori_materiel`
+--
+ALTER TABLE `favori_materiel`
+  ADD CONSTRAINT `favori_materiel_ibfk_1` FOREIGN KEY (`id`) REFERENCES `user_` (`id`),
+  ADD CONSTRAINT `favori_materiel_ibfk_2` FOREIGN KEY (`idM`) REFERENCES `materiel` (`idM`);
 
 --
 -- Contraintes pour la table `reservation_users`

@@ -23,11 +23,21 @@ include("../PHPpure/entete.php");
     include("aside.php");
     ?>
     <main>
-        <section class="container-fluid d-flex flex-column gap-5">
-            <div>
-                <h3 class="fs-1 fw-bold">Favoris</h3>
-            </div>
-            <div class="row justify-content-start align-items-center">
+        <?php
+        require_once("../PHPpure/connexion.php");
+        // recuperer les favoris
+        $sql = "SELECT * FROM favori_materiel WHERE id = ?";
+        $result = $pdo->prepare($sql);
+        $result->execute([$_SESSION['user']['id']]);
+        // si de favoris
+        if ($result->fetch()) {
+
+        ?>
+            <section class="container-fluid d-flex flex-column gap-5">
+                <div>
+                    <h3 class="fs-1 fw-bold">Favoris</h3>
+                </div>
+                <!-- <div class="row justify-content-start align-items-center">
                 <div class="col-4 d-flex justify-content-center align-items-center flex-column position-relative w-25">
 
                     <div
@@ -43,8 +53,40 @@ include("../PHPpure/entete.php");
                         <button class="btn btn-danger text-white w-50 p-3 ">Réserver</button>
                     </div>
                 </div>
-            </div>
-        </section>
+            </div> -->
+
+                <div class="row justify-content-start align-items-center">
+                    <?php
+                    require_once("../PHPpure/connexion.php");
+                    // recuperer favori et materiel
+                    $sql = "SELECT m.*, f.* FROM favori_materiel f LEFT JOIN materiel m ON f.idM = m.idM WHERE f.id = ?";
+                    $result = $pdo->prepare($sql);
+                    $result->execute([$_SESSION['user']['id']]);
+                    while ($row = $result->fetch()) {
+
+                        echo "<div class='col-4 d-flex justify-content-center align-items-center flex-column position-relative'>";
+                        echo "<div class='position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4'>";
+                        echo "<button class='btn bg-transparent border-0'>";
+                        echo "<img src='../res/heartPlein.svg' alt='favory' onclick='retirerFavoris(" . $row['idM'] . ")'>";
+                        echo "</button>";
+                        echo "</div>";
+                        echo "<img src='https://glistening-sunburst-222dae.netlify.app/materiel/" . $row['photo'] . "' alt='materiel' class='w-100 rounded-5 materiel-image'>";
+                        echo "<div class='d-flex justify-content-center align-items-center flex-column w-100'>";
+                        echo "<p class='text-center fs-auto fw-bold w-100'>" . $row['designation'] . "</p>";
+                        echo "<button class='btn btn-danger text-white w-50 p-3' onclick='reserverMateriel(" . $row['idM'] . ")'>Réserver</button>";
+                        echo "</div>";
+                        echo "</div>";
+                    }
+                    ?>
+                </div>
+
+
+
+            </section>
+        <?php
+        }
+        ?>
+
         <section class="container-fluid d-flex flex-column gap-5">
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="fs-1 fw-bold">Tous</h3>
@@ -140,7 +182,15 @@ include("../PHPpure/entete.php");
                     echo "<div class='col-4 d-flex justify-content-center align-items-center flex-column position-relative'>";
                     echo "<div class='position-absolute top-0 end-0 d-flex justify-content-between align-items-center gap-3 p-4'>";
                     echo "<button class='btn bg-transparent border-0'>";
-                    echo "<img src='../res/heartVide.svg' alt='favory'>";
+                    $sql1 = "SELECT * FROM favori_materiel WHERE idM = ? AND id = ?";
+                    // avec idM = $row['idM'] et id = $_SESSION['user']['id']
+                    $result1 = $pdo->prepare($sql1);
+                    $result1->execute([$row['idM'], $_SESSION['user']['id']]);
+                    if ($result1->fetch()) {
+                        echo "<img src='../res/heartPlein.svg' alt='favory' onclick='retirerFavoris(" . $row['idM'] . ")'>";
+                    } else {
+                        echo "<img src='../res/heartVide.svg' alt='favory' onclick='ajouterFavoris(" . $row['idM'] . ")'>";
+                    }
                     echo "</button>";
                     echo "</div>";
                     // img meme taille que la div
@@ -161,7 +211,16 @@ include("../PHPpure/entete.php");
         function reserverMateriel(idM) {
             window.location.href = "reservation_materiel.php?idM=" + idM;
         }
+
+        function ajouterFavoris(idM) {
+            window.location.href = "../PHPpure/ajouter_favoris.php?idM=" + idM;
+        }
+
+        function retirerFavoris(idM) {
+            window.location.href = "../PHPpure/retirer_favoris.php?idM=" + idM;
+        }
     </script>
+
 </body>
 
 </html>

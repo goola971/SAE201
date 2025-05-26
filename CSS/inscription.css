@@ -97,7 +97,7 @@ main section h1 {
 
 #inscriptionForm button:hover {
 	transform: scale(1.01);
-	filter: drop-shadow(0.2vw 0.2vw 0.2vw #00000052);
+	filter: drop-shadow(0.2vw 0.2vw 0.2vw var(--black-color) 52);
 }
 main section .formContainer p {
 	font-size: 1vw;
@@ -132,7 +132,7 @@ main section .formContainer p a {
 .progress {
 	width: 100%;
 	height: 10px;
-	background: #f4f1f1;
+	background: var(--background-color);
 	border-radius: 0.5vw;
 	position: absolute;
 	left: 0;

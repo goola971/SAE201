@@ -61,6 +61,7 @@
             // Requête SQL pour récupérer les réservations de l'utilisateur
             $sql = "
                         SELECT 
+                            r.idR,
                             r.date_debut,
                             r.date_fin,
                             r.valide,
@@ -110,7 +111,10 @@
                                 <p>Réservation de {$row['materiel']}</p>
                                 <p>$date</p>
                                 <p>$startHour - $endHour</p>
-                                <button class='$status'></button>
+                                <div class='statusButton'>
+                                    <button class='$status'></button>
+                                    <button class='telecharger' onclick='window.open(\"../PHPpure/genererpdf.php?idR={$row['idR']}\", \"_blank\")'>Télécharger</button>
+                                </div>
                             </div>
                         ";
             }

@@ -1,3 +1,9 @@
+.profilXlogout .logout img {
+	width: 200% !important;
+	height: auto !important;
+	object-fit: cover !important;
+}
+
 #imageContainer1,
 #imageContainer2 {
 	margin: 0 auto;

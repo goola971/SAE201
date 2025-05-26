@@ -53,28 +53,33 @@
             <div class="details">
                 <p>Détails <img src="../res/edition.svg" alt=""></p>
                 <form class="nomPrenom" action="">
-                    <div>
-                        <label for="nom">Nom</label>
-                        <input type="text" id="nom" name="nom" value="<?php echo $_SESSION['user']['nom'] ?>">
-                    </div>
-                    <div>
-                        <label for="prenom">Prénom</label>
-                        <input type="text" id="prenom" name="prenom" value="<?php echo $_SESSION['user']['prenom'] ?>">
+                    <div class="nomPrenomInput">
+                        <div>
+                            <label for="nom">Nom</label>
+                            <input type="text" id="nom" name="nom" value="<?php echo $_SESSION['user']['nom'] ?>">
+                        </div>
+                        <div>
+                            <label for="prenom">Prénom</label>
+                            <input type="text" id="prenom" name="prenom" value="<?php echo $_SESSION['user']['prenom'] ?>">
+                        </div>
                     </div>
                     <button type="submit">Modifier</button>
+
                 </form>
                 <form class="email" action="">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" value="<?php echo $_SESSION['user']['email'] ?>">
                     <button type="submit">Modifier</button>
                 </form>
+
+                <form class="tel" action="">
+                    <label for="tel">Téléphone</label>
+                    <input type="tel" id="tel" name="tel" value="+33  <?php echo $_SESSION['user']['telephone'] ?>">
+                    <button type="submit">Modifier</button>
+                </form>
             </div>
-            <form class="tel" action="">
-                <label for="tel">Téléphone</label>
-                <input type="tel" id="tel" name="tel" value="<?php echo $_SESSION['user']['telephone'] ?>">
-            </form>
-            <form action="" method="post">
-                <h1>Mot de passe</h1>
+            <form action="" method="post" class="password">
+                <p>Mot de passe</p>
                 <p>Modifier mon mot de passe</p>
                 <div>
                     <label for="password">Mot de passe actuel</label>
@@ -83,6 +88,18 @@
                 <div>
                     <label for="newPassword">Nouveau mot de passe</label>
                     <input type="password" id="newPassword" name="newPassword" required>
+                </div>
+                <button type="submit">Modifier</button>
+            </form>
+            <form action="" method="post" class="other">
+                <h1>Autres</h1>
+                <div>
+                    <label for="adresse">Adresse Postale</label>
+                    <input type="text" id="adresse" name="adresse" value="">
+                </div>
+                <div>
+                    <label for="codePostal">Numéro étudiant</label>
+                    <input type="text" id="codePostal" name="codePostal" value="">
                 </div>
                 <button type="submit">Modifier</button>
             </form>

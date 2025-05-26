@@ -148,7 +148,7 @@ main section form button {
 
 main section form button:hover {
 	transform: scale(1.01);
-	filter: drop-shadow(0.2vw 0.2vw 0.2vw #00000052);
+	filter: drop-shadow(0.2vw 0.2vw 0.2vw var(--black-color) 52);
 }
 
 main section .formContainer p {

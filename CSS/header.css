@@ -110,7 +110,7 @@ p {
 
 .profilXlogout .logout img {
 	width: 50%;
-	height: auto;
+	height: 100%;
 	object-fit: contain;
 }
 
@@ -154,7 +154,7 @@ aside.active {
 aside .menu,
 aside .autre {
 	display: flex;
-	justify-content: start;
+
 	flex-direction: column;
 	width: 100%;
 	gap: 3vh;
@@ -169,9 +169,9 @@ aside .autre p {
 aside .menu nav,
 aside .autre nav {
 	display: flex;
-	justify-content: start;
 	flex-direction: column;
 	padding: 0;
+	margin: 0;
 	width: 100% !important;
 	gap: 2vh;
 }
@@ -179,10 +179,10 @@ aside .autre nav {
 aside .menu nav ul,
 aside .autre nav ul {
 	display: flex !important;
-	justify-content: start !important;
 	flex-direction: column !important;
 	width: 100% !important;
-	margin-left: -2vw;
+	margin: 0 !important;
+	padding: 0 !important;
 	gap: 1vh;
 	list-style: none;
 }

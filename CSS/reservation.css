@@ -110,7 +110,7 @@ main a {
 	cursor: pointer;
 	width: 3vw;
 	height: 3vw;
-	filter: drop-shadow(0 0 0.15vw #00000018);
+	filter: drop-shadow(0 0 0.15vw var(--black-color) 18);
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
@@ -228,7 +228,7 @@ div.fc-timegrid-slot-label-cushion.fc-scrollgrid-shrink-cushion {
 	.calendarheader button {
 		width: 10vw;
 		height: 10vw;
-		filter: drop-shadow(0 0 0.5vw #00000018);
+		filter: drop-shadow(0 0 0.5vw var(--black-color) 18);
 	}
 
 	.calendarheader button img {

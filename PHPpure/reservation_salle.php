@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Insertion de la réservation
     $requete = $pdo->prepare("INSERT INTO reservations (date_debut, date_fin, valide, motif, commentaires, signatureElectronique, documentAdministrateur) VALUES (?, ?, ?, ?, ?, ?, ?)");
     $requete->execute([$dateDebut, $dateFin, 0, $motif, $commentaire, $signature, $document]);
-    
+
     // Récupérer l'ID de la réservation créée
     $idReservation = $pdo->lastInsertId();
 
@@ -84,6 +84,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $requete = $pdo->prepare("INSERT INTO concerne_salle (idR, idS) VALUES (?, ?)");
     $requete->execute([$idReservation, $salle]);
 
-    header("Location: ../PHP/reservation_salle.php?success=1"); // page de succès
+    header("Location: ../PHP/index.php"); // page de succès
     exit();
 }

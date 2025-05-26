@@ -35,7 +35,7 @@
                 echo '<h1>Salles</h1>';
                 break;
             case 'materiels':
-                echo '<h1>Matériels</h1>';
+                echo '<h1>Matériel</h1>';
                 break;
             case 'listeDesReservations':
                 echo '<h1>Liste des réservations</h1>';

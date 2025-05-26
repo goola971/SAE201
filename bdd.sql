@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : lun. 26 mai 2025 à 15:47
+-- Généré le : mar. 27 mai 2025 à 00:02
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -73,7 +73,6 @@ CREATE TABLE `concerne` (
 --
 
 INSERT INTO `concerne` (`idM`, `idR`) VALUES
-(1, 1),
 (1, 27),
 (5, 29),
 (8, 28);
@@ -134,7 +133,7 @@ CREATE TABLE `etudiant` (
 --
 
 INSERT INTO `etudiant` (`id`, `numeroEtudiant`, `grpTP_TD_Promo`, `promotion`, `td`) VALUES
-(1, NULL, NULL, 'MMI - 1', 'TD - 2'),
+(1, '729321', NULL, 'MMI - 1', 'TD - 2'),
 (2, 'E20251002', NULL, 'MMI - 1', 'TD - 1'),
 (7, NULL, NULL, '', ''),
 (8, NULL, NULL, '', ''),
@@ -157,6 +156,7 @@ CREATE TABLE `favori_materiel` (
 --
 
 INSERT INTO `favori_materiel` (`id`, `idM`) VALUES
+(1, 1),
 (3, 1),
 (3, 2);
 
@@ -224,18 +224,12 @@ CREATE TABLE `reservations` (
 --
 
 INSERT INTO `reservations` (`idR`, `date_debut`, `date_fin`, `valide`, `motif`, `commentaires`, `signatureElectronique`, `documentAdministrateur`) VALUES
-(1, '2025-04-22 10:00:00', '2025-04-22 12:00:00', 1, 'Projet vidéo', 'RAS', 'signAlice', 'docAdmin1.pdf'),
-(2, '2025-04-26 09:00:00', '2025-04-26 11:00:00', 0, 'Tournage TP', 'Besoin urgent', 'signBob', 'docAdmin2.pdf'),
-(3, '2025-04-21 16:08:58', '2025-04-21 18:08:58', 1, 'pour sae201', 'important ', 'jcp', 'jcp'),
-(4, '2025-05-21 14:00:00', '2025-05-21 15:00:00', 1, 'PASKE JE VEUX', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
 (20, '2025-05-30 14:00:00', '2025-05-30 16:00:00', 1, 'charlytest', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
-(21, '2025-05-30 00:00:00', '2025-05-30 00:00:00', 0, 'test e nouveau', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
-(22, '2025-05-30 00:00:00', '2025-05-30 00:00:00', 0, 'test e nouveau', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
 (25, '2025-05-30 14:00:00', '2025-05-30 16:00:00', 1, 'essaie de sale212', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
 (26, '2025-05-30 14:00:00', '2025-05-30 16:00:00', 1, 'essaie maison', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
 (27, '2025-05-30 14:00:00', '2025-05-30 16:00:00', 1, ' sfsfddf', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
-(28, '2025-05-27 16:00:00', '2025-05-27 18:00:00', 0, 'manette pour une partie de FC pendant pause', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
-(29, '2025-06-05 16:00:00', '2025-06-05 18:00:00', 0, 'admin', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien');
+(28, '2025-05-27 16:00:00', '2025-05-27 18:00:00', 1, 'manette pour une partie de FC pendant pause', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien'),
+(29, '2025-06-05 16:00:00', '2025-06-05 18:00:00', 1, 'admin', 'rien', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYA', 'rien');
 
 -- --------------------------------------------------------
 
@@ -253,17 +247,12 @@ CREATE TABLE `reservation_users` (
 --
 
 INSERT INTO `reservation_users` (`id`, `idR`) VALUES
-(1, 4),
 (1, 20),
-(1, 21),
-(1, 22),
 (1, 25),
 (1, 26),
 (1, 27),
 (1, 28),
 (1, 29),
-(2, 1),
-(2, 2),
 (2, 20),
 (2, 25),
 (2, 28),
@@ -331,7 +320,7 @@ CREATE TABLE `user_` (
 --
 
 INSERT INTO `user_` (`id`, `email`, `pseudo`, `nom`, `prenom`, `Date_de_naissance`, `adresse`, `mot_de_passe`, `avatar`, `date_inscription`, `valable`, `telephone`) VALUES
-(1, 'alice@gmail.com', 'alice123', 'Durand', 'Alice', '2002-04-21', '10 rue des Lilas', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', '../uploads/avatars/1.png', '2025-04-26', 1, 123456789),
+(1, 'alice@gmail.com', 'alice123', 'Durand', 'Alice', '2002-04-21', '10 rue des Lilas', '$2y$10$bISacBmroN12XLHhWX3UDuxVImF1Mq/vUSCYfnAoHkwn40mbc3qRG', '../uploads/avatars/1.png', '2025-04-26', 1, 123456788),
 (2, 'bob@gmail.com', 'bobby', 'Martin', 'Bob', '2001-09-15', '25 avenue Victor Hugo', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', '../uploads/avatars/2.jpg', '2025-04-26', 1, 123456789),
 (3, 'clara@gmail.com', 'clarou', 'Lemoine', 'Clara', '2003-01-30', '3 place de la République', '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', '../uploads/avatars/3.jpg', '2025-04-26', 1, 123456789),
 (6, 'janviercharly@gmail.com', 'charly.janvier', 'janvier', 'charly', NULL, NULL, '$2y$10$F6u4vWUFWO.K2Ocw8CbRAO9WS7vluMC2MGe6VHLgEBpYBuzChbUYO', NULL, '2025-05-15', 1, NULL),
@@ -438,7 +427,7 @@ ALTER TABLE `materiel`
 -- AUTO_INCREMENT pour la table `reservations`
 --
 ALTER TABLE `reservations`
-  MODIFY `idR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `idR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT pour la table `salle`

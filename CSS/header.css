@@ -12,6 +12,7 @@
 	left: 0;
 	z-index: 9999;
 }
+
 .logo {
 	display: flex;
 	justify-content: center;
@@ -21,6 +22,12 @@
 	max-width: 18vw;
 	border: 0.5px solid rgb(30, 30, 30, 0.29);
 	font-size: 1vw;
+}
+
+.logo img {
+	width: 50%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .logo p {

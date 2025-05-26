@@ -46,3 +46,36 @@ function displayUploadForm() {
 	uploadForm.style.display = "flex";
 	imgProfilContainerMain.style.display = "none";
 }
+
+// recuperer les differet form
+
+document.addEventListener("DOMContentLoaded", () => {
+	const forms = document.querySelectorAll("form");
+
+	forms.forEach((form) => {
+		const inputs = form.querySelectorAll("input");
+		const button = form.querySelector("button");
+
+		const checkIfModified = () => {
+			let modified = false;
+			inputs.forEach((input) => {
+				if (input.value !== input.defaultValue) {
+					modified = true;
+				}
+			});
+
+			if (button) {
+				if (modified) {
+					button.classList.add("active");
+				} else {
+					button.classList.remove("active");
+				}
+			}
+		};
+
+		// Check à chaque frappe / changement
+		inputs.forEach((input) => {
+			input.addEventListener("input", checkIfModified);
+		});
+	});
+});

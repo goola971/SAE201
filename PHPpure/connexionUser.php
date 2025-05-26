@@ -27,13 +27,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($user['valable'] == 0) {
                 die('Votre compte n\'est pas encore activé par un administrateur ou un enseignant veuillez patienter ou contacter un administrateur.');
             }
-            // récupérer le rôle (si besoin, on peut aussi tester s'il est dans agent / admin / enseignant)
-            $role = 'Etudiant(e)';
 
             // recuperer l'id
             $id = $user['id'];
+
             // recuperer le rôle
             $role = getUserRole($id, $pdo);
+
+            if ($role == "Etudiant(e)") {
+                $sql2 = 'SELECT numeroEtudiant FROM etudiant WHERE id = :id';
+                $stmt2 = $pdo->prepare($sql2);
+                $stmt2->execute([
+                    ':id' => $id
+                ]);
+                $numeroEtudiant = $stmt2->fetch(PDO::FETCH_ASSOC)['numeroEtudiant'];
+                if ($numeroEtudiant == '' || $numeroEtudiant == null || $numeroEtudiant == 0 || $numeroEtudiant == '0' || $numeroEtudiant == 'Non renseigné') {
+                    $numeroEtudiant = 'Non renseigné';
+                }
+            }
 
             // stocker les infos dans la session
             $_SESSION['user'] = [
@@ -43,6 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'prenom' => $user['prenom'],
                 'email' => $user['email'],
                 'telephone' => $user['telephone'],
+                'adresse' => $user['adresse'],
+                'numeroEtudiant' => $numeroEtudiant,
                 'role' => $role,
                 'profil' => $user['avatar'],
                 'session_token' => bin2hex(random_bytes(32))

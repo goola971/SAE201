@@ -52,7 +52,7 @@
             <hr>
             <div class="details">
                 <p>Détails <img src="../res/edition.svg" alt=""></p>
-                <form class="nomPrenom" action="">
+                <form class="form nomPrenom" action="../PHPpure/profilModification.php" method="post">
                     <div class="nomPrenomInput">
                         <div>
                             <label for="nom">Nom</label>
@@ -63,22 +63,22 @@
                             <input type="text" id="prenom" name="prenom" value="<?php echo $_SESSION['user']['prenom'] ?>">
                         </div>
                     </div>
-                    <button type="submit">Modifier</button>
+                    <button type="submit" name="modifier_nomPrenom">Modifier</button>
 
                 </form>
-                <form class="email" action="">
+                <form class="form email" action="../PHPpure/profilModification.php" method="post">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" value="<?php echo $_SESSION['user']['email'] ?>">
-                    <button type="submit">Modifier</button>
+                    <button type="submit" name="modifier_email">Modifier</button>
                 </form>
 
-                <form class="tel" action="">
+                <form class="form tel" action="../PHPpure/profilModification.php" method="post">
                     <label for="tel">Téléphone</label>
                     <input type="tel" id="tel" name="tel" value="+33  <?php echo $_SESSION['user']['telephone'] ?>">
-                    <button type="submit">Modifier</button>
+                    <button type="submit" name="modifier_tel">Modifier</button>
                 </form>
             </div>
-            <form action="" method="post" class="password">
+            <form action="../PHPpure/profilModification.php" method="post" class="form password">
                 <p>Mot de passe</p>
                 <p>Modifier mon mot de passe</p>
                 <div>
@@ -89,25 +89,25 @@
                     <label for="newPassword">Nouveau mot de passe</label>
                     <input type="password" id="newPassword" name="newPassword" required>
                 </div>
-                <button type="submit">Modifier</button>
+                <button type="submit" name="modifier_password">Modifier</button>
             </form>
-            <form action="" method="post" class="other">
+            <form action="../PHPpure/profilModification.php" method="post" class="form other">
                 <h1>Autres</h1>
                 <div>
                     <label for="adresse">Adresse Postale</label>
-                    <input type="text" id="adresse" name="adresse" value="">
+                    <input type="text" id="adresse" name="adresse" value="<?php echo $_SESSION['user']['adresse'] ?>">
                 </div>
                 <?php
                 if ($_SESSION['user']['role'] == "Etudiant(e)") {
                 ?>
                     <div>
-                        <label for="codePostal">Numéro étudiant</label>
-                        <input type="text" id="codePostal" name="codePostal" value="">
+                        <label for="numeroEtudiant ">Numéro étudiant</label>
+                        <input type="text" id="numeroEtudiant" name="numeroEtudiant" value="<?php echo $_SESSION['user']['numeroEtudiant'] ?>">
                     </div>
                 <?php
                 }
                 ?>
-                <button type="submit">Modifier</button>
+                <button type="submit" name="modifier_other">Modifier</button>
             </form>
         </section>
     </main>

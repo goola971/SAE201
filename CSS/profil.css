@@ -200,6 +200,7 @@ hr {
 	justify-content: space-between;
 	flex-direction: column;
 	width: 100%;
+	gap: 0.6vw;
 }
 
 .details .email label {
@@ -250,6 +251,7 @@ hr {
 	justify-content: space-between;
 	flex-direction: column;
 	width: 100%;
+	gap: 0.6vw;
 }
 
 .details .tel label {
@@ -280,6 +282,7 @@ hr {
 	border-radius: 0.6vw;
 	padding: 0.6vw;
 	cursor: pointer;
+	margin-left: auto;
 }
 
 .details .tel button.active {
@@ -299,6 +302,7 @@ hr {
 	justify-content: space-between;
 	flex-direction: column;
 	width: 100%;
+	gap: 0.6vw;
 }
 
 .password p {
@@ -350,6 +354,8 @@ hr {
 	border: none;
 	border-radius: 0.6vw;
 	padding: 0.6vw;
+	cursor: pointer;
+	margin-left: auto;
 }
 
 .password button.active {
@@ -361,6 +367,7 @@ hr {
 	justify-content: space-between;
 	flex-direction: column;
 	width: 100%;
+	gap: 0.6vw;
 }
 .other div {
 	display: flex;
@@ -395,6 +402,8 @@ hr {
 	border: none;
 	border-radius: 0.6vw;
 	padding: 0.6vw;
+	cursor: pointer;
+	margin-left: auto;
 }
 
 .other button.active {

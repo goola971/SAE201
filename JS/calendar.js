@@ -173,8 +173,34 @@ document.addEventListener("DOMContentLoaded", () => {
 			characterData: true
 		});
 	}
+
 	const prevM = document.getElementById("prevM");
 	const nextM = document.getElementById("nextM");
 	const left = document.getElementById("left");
 	const right = document.getElementById("right");
+
+	function clickUntilChange(buttonToClick, oldDate) {
+		let attempts = 0;
+		const maxAttempts = 32; // évite boucle infinie, max 20 essais
+		const interval = setInterval(() => {
+			if (headerDate.innerText === oldDate && attempts < maxAttempts) {
+				buttonToClick.click();
+				attempts++;
+			} else {
+				clearInterval(interval);
+			}
+		}, 10); // toutes les 100ms, ajuste selon ta vitesse d'update
+	}
+
+	left.addEventListener("click", () => {
+		if (!headerDate) return;
+		const oldDate = headerDate.innerText;
+		clickUntilChange(prevM, oldDate);
+	});
+
+	right.addEventListener("click", () => {
+		if (!headerDate) return;
+		const oldDate = headerDate.innerText;
+		clickUntilChange(nextM, oldDate);
+	});
 });

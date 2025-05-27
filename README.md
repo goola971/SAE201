@@ -26,13 +26,13 @@ Notre projet s’est construit autour de la mise en place d’un site web comple
 
 ## Planning Front / Back End
 
-|          **Semaine**          |                                                                  **Tâches principales**                                                                   |                     **Responsables**                      |
-| :---------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------: |
-|  Semaine 1<br>21 - 27 avril   |            - Prise de connaissance du cahier des charges<br>- Répartition des rôles<br>- Création de la DB<br>- Début du header et du menu nav            |                           Tous                            |
-| Semaine 2<br>28 avril - 4 mai | - Page d’inscription (formulaire, validations, hash)<br>- Page de connexion (session, redirection)<br>- Intégration initiale base de données utilisateurs |        Soumiyya (inscription), Charly (connexion)         |
-|    Semaine 3<br>5 - 11 mai    |                 - Développement de la page matériel<br>- Début du formulaire de réservation matériel<br>- Création du profil utilisateur                  |              Laura (salles), Charly (profil)              |
-|   Semaine 4<br>12 - 18 mai    |                  - Page salles et réservation salles (formulaire, affichage)<br>- Affichage des réservations en cours dans un calendrier                  |  Soumiyya (matériel), Charly (réservations / calendrier)  |
-|   Semaine 5<br>19 - 24 mai    |           - Génération du PDF de réservation<br>- Page liste des utilisateurs (vue admin)<br>- Finitions : responsive, erreurs, messages, tests           | Charly (PDF, liste), Soumiyya / Tous (corrections / test) |
+|            **Semaine**            |                                                                  **Tâches principales**                                                                   |                     **Responsables**                      |
+| :-------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------: |
+|  **Semaine 1<br>21 - 27 avril**   |            - Prise de connaissance du cahier des charges<br>- Répartition des rôles<br>- Création de la DB<br>- Début du header et du menu nav            |                           Tous                            |
+| **Semaine 2<br>28 avril - 4 mai** | - Page d’inscription (formulaire, validations, hash)<br>- Page de connexion (session, redirection)<br>- Intégration initiale base de données utilisateurs |        Soumiyya (inscription), Charly (connexion)         |
+|    **Semaine 3<br>5 - 11 mai**    |                 - Développement de la page matériel<br>- Début du formulaire de réservation matériel<br>- Création du profil utilisateur                  |              Laura (salles), Charly (profil)              |
+|   **Semaine 4<br>12 - 18 mai**    |                  - Page salles et réservation salles (formulaire, affichage)<br>- Affichage des réservations en cours dans un calendrier                  |  Soumiyya (matériel), Charly (réservations / calendrier)  |
+|   **Semaine 5<br>19 - 24 mai**    |           - Génération du PDF de réservation<br>- Page liste des utilisateurs (vue admin)<br>- Finitions : responsive, erreurs, messages, tests           | Charly (PDF, liste), Soumiyya / Tous (corrections / test) |
 
 ## Bilan
 

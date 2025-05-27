@@ -37,7 +37,7 @@ include("../PHPpure/entete.php");
                     </button>
                 </div>
             </article>
-            <button class="reserve">Réserver</button>
+            <button class="reserve" onclick="window.location.href='materiels.php'">Réserver</button>
         </section>
         <div class="calendarContainer">
             <div class="calendarheader">

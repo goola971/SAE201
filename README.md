@@ -7,9 +7,9 @@ Dans le cadre de notre SAÉ, nous avons été chargés de concevoir une applicat
 L'objectif de ce projet est de concevoir une solution numérique centralisée, sécurisée, accessible et ergonomique, qui permette de :
 
 _- Gérer les inscriptions et les connexions avec différents rôles (étudiants, enseignants, agents, administrateurs)_<br>
-_- Effectuer des réservations de matériels ou de salles_
-_- Gérer et valider les réservations par les agents et les administrateurs_
-_- Suivre l’historique des réservations et générer des documents justificatifs_
+_- Effectuer des réservations de matériels ou de salles_<br>
+_- Gérer et valider les réservations par les agents et les administrateurs_<br>
+_- Suivre l’historique des réservations et générer des documents justificatifs_<br>
 _- Proposer des statistiques de réservation_
 
 Notre projet s’est construit autour de la mise en place d’un site web complet, respectant les standards de développement actuels (HTML, CSS, PHP, MySQL, etc...) et des exigences fonctionnelles précises.
@@ -37,24 +37,24 @@ Notre projet s’est construit autour de la mise en place d’un site web comple
 ## Bilan
 
 Ce projet nous a permis de mettre en pratique de nombreux aspects du développement web full-stack, tels que :
-_- La conception de formulaires sécurisés avec validations serveur et client_
-_- La gestion des sessions et des rôles utilisateurs_
-_- L’utilisation d’une base de données relationnelle_
-_- La génération de fichiers PDF dynamiques_
-_- L’organisation du travail en équipe avec répartition claire des tâches_
+_- La conception de formulaires sécurisés avec validations serveur et client_<br>
+_- La gestion des sessions et des rôles utilisateurs_<br>
+_- L’utilisation d’une base de données relationnelle_<br>
+_- La génération de fichiers PDF dynamiques_<br>
+_- L’organisation du travail en équipe avec répartition claire des tâches_<br>
 
 ## Ce que nous avons appris :
 
 _- Comment créer une application structurée avec différents niveaux d’accès_
-_- L’importance de la sécurité des données utilisateurs (notamment le hachage des mots de passe)_
-_- Travailler en collaboration avec Git et organiser notre code pour une meilleure maintenabilité_
-_- Utiliser des bibliothèques ou outils comme FPDF, calendrier JS, ou Bootstrap pour accélérer le développement_
+_- Séécurisation des données utilisateurs (notamment le hachage des mots de passe)_<br>
+_- Travailler en collaboration avec Git et organiser notre code<br>
+_- Utiliser des bibliothèques ou outils comme FPDF, calendrier JS, ou Bootstrap pour accélérer le développement_<br>
 
 ## Difficultés rencontrées :
 
-_- Gestion des sessions et redirections selon le rôle_
-_- Intégration du calendrier et synchronisation avec les réservations_
-_- Insertion des images dans la base de données_
-_- Génération du PDF avec les bonnes données au bon moment_
-_- Quelques problèmes de compatibilité CSS entre navigateurs_
-_- Différences d’affichage selon les ordinateurs_
+_- Gestion des sessions et redirections selon le rôle_<br>
+_- Intégration du calendrier et synchronisation avec les réservations_<br>
+_- Insertion des images dans la base de données_<br>
+_- Génération du PDF avec les bonnes données au bon moment_<br>
+_- Quelques problèmes de compatibilité CSS entre navigateurs_<br>
+_- Différences d’affichage selon les ordinateurs_<br>

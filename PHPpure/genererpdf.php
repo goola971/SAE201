@@ -6,7 +6,7 @@ class PDF extends FPDF
 {
     function Header()
     {
-        $this->Image('../IMG/co.png', 5, 5, 30);
+        $this->Image('../IMG/logo.png', 5, 5, 30);
         $this->SetFont('Arial', 'B', 15);
         $this->Cell(80);
         $this->Cell(30, 30, 'Confirmation de reservation', 0, 0, 'C');

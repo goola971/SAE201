@@ -36,7 +36,7 @@ Notre projet s’est construit autour de la mise en place d’un site web comple
 
 ## Bilan
 
-Ce projet nous a permis de mettre en pratique de nombreux aspects du développement web full-stack, tels que :
+Ce projet nous a permis de mettre en pratique de nombreux aspects du développement web full-stack, tels que :<br>
 _- La conception de formulaires sécurisés avec validations serveur et client_<br>
 _- La gestion des sessions et des rôles utilisateurs_<br>
 _- L’utilisation d’une base de données relationnelle_<br>
@@ -45,7 +45,7 @@ _- L’organisation du travail en équipe avec répartition claire des tâches_<
 
 ## Ce que nous avons appris :
 
-_- Comment créer une application structurée avec différents niveaux d’accès_
+_- Comment créer une application structurée avec différents niveaux d’accès_<br>
 _- Séécurisation des données utilisateurs (notamment le hachage des mots de passe)_<br>
 _- Travailler en collaboration avec Git et organiser notre code<br>
 _- Utiliser des bibliothèques ou outils comme FPDF, calendrier JS, ou Bootstrap pour accélérer le développement_<br>

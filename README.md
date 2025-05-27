@@ -47,7 +47,7 @@ _- L’organisation du travail en équipe avec répartition claire des tâches_<
 
 _- Comment créer une application structurée avec différents niveaux d’accès_<br>
 _- Séécurisation des données utilisateurs (notamment le hachage des mots de passe)_<br>
-_- Travailler en collaboration avec Git et organiser notre code<br>
+_- Travailler en collaboration avec Git et organiser notre code_<br>
 _- Utiliser des bibliothèques ou outils comme FPDF, calendrier JS, ou Bootstrap pour accélérer le développement_<br>
 
 ## Difficultés rencontrées :

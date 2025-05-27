@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Dans le cadre de notre SAÉ, nous avons été chargés de concevoir une application web de gestion de réservations de matériel et de salles au sein du département MMI de Meaux. Actuellement, ces réservations sont gérées manuellement via des fichiers Excel ou des documents partagés, ce qui engendre de nombreuses contraintes : lenteur, erreurs possibles, mauvaise visibilité de la disponibilité des ressources, etc.
+Dans le cadre de notre SAÉ, nous avons été chargés de concevoir une application web de gestion de réservations de matériel et de salles au sein du département MMI de Meaux. Ces réservations sont gérées manuellement via des fichiers Excel ou des documents partagés, ce qui engendre de nombreuses contraintes : lenteur, erreurs possibles, mauvaise visibilité de la disponibilité des ressources, etc.
 
 L'objectif de ce projet est de concevoir une solution numérique centralisée, sécurisée, accessible et ergonomique, qui permette de :
 

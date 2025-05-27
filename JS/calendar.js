@@ -144,3 +144,37 @@ function getEventTimes() {
 		console.log(`Événement ${i + 1} : ${debut} à ${fin}`);
 	}
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+	const dates = document.getElementById("dates");
+	const headerDate = document.getElementById("headerDate");
+
+	if (dates && headerDate) {
+		const updateHeaderDate = () => {
+			const words = dates.innerText.trim().split(/\s+/); // coupe tous les mots
+			if (words.length >= 2) {
+				const moisAnnee = `${words[words.length - 2]} ${
+					words[words.length - 1]
+				}`;
+				if (headerDate.innerText !== moisAnnee) {
+					headerDate.innerText = moisAnnee;
+				}
+			}
+		};
+
+		// Exécution initiale
+		updateHeaderDate();
+
+		// Observer les changements
+		const observer = new MutationObserver(updateHeaderDate);
+		observer.observe(dates, {
+			childList: true,
+			subtree: true,
+			characterData: true
+		});
+	}
+	const prevM = document.getElementById("prevM");
+	const nextM = document.getElementById("nextM");
+	const left = document.getElementById("left");
+	const right = document.getElementById("right");
+});

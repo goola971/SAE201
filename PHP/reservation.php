@@ -28,10 +28,11 @@ include("../PHPpure/entete.php");
     <main>
         <section class="calendarHeader">
             <article class="left">
-                <p>Avril 2025</p>
+                <p id="headerDate">Avril 2025</p>
                 <div class="buttoncontainer">
-                    <button class="left">
-                        <img src="../res/left.svg" alt="" /></button><button class="right">
+                    <button class="left" id="left">
+                        <img src="../res/left.svg" alt="" /></button>
+                    <button class="right" id="right">
                         <img src="../res/right.svg" alt="" />
                     </button>
                 </div>
@@ -40,11 +41,11 @@ include("../PHPpure/entete.php");
         </section>
         <div class="calendarContainer">
             <div class="calendarheader">
-                <button onclick="prev()">
+                <button onclick="prev()" id="prevM">
                     <img src="../res/chevronleftcalen.svg" alt="" />
                 </button>
                 <p id="dates"></p>
-                <button onclick="next()">
+                <button onclick="next()" id="nextM">
                     <img src="../res/chevronrightcalen.svg" alt="" />
                 </button>
             </div>

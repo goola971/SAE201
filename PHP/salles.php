@@ -31,7 +31,7 @@
             <div style="display: flex; justify-content: space-between; align-items: center; width: 60%; margin-top: 1vh;">
                 <h3 style="margin: 0;">Réservation de la salle 138</h3>
                 <a href="reservation_salle.php?salle=138">
-                    <button style="background-color: #c44e63; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                    <button style="background-color: rgba(211, 27, 74, 0.61); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
                         Réserver
                     </button>
                 </a>
@@ -44,7 +44,7 @@
             <div style="display: flex; justify-content: space-between; align-items: center; width: 60%; margin-top: 1vh;">
                 <h3 style="margin: 0;">Réservation de la salle 212</h3>
                 <a href="reservation_salle.php?salle=212">
-                    <button style="background-color: #c44e63; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+                    <button style="background-color: rgba(211, 27, 74, 0.61); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
                         Réserver
                     </button>
                 </a>
@@ -64,7 +64,7 @@
                 right: 30px;
                 z-index: 9999;
                 padding: 10px 20px;
-                background-color: #c44e63;
+                background-color: rgba(211, 27, 74, 0.61);
                 color: white;
                 border: none;
                 border-radius: 5px;

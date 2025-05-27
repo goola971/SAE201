@@ -6,7 +6,7 @@ Dans le cadre de notre SAÉ, nous avons été chargés de concevoir une applicat
 
 L'objectif de ce projet est de concevoir une solution numérique centralisée, sécurisée, accessible et ergonomique, qui permette de :
 
-_- Gérer les inscriptions et les connexions avec différents rôles (étudiants, enseignants, agents, administrateurs)_
+_- Gérer les inscriptions et les connexions avec différents rôles (étudiants, enseignants, agents, administrateurs)_<br>
 _- Effectuer des réservations de matériels ou de salles_
 _- Gérer et valider les réservations par les agents et les administrateurs_
 _- Suivre l’historique des réservations et générer des documents justificatifs_
